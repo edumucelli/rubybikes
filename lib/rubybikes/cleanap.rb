@@ -11,10 +11,9 @@ class Cleanap < BikeShareSystem
     def initialize(schema_instance_parameters={})
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
-        feed_url  = schema_instance_parameters.fetch('feed_url')
+        @feed_url  = schema_instance_parameters.fetch('feed_url')
         @meta     = meta.merge({'system' => 'CallLock', 'company' => 'CleaNap'})
         super(tag, @meta)
-        @feed_url = feed_url
     end
     def update
         scraper = Scraper.new

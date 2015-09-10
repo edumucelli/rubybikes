@@ -28,10 +28,9 @@ class BCycle < BikeShareSystem
     def initialize(schema_instance_parameters={})
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
-        feed_url  = schema_instance_parameters.fetch('feed_url')
+        @feed_url  = schema_instance_parameters.fetch('feed_url')
         @meta     = meta.merge({'label' => 'B-cycle', 'company' => ['Trek Bicycle Corporation', 'Humana', 'Crispin Porter + Bogusky']})
         super(tag, @meta)
-        @feed_url = feed_url
     end
     def update
         scraper = Scraper.new(headers={'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36

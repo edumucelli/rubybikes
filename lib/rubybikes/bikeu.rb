@@ -10,10 +10,9 @@ class Bikeu < BikeShareSystem
     def initialize(schema_instance_parameters={})
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
-        feed_url  = schema_instance_parameters.fetch('url')
+        @feed_url  = schema_instance_parameters.fetch('url')
         @meta     = meta.merge({'label' => 'Bikeu', 'company' => 'Bike U Sp. z o.o.'})
         super(tag, @meta)
-        @feed_url = feed_url
     end
     def update
         stations = []
