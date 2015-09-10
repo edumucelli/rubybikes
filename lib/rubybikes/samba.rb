@@ -7,7 +7,7 @@ require_relative 'base'
 require_relative 'utils'
 
 USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"
-META = {'system' => 'Samba', 'company' => ['Mobilicidade Tecnologia LTD', 'Grupo Serttel LTDA']}
+META = {'label' => 'Samba', 'company' => ['Mobilicidade Tecnologia LTD', 'Grupo Serttel LTDA']}
 
 class Samba < BikeShareSystem
 

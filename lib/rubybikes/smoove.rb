@@ -4,9 +4,17 @@
 require_relative 'base'
 require_relative 'utils'
 
-# Each station is formatted as:
-# newmark_01(28, 45.770958,3.073871, "<div class=\"mapbal\" align=\"left\">022 Jaurès<br>Vélos disponibles: 4<br>Emplacements libres: 10<br>CB: Non<br></div>");
-# I.e., (station_id, latitude, longitude, name, available_bikes, free_bike_stands, credit_card_enabled (discarded afterwards))
+=begin
+Each station is formatted as:
+        newmark_01( 28, 
+                    45.770958,
+                    3.073871,
+                    "<div class=\"mapbal\" align=\"left\">
+                        022 Jaurès<br>Vélos disponibles: 4<br>Emplacements libres: 10<br>CB: Non<br>
+                    </div>");
+I.e., (station_id, latitude, longitude, name, available_bikes, free_bike_stands, credit_card_enabled (discarded afterwards))
+=end
+
 DATA_RGX = /\(\d+\,\ (\d+.\d+).*?(\d+.\d+)\,\ "<div.*?>(.*?)<br>.*?:(.*?)<br>.*?:(.*?)<br>.*?:(.*?)<br><\/div>"\)/
 
 class Smoove < BikeShareSystem

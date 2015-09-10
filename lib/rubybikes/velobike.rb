@@ -36,7 +36,7 @@ class Velobike < BikeShareSystem
         meta        = schema_instance_parameters.fetch('meta')
         @feed_url   = schema_instance_parameters.fetch('feed_url')
         @meta       = meta.merge({
-                                    'system' => 'Velobike',
+                                    'label' => 'Velobike',
                                     'company' => ['Agency for Physical Culture and Sports of \
                                                 the Republic of Kazakhstan', 
                                                 'Sovereign Wealth Fund "Samruk-Kazyna" JSC',
