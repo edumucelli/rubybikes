@@ -1,6 +1,6 @@
 # Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
 # Inspired on PyBikes' cyclocity.py
-# Distributed under the GPL license, see LICENSE.txt
+# Distributed under the AGPL license, see LICENSE.txt
 
 require 'json'
 require 'rexml/document'
