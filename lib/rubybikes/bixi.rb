@@ -133,26 +133,15 @@ class BixiStation < BikeShareStation
     end
 end
 
-# schema_instance_parameters = {
-#     "tag" => "melbourne-bike-share", 
-#     "meta" => {
-#         "city" => "Melbourne", 
-#         "name" => "Melbourne Bike Share", 
-#         "country" => "AU", 
-#         "company" => [
-#             "PBSC", 
-#             "Alta Bicycle Share, Inc"
-#         ], 
-#         "longitude" => 144.96328, 
-#         "latitude" => -37.814107
-#     }, 
-#     "feed_url" => "http://www.melbournebikeshare.com.au/stationmap/data", 
-#     "format" => "json_from_xml"
-# }
-
-# bikeu = Bixi.new(schema_instance_parameters)
-# bikeu.update
-# puts bikeu.stations.length
-# bikeu.stations.each do |station|
-#     puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}"
-# end
+if __FILE__ == $0
+    require 'json'
+    JSON.parse(File.read('./schemas/bixi.json'))['instances'].each do |instance|
+        bixi = Bixi.new(instance)
+        puts bixi.meta
+        bixi.update
+        puts bixi.stations.length
+        bixi.stations.each do |station|
+            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+        end
+    end
+end
