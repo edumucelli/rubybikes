@@ -1,0 +1,94 @@
+{
+    "instances": [
+        {
+            "tag": "changzhou-laiwu",
+            "meta": {
+                "latitude": 36.213119,
+                "longitude": 117.67674,
+                "city": "Lai Wu",
+                "name": "Lai Wu Public Bicycle",
+                "country": "CN"
+            },
+            "feed_url": "http://map.crsud.cn/lwu/map/ibikestation.asp"
+        },
+        {
+            "tag": "changzhou-wuxi",
+            "meta": {
+                "latitude": 31.544318,
+                "longitude": 120.233516,
+                "city": "Wuxi",
+                "name": "Wuxi Public Bycicle",
+                "country": "CN"
+            },
+            "feed_url": "http://www.wuxibike.com/wxmap/ibikestation.asp"
+        },
+        {
+            "tag": "changzhou-yongkang",
+            "meta": {
+                "latitude": 28.884113,
+                "longitude": 120.028539,
+                "city": "Yongkang",
+                "name": "Yongkang Public Bicycle",
+                "country": "CN"
+            },
+            "feed_url": "http://218.93.33.59:85/map/yongkangmap/ibikestation.asp"
+        },
+        {
+            "tag": "changzhou-wenzhou",
+            "meta": {
+                "latitude": 27.989229,
+                "longitude": 120.700243,
+                "city": "Wenzhou Lucheng",
+                "name": "Wenzhou Lucheng Public Bicycle",
+                "country": "CN"
+            },
+            "feed_url": "http://218.93.33.59:85/map/wzmap/ibikestation.asp"
+        },
+        {
+            "tag": "changzhou-zhuhai",
+            "meta": {
+                "latitude": 22.309401,
+                "longitude": 113.581592,
+                "city": "Zhuhai",
+                "name": "Zhuhai Public Bicycles",
+                "country": "CN"
+            },
+            "feed_url": "http://www.zhuhaicitybike.com/zhmap/ibikestation.asp"
+        },
+        {
+            "tag": "changzhou-shaoxing",
+            "meta": {
+                "latitude": 29.963472,
+                "longitude": 120.58121,
+                "city": "Shaoxing",
+                "name": "Shaoxing Public Bicycle",
+                "country": "CN"
+            },
+            "feed_url": "http://www.sxbicycle.com/sxmap/ibikestation.asp"
+        },
+        {
+            "tag": "changzhou-zhongshan",
+            "meta": {
+                "latitude": 22.529894,
+                "longitude": 113.399972,
+                "city": "Zhongshan",
+                "name": "Zhongshan Public Bike",
+                "country": "CN"
+            },
+            "feed_url": "http://www.zhongshantong.net/zsbicycle/zsmap/ibikestation.asp"
+        },
+        {
+            "tag": "changzhou-huangyan",
+            "meta": {
+                "latitude": 28.6543,
+                "longitude": 121.282057,
+                "city": "Huangyan",
+                "name": "Huangyan Public Bicycle",
+                "country": "CN"
+            },
+            "feed_url": "http://www.tzhypb.com/hymap/ibikestation.asp"
+        }
+    ],
+    "system": "changzhou",
+    "class": "Changzhou"
+}
