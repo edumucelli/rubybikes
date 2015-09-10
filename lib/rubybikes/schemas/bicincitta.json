@@ -12,7 +12,7 @@
                         "country": "IT"
                     },
                     "tag": "tigullionbike",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=80"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=80"
                 },
                 {
                     "meta": {
@@ -23,7 +23,7 @@
                         "country": "IT"
                     },
                     "tag": "portofino-park-and-bike",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?id=128"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?id=128"
                 },
                 {
                     "meta": {
@@ -34,7 +34,7 @@
                         "country": "IT"
                     },
                     "tag": "arbike",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=84"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=84"
                 },
                 {
                     "meta": {
@@ -45,7 +45,7 @@
                         "country": "IT"
                     },
                     "tag": "ascoli-piceno",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=73"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=73"
                 },
                 {
                     "meta": {
@@ -56,7 +56,7 @@
                         "country": "IT"
                     },
                     "tag": "bigi",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=133"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=133"
                 },
                 {
                     "meta": {
@@ -67,7 +67,7 @@
                         "country": "IT"
                     },
                     "tag": "biella",
-                    "endpoint": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=112"
+                    "feed_url": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=112"
                 },
                 {
                     "meta": {
@@ -78,7 +78,7 @@
                         "country": "IT"
                     },
                     "tag": "bici-in-busto",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=66"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=66"
                 },
                 {
                     "meta": {
@@ -89,7 +89,7 @@
                         "country": "IT"
                     },
                     "tag": "meglio-in-bici",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=121"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=121"
                 },
                 {
                     "meta": {
@@ -100,7 +100,7 @@
                         "country": "IT"
                     },
                     "tag": "cuneo",
-                    "endpoint": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=39"
+                    "feed_url": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=39"
                 },
                 {
                     "meta": {
@@ -111,7 +111,7 @@
                         "country": "IT"
                     },
                     "tag": "fossano",
-                    "endpoint": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=107"
+                    "feed_url": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=107"
                 },
                 {
                     "meta": {
@@ -122,7 +122,7 @@
                         "country": "IT"
                     },
                     "tag": "free-bike-sharing",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=53"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=53"
                 },
                 {
                     "meta": {
@@ -133,7 +133,7 @@
                         "country": "GB"
                     },
                     "tag": "bike-in-bath",
-                    "endpoint": "http://www.bikeinbath.com/frmLeStazioni.aspx"
+                    "feed_url": "http://www.bikeinbath.com/frmLeStazioni.aspx"
                 },
                 {
                     "meta": {
@@ -144,7 +144,7 @@
                         "country": "IT"
                     },
                     "tag": "lecco",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=49"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=49"
                 },
                 {
                     "meta": {
@@ -155,7 +155,7 @@
                         "country": "IT"
                     },
                     "tag": "manerba-in-bici",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=102"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=102"
                 },
                 {
                     "meta": {
@@ -166,7 +166,7 @@
                         "country": "IT"
                     },
                     "tag": "mar-e-bici",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=90"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=90"
                 },
                 {
                     "meta": {
@@ -177,7 +177,7 @@
                         "country": "IT"
                     },
                     "tag": "novara",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=131"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=131"
                 },
                 {
                     "meta": {
@@ -187,7 +187,7 @@
                         "longitude": 11.8767611,
                         "country": "IT"
                     },
-                    "endpoint": "http://www.goodbikepadova.it/frmLeStazioni.aspx",
+                    "feed_url": "http://www.goodbikepadova.it/frmLeStazioni.aspx",
                     "tag": "goodbike"
                 },
                 {
@@ -198,7 +198,7 @@
                         "longitude": 16.037292,
                         "country": "IT"
                     },
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=105",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=105",
                     "tag": "parkinbici"
                 },
                 {
@@ -209,7 +209,7 @@
                         "longitude": 10.3279036,
                         "country": "IT"
                     },
-                    "endpoint": "http://www.mimuovoinbici.it/frmLeStazioni.aspx?ID=58",
+                    "feed_url": "http://www.mimuovoinbici.it/frmLeStazioni.aspx?ID=58",
                     "tag": "parma"
                 },
                 {
@@ -220,7 +220,7 @@
                         "longitude": 9.1582069,
                         "country": "IT"
                     },
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=45",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=45",
                     "tag": "pavia-in-bici"
                 },
                 {
@@ -231,7 +231,7 @@
                         "longitude": 12.3908279,
                         "country": "IT"
                     },
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=122",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=122",
                     "tag": "bici-perugia"
                 },
                 {
@@ -242,7 +242,7 @@
                         "longitude": 9.6865813,
                         "country": "IT"
                     },
-                    "endpoint": "http://www.mimuovoinbici.it/frmLeStazioni.aspx?ID=148",
+                    "feed_url": "http://www.mimuovoinbici.it/frmLeStazioni.aspx?ID=148",
                     "tag": "piacenza"
                 },
                 {
@@ -253,7 +253,7 @@
                         "longitude": 7.3499953,
                         "country": "IT"
                     },
-                    "endpoint": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=71",
+                    "feed_url": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=71",
                     "tag": "pinerolo"
                 },
                 {
@@ -264,7 +264,7 @@
                         "longitude": 10.6296859,
                         "country": "IT"
                     },
-                    "endpoint": "http://www.mimuovoinbici.it/frmLeStazioni.aspx?ID=155",
+                    "feed_url": "http://www.mimuovoinbici.it/frmLeStazioni.aspx?ID=155",
                     "tag": "reggio-emilia"
                 },
                 {
@@ -275,7 +275,7 @@
                         "longitude": 12.5646003,
                         "country": "IT"
                     },
-                    "endpoint": "http://www.mimuovoinbici.it/frmLeStazioni.aspx?ID=149",
+                    "feed_url": "http://www.mimuovoinbici.it/frmLeStazioni.aspx?ID=149",
                     "tag": "rimini"
                 },
                 {
@@ -286,7 +286,7 @@
                         "longitude": 7.492735499999999,
                         "country": "IT"
                     },
-                    "endpoint": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=51",
+                    "feed_url": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=51",
                     "tag": "saluzzo"
                 },
                 {
@@ -297,7 +297,7 @@
                         "longitude": 11.3597702,
                         "country": "IT"
                     },
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=91",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=91",
                     "tag": "bicischio"
                 },
                 {
@@ -308,7 +308,7 @@
                         "longitude": 7.662463499999999,
                         "country": "IT"
                     },
-                    "endpoint": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=52",
+                    "feed_url": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=52",
                     "tag": "savigliano"
                 },
                 {
@@ -319,7 +319,7 @@
                         "longitude": 12.6426604,
                         "country": "IT"
                     },
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=134",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=134",
                     "tag": "terni"
                 },
                 {
@@ -330,7 +330,7 @@
                         "longitude": 10.1696056,
                         "country": "IT"
                     },
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=141",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=141",
                     "tag": "tirano-in-bici"
                 },
                 {
@@ -341,7 +341,7 @@
                         "longitude": 13.2345794,
                         "country": "IT"
                     },
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=126",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=126",
                     "tag": "udine"
                 },
                 {
@@ -352,7 +352,7 @@
                         "longitude": 13.1682675,
                         "country": "IT"
                     },
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=138",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=138",
                     "tag": "ustica"
                 },
                 {
@@ -363,7 +363,7 @@
                         "longitude": 9.0851765,
                         "country": "IT"
                     },
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=157",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=157",
                     "tag": "bici-co"
                 },
                 {
@@ -374,7 +374,7 @@
                         "longitude": 9.824082599999999,
                         "country": "IT"
                     },
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=137",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=137",
                     "tag": "speziainbici"
                 },
                 {
@@ -385,7 +385,7 @@
                         "longitude": 12.3155151,
                         "country": "IT"
                     },
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=93",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=93",
                     "tag": "venezia"
                 },
                 {
@@ -422,7 +422,7 @@
                         "longitude": 7.685676,
                         "country": "IT"
                     },
-                    "endpoint": "http://www.tobike.it/frmLeStazioni.aspx?ID={id}",
+                    "feed_url": "http://www.tobike.it/frmLeStazioni.aspx?ID={id}",
                     "tag": "to-bike"
                 },
                 {
@@ -434,7 +434,7 @@
                         "country": "IT"
                     },
                     "tag": "ciclopi",
-                    "endpoint": "http://www.ciclopi.eu/frmLeStazioni.aspx"
+                    "feed_url": "http://www.ciclopi.eu/frmLeStazioni.aspx"
                 },
                 {
                     "meta": {
@@ -445,7 +445,7 @@
                         "country": "IT"
                     },
                     "tag": "cagliari",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=177"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=177"
                 },
                 {
                     "meta": {
@@ -456,7 +456,7 @@
                         "country": "IT"
                     },
                     "tag": "gimme-bike",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=50"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=50"
                 },
                 {
                     "meta": {
@@ -467,7 +467,7 @@
                         "country": "IT"
                     },
                     "tag": "sellero",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=85"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=85"
                 },
                 {
                     "meta": {
@@ -478,7 +478,7 @@
                         "country": "IT"
                     },
                     "tag": "ugento",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=103"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=103"
                 },
                 {
                     "meta": {
@@ -489,7 +489,7 @@
                         "country": "IT"
                     },
                     "tag": "prata-camportaccio",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=108"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=108"
                 },
                 {
                     "meta": {
@@ -500,7 +500,7 @@
                         "country": "IT"
                     },
                     "tag": "civitavecchia",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=127"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=127"
                 },
                 {
                     "meta": {
@@ -511,7 +511,7 @@
                         "country": "IT"
                     },
                     "tag": "longanoinbici",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=140"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=140"
                 },
                 {
                     "meta": {
@@ -522,7 +522,7 @@
                         "country": "IT"
                     },
                     "tag": "cassano-d-adda",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=143"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=143"
                 },
                 {
                     "meta": {
@@ -533,7 +533,7 @@
                         "country": "IT"
                     },
                     "tag": "bianzone-in-bici",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=147"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=147"
                 },
                 {
                     "meta": {
@@ -544,7 +544,7 @@
                         "country": "IT"
                     },
                     "tag": "rietinbici",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=158"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=158"
                 },
                 {
                     "meta": {
@@ -555,7 +555,7 @@
                         "country": "IT"
                     },
                     "tag": "lecce",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=159"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=159"
                 },
                 {
                     "meta": {
@@ -566,7 +566,7 @@
                         "country": "IT"
                     },
                     "tag": "castellucchio",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=161"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=161"
                 },
                 {
                     "meta": {
@@ -577,7 +577,7 @@
                         "country": "IT"
                     },
                     "tag": "notoinbici",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=162"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=162"
                 },
                 {
                     "meta": {
@@ -588,7 +588,7 @@
                         "country": "IT"
                     },
                     "tag": "enna",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=163"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=163"
                 },
                 {
                     "meta": {
@@ -599,7 +599,7 @@
                         "country": "IT"
                     },
                     "tag": "pordenone",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=164"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=164"
                 },
                 {
                     "meta": {
@@ -610,7 +610,7 @@
                         "country": "IT"
                     },
                     "tag": "carbonia",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=173"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=173"
                 },
                 {
                     "meta": {
@@ -621,7 +621,7 @@
                         "country": "IT"
                     },
                     "tag": "mobike",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=175"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=175"
                 },
                 {
                     "meta": {
@@ -632,7 +632,7 @@
                         "country": "IT"
                     },
                     "tag": "scegli-in-bici",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=178"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=178"
                 },
                 {
                     "meta": {
@@ -643,7 +643,7 @@
                         "country": "IT"
                     },
                     "tag": "e-motion-trento",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=187"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=187"
                 },
                 {
                     "meta": {
@@ -654,7 +654,7 @@
                         "country": "IT"
                     },
                     "tag": "e-motion-pergine-valsugana",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=188"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=188"
                 },
                 {
                     "meta": {
@@ -665,7 +665,7 @@
                         "country": "IT"
                     },
                     "tag": "e-motion-rovereto",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=189"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=189"
                 },
                 {
                     "meta": {
@@ -676,7 +676,7 @@
                         "country": "IT"
                     },
                     "tag": "we-love-bike",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=190"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=190"
                 },
                 {
                     "meta": {
@@ -687,7 +687,7 @@
                         "country": "IT"
                     },
                     "tag": "monopoli-bike",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=191"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=191"
                 },
                 {
                     "meta": {
@@ -698,7 +698,7 @@
                         "country": "IT"
                     },
                     "tag": "andria",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=192"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=192"
                 },
                 {
                     "meta": {
@@ -709,7 +709,7 @@
                         "country": "IT"
                     },
                     "tag": "bicinquartucciu",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=193"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=193"
                 },
                 {
                     "meta": {
@@ -720,7 +720,7 @@
                         "country": "IT"
                     },
                     "tag": "olbia-bike",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=194"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=194"
                 },
                 {
                     "meta": {
@@ -731,7 +731,7 @@
                         "country": "IT"
                     },
                     "tag": "savona",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=195"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=195"
                 },
                 {
                     "meta": {
@@ -742,7 +742,7 @@
                         "country": "IT"
                     },
                     "tag": "brindisi",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=197"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=197"
                 },
                 {
                     "meta": {
@@ -753,7 +753,7 @@
                         "country": "IT"
                     },
                     "tag": "tradate",
-                    "endpoint": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=198"
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=198"
                 }
             ]
         },
