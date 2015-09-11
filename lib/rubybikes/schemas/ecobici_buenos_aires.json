@@ -13,5 +13,6 @@
         }
     ], 
     "system": "ecobici_buenos_aires", 
-    "class": "EcobiciBuenosAires"
+    "class": "EcobiciBuenosAires",
+    "label": "Ecobici Buenos Aires"
 }

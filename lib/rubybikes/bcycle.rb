@@ -32,7 +32,7 @@ class BCycle < BikeShareSystem
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
         @feed_url  = schema_instance_parameters.fetch('feed_url')
-        @meta     = meta.merge({'label' => 'B-cycle', 'company' => ['Trek Bicycle Corporation', 'Humana', 'Crispin Porter + Bogusky']})
+        @meta     = meta.merge({'company' => ['Trek Bicycle Corporation', 'Humana', 'Crispin Porter + Bogusky']})
         super(tag, @meta)
     end
     def update

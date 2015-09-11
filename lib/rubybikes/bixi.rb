@@ -15,7 +15,7 @@ class Bixi < BikeShareSystem
         meta      = schema_instance_parameters.fetch('meta')
         @feed_url  = schema_instance_parameters.fetch('feed_url')
         @format   = schema_instance_parameters.fetch('format')
-        @meta     = meta.merge({'label' => 'Bixi', 'company' => 'PBSC'})
+        @meta     = meta.merge({'company' => 'PBSC'})
         super(tag, @meta)
     end
 

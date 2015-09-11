@@ -12,5 +12,6 @@
         }
     ], 
     "system": "bicipalma", 
-    "class": "BiciPalma"
+    "class": "BiciPalma",
+    "label": "BiciPalma"
 }

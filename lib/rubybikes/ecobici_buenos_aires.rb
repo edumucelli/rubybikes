@@ -10,8 +10,7 @@ class EcobiciBuenosAires < BikeShareSystem
         tag         = schema_instance_parameters.fetch('tag')
         meta        = schema_instance_parameters.fetch('meta')
         @feed_url   = schema_instance_parameters.fetch('feed_url')
-        @meta       = meta.merge({  'label' => 'BA Ecobici',
-                                    'company' => 'Buenos Aires Ciudad',
+        @meta       = meta.merge({  'company' => 'Buenos Aires Ciudad',
                                     'license' => {
                                         'name' => 'Terms of Service',
                                         'url' => 'http://data.buenosaires.gob.ar/tyc'}})

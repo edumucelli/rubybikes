@@ -13,7 +13,7 @@ class CicloSampa < BikeShareSystem
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
         @feed_url  = schema_instance_parameters.fetch('feed_url')
-        @meta     = meta.merge({'label' => 'CicloSampa', 'company' => ['Bradesco Seguros']})
+        @meta     = meta.merge({'company' => 'Bradesco Seguros'})
         super(tag, @meta)
     end
 

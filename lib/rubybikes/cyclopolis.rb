@@ -32,7 +32,7 @@ class Cyclopolis < BikeShareSystem
         tag         = schema_instance_parameters.fetch('tag')
         meta        = schema_instance_parameters.fetch('meta')
         @feed_url   = schema_instance_parameters.fetch('feed_url')
-        @meta       = meta.merge({'label' => 'Cyclopolis', 'company' => 'Cyclopolis Systems'})
+        @meta       = meta.merge({'company' => 'Cyclopolis Systems'})
         super(tag, @meta)
     end
     def update

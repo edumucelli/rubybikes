@@ -68,5 +68,6 @@
         }
     ],
     "system": "smoove",
-    "class": "Smoove"
+    "class": "Smoove",
+    "label": "Smoove"
 }

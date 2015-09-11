@@ -15,7 +15,7 @@ class Encicla < BikeShareSystem
 		tag       = schema_instance_parameters.fetch('tag')
 		meta      = schema_instance_parameters.fetch('meta')
 		@feed_url  = schema_instance_parameters.fetch('feed_url')
-		@meta     = meta.merge({'label' => 'EnCicla', 'company' => 'Sistema de Bicicletas Públicas del Valle de Aburrá'})
+		@meta     = meta.merge({'company' => 'Sistema de Bicicletas Públicas del Valle de Aburrá'})
 		super(tag, @meta)
 	end
 	def update

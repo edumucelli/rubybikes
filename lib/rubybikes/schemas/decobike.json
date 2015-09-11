@@ -24,5 +24,6 @@
         }
     ],
     "system":"decobike",
-    "class":"DecoBike"
+    "class":"DecoBike",
+    "label":"DecoBike"
 }

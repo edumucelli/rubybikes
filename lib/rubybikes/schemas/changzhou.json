@@ -90,5 +90,6 @@
         }
     ],
     "system": "changzhou",
-    "class": "Changzhou"
+    "class": "Changzhou",
+    "label": "Changzhou"
 }

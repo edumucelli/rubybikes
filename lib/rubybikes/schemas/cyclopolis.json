@@ -123,5 +123,6 @@
         }
     ],
     "system": "cyclopolis",
-    "class": "Cyclopolis"
+    "class": "Cyclopolis",
+    "label": "Cyclopolis"
 }

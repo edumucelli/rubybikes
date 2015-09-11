@@ -13,5 +13,6 @@
         }
     ],
     "class":"Cleanap",
-    "system":"cleanap"
+    "system":"cleanap",
+    "label":"Cleanap"
 }

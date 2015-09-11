@@ -13,5 +13,6 @@
         }
     ], 
     "system": "emovity", 
-    "class": "Emovity"
+    "class": "Emovity",
+    "label": "Emovity"
 }

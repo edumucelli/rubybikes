@@ -18,8 +18,7 @@ class Cyclocity < BikeShareSystem
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
         raise APIKeyNotAvailableError unless api_key
-        @meta     = meta.merge({'label' => 'Cyclocity',
-                                'company' => 'JCDecaux',
+        @meta     = meta.merge({'company' => 'JCDecaux',
                                 'license' => {
                                     'name' => 'Open Licence',
                                     'url' => 'https://developer.jcdecaux.com/#/opendata/licence'

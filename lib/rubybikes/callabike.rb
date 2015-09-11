@@ -11,7 +11,7 @@ class Callabike < BikeShareSystem
         tag     = schema_instance_parameters.fetch('tag')
         meta    = schema_instance_parameters.fetch('meta')
         city_id = schema_instance_parameters.fetch('city_id')
-        @meta   = meta.merge({'label' => 'Call-A-Bike', 'company' => 'DB Rent GmbH'})
+        @meta   = meta.merge({'company' => 'DB Rent GmbH'})
         super(tag, @meta)
         @feed_url = BASE_URL % {:city_id => city_id}
     end

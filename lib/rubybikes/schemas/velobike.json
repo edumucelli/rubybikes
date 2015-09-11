@@ -13,5 +13,6 @@
         }
     ],
     "system": "velobike",
-    "class": "Velobike"
+    "class": "Velobike",
+    "label": "Velobike"
 }

@@ -13,5 +13,6 @@
         }
     ], 
     "system": "citybike", 
-    "class": "CityBike"
+    "class": "CityBike",
+    "label": "CityBike"
 }

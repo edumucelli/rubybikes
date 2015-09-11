@@ -11,7 +11,7 @@ class Bikeu < BikeShareSystem
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
         @feed_url  = schema_instance_parameters.fetch('url')
-        @meta     = meta.merge({'label' => 'Bikeu', 'company' => 'Bike U Sp. z o.o.'})
+        @meta     = meta.merge({'company' => 'Bike U Sp. z o.o.'})
         super(tag, @meta)
     end
     def update

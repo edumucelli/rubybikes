@@ -24,5 +24,6 @@
         }
     ],
     "system": "bikeu",
-    "class": "Bikeu"
+    "class": "Bikeu",
+    "label": "Bikeu"
 }

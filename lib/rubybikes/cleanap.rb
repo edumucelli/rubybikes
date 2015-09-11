@@ -12,7 +12,7 @@ class Cleanap < BikeShareSystem
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
         @feed_url  = schema_instance_parameters.fetch('feed_url')
-        @meta     = meta.merge({'system' => 'CallLock', 'company' => 'CleaNap'})
+        @meta     = meta.merge({'company' => 'CleaNap'})
         super(tag, @meta)
     end
     def update

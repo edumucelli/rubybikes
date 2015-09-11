@@ -124,5 +124,6 @@
 
     ], 
     "system": "easybike", 
-    "class": "EasyBike"
+    "class": "EasyBike",
+    "label": "EasyBike"
 }

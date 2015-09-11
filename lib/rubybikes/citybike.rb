@@ -12,7 +12,7 @@ class CityBike < BikeShareSystem
         tag         = schema_instance_parameters.fetch('tag')
         meta        = schema_instance_parameters.fetch('meta')
         @feed_url   = schema_instance_parameters.fetch('feed_url')
-        @meta       = meta.merge({'system' => 'CityBike', 'company' => 'Gewista Werbegesellschaft m.b.H'})
+        @meta       = meta.merge({'company' => 'Gewista Werbegesellschaft m.b.H'})
         super(tag, @meta)
     end
     def update

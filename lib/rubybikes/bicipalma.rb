@@ -15,8 +15,7 @@ class BiciPalma < BikeShareSystem
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
         tag       = schema_instance_parameters.fetch('tag')
-        meta      = schema_instance_parameters.fetch('meta')
-        @meta     = meta.merge({'label' => 'BiciPalma'})
+        @meta     = schema_instance_parameters.fetch('meta')
         super(tag, @meta)
     end
 

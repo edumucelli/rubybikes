@@ -21,7 +21,7 @@ class Emovity < BikeShareSystem
         tag         = schema_instance_parameters.fetch('tag')
         meta        = schema_instance_parameters.fetch('meta')
         @feed_url   = schema_instance_parameters.fetch('feed_url')
-        @meta       = meta.merge({'label' => 'Emovity', 'company' => 'ICNITA S.L.'})
+        @meta       = meta.merge({'company' => 'ICNITA S.L.'})
         super(tag, @meta)
     end
 

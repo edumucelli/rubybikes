@@ -12,7 +12,7 @@ class Changzhou < BikeShareSystem
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
         @feed_url  = schema_instance_parameters.fetch('feed_url')
-        @meta     = meta.merge({'label' => 'Changzhou', 'company' => 'Changzhou Wing Public Bicycle Systems Co., Ltd.'})
+        @meta     = meta.merge({'company' => 'Changzhou Wing Public Bicycle Systems Co., Ltd.'})
         super(tag, @meta)
     end
 

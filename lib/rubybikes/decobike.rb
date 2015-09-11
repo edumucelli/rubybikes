@@ -12,7 +12,7 @@ class DecoBike < BikeShareSystem
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
         @feed_url  = schema_instance_parameters.fetch('feed_url')
-        @meta     = meta.merge(meta = {'label' => 'DecoBike', 'company' => 'DecoBike LLC'})
+        @meta     = meta.merge(meta = {'company' => 'DecoBike LLC'})
         super(tag, @meta)
     end
 

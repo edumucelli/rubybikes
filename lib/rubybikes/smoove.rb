@@ -23,7 +23,7 @@ class Smoove < BikeShareSystem
         tag         = schema_instance_parameters.fetch('tag')
         meta        = schema_instance_parameters.fetch('meta')
         @feed_url   = schema_instance_parameters.fetch('feed_url')
-        @meta       = meta.merge(meta = {'label' => 'Smoove', 'company' => 'Smoove'})
+        @meta       = meta.merge(meta = {'company' => 'Smoove'})
         super(tag, @meta)
     end
     def update

@@ -244,5 +244,6 @@
         }
     ],
     "system": "bcycle",
-    "class": "BCycle"
+    "class": "BCycle",
+    "label": "BCycle"
 }

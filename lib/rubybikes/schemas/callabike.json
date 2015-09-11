@@ -145,5 +145,6 @@
         }
     ],
     "system": "callabike",
-    "class": "Callabike"
+    "class": "Callabike",
+    "label": "Call-A-Bike"
 }

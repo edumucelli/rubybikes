@@ -1,4 +1,5 @@
 {
+    "label": "Cyclocity",
     "system": "cyclocity", 
     "class": {
         "CyclocityWeb": {

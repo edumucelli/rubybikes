@@ -5,7 +5,7 @@
 require_relative 'base'
 require_relative 'utils'
 
-META = {'label' => 'Bicincittà', 'company' => 'Comunicare S.r.l.'}
+META = {'company' => 'Comunicare S.r.l.'}
 
 class BicincittaOld < BikeShareSystem
 
@@ -50,7 +50,7 @@ class BicincittaOld < BikeShareSystem
         @meta       = meta.merge(META)
         super(tag, @meta)
     end
-    
+
     def update
         scraper = Scraper.new(headers={'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
                                                         (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"})

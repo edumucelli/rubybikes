@@ -16,7 +16,7 @@ class EasyBike < BikeShareSystem
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
         @city_id   = schema_instance_parameters.fetch('city_id')
-        @meta     = meta.merge({'label' => 'EasyBike', 'company' => ['Brainbox Technology', 'Smoove SAS']})
+        @meta     = meta.merge({'company' => ['Brainbox Technology', 'Smoove SAS']})
         super(tag, @meta)
     end
 
