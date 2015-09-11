@@ -1,3 +1,6 @@
+# Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
 require 'json'
 
 RUBYBIKES_DIRECTORY = "rubybikes"
@@ -48,9 +51,11 @@ class RubyBikes
 		end
 		raise NoSystemFoundError, "System '#{tag}' was not found. For the complete list of supported tags, use the 'tags' method."
 	end
+
 	def require_rubybikes_class(system)
 		require File.dirname(__FILE__) + "/#{RUBYBIKES_DIRECTORY}/#{system}.rb"
 	end
+
 	def tags
 		tags = []
 		schemas.each do |schema| 
@@ -65,9 +70,11 @@ class RubyBikes
 		end
 		tags
 	end
+
 	def schemas
 		Dir.glob(File.join(Dir.pwd, RUBYBIKES_DIRECTORY, SCHEMAS_DIRECTORY, "*.#{SCHEMAS_EXTENSION}"))
 	end
+	
 	private :get_klass_name_and_schema_instance, :schemas, :require_rubybikes_class
 end
 

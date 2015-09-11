@@ -30,6 +30,7 @@ class Samba < BikeShareSystem
         @meta       = meta.merge(META)
         super(tag, @meta)
     end
+    
     def update
         scraper = Scraper.new(headers={'User-Agent' => USER_AGENT})
         html = scraper.request(@feed_url)
