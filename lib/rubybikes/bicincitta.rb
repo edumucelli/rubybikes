@@ -79,7 +79,7 @@ class Bicincitta < BikeShareSystem
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
         if schema_instance_parameters.has_key? 'comunes'
-            @feed_url = schema_instance_parameters['comunes'].map {|comune| URL % {:id => comune['id']}}
+            @feed_url = schema_instance_parameters['comunes'].map {|comune| schema_instance_parameters.fetch('feed_url') % {:id => comune['id']}}
         else
             @feed_url = schema_instance_parameters.fetch('feed_url')
         end
@@ -164,7 +164,7 @@ if __FILE__ == $0
                         "longitude" => 7.685676,
                         "country" => "IT"
                     },
-                    "feed_url" => "http://www.tobike.it/frmLeStazioni.aspx?ID={id}",
+                    "feed_url" => "http://www.tobike.it/frmLeStazioni.aspx?ID=%{id}",
                     "tag" => "to-bike"
     }
     cyclocity = Bicincitta.new(instance)

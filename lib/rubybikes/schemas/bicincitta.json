@@ -422,7 +422,7 @@
                         "longitude": 7.685676,
                         "country": "IT"
                     },
-                    "feed_url": "http://www.tobike.it/frmLeStazioni.aspx?ID={id}",
+                    "feed_url": "http://www.tobike.it/frmLeStazioni.aspx?ID=%{id}",
                     "tag": "to-bike"
                 },
                 {
