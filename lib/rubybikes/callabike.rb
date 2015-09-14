@@ -1,3 +1,7 @@
+# Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Inspired on PyBikes' callabike.py
+# Distributed under the AGPL license, see LICENSE.txt
+
 require 'json'
 
 require_relative 'base'

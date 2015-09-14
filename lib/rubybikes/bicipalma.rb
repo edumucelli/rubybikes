@@ -1,4 +1,5 @@
 # Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Inspired on PyBikes' bicipalma.py
 # Distributed under the GPL license, see LICENSE.txt
 
 require 'json'

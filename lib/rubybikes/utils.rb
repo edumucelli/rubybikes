@@ -1,3 +1,6 @@
+# Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
 require 'open-uri'
 require 'openssl'
 
@@ -16,6 +19,7 @@ class Scraper
     def request(url, method = 'GET', params = nil, data = nil)
     	if method == 'GET'
 			response = open(url, @headers.merge(:allow_unsafe_redirects => true))
+            # puts response.charset
     	else
     		raise '#{method} not implemented yet.'
     	end
