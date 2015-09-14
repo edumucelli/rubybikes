@@ -1,3 +1,6 @@
+# Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
 require 'rexml/document'
 
 require_relative 'base'
