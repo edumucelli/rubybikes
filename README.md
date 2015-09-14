@@ -31,3 +31,5 @@ instances.each do |instance|
 	end
 end
 ```
+
+In this case here, `API_KEY` is required in Cyclocity systems. This is the only system contained in RubyBikes that asks for a `API_KEY`.
