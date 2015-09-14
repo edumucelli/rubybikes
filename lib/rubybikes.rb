@@ -12,6 +12,7 @@ class NoGetCriteriaError < StandardError; end
 class APIKeyNotAvailableError < StandardError; end
 
 class RubyBikes
+
 	def get(options = {})
 		label	= options.fetch('label', nil)
         tag     = options.fetch('tag', nil)
@@ -105,7 +106,7 @@ class RubyBikes
 		Dir.glob(File.join(Dir.pwd, RUBYBIKES_DIRECTORY, SCHEMAS_DIRECTORY, "*.#{SCHEMAS_EXTENSION}"))
 	end
 
-	private :get_class_name_and_schema_instance, :schemas, :require_rubybikes_class
+	private :get_class_name_and_schema_instance, :schemas, :tags_from_schema, :create_class_instance, :require_rubybikes_class
 end
 
 if __FILE__ == $0

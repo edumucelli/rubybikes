@@ -70,18 +70,6 @@ class DomoblueStation < BikeShareStation
     end
 end
 
-instance = {
-    "system_id" => 2, 
-    "meta" => {
-        "latitude" => 38.989130, 
-        "city" => "Albacete", 
-        "name" => "Onroll", 
-        "longitude" => -1.858485, 
-        "country" => "ES"
-    }, 
-    "tag" => "onroll-albacete"
-}
-
 if __FILE__ == $0
     require 'json'
     JSON.parse(File.read('./schemas/domoblue.json'))['instances'].each do |instance|
