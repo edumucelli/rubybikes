@@ -2,15 +2,15 @@
 
 RubyBikes works with 2 concepts, _labels_ and _tags_.
 
-For instance, if you want to get information from the stations in the 'vlille' (Lille, France) system, you'd use:
+For instance, if you want to get information from the stations in the 'encicla' (Medellin, Colombia) system, you'd use:
 
 ```ruby
 require 'rubybikes'
 
 bikes = RubyBikes.new
-vlille = bikes.get({'tag' => 'vlille'})
-vlille.update
-vlille.stations.each do |station|
+encicla = bikes.get({'tag' => 'encicla'})
+encicla.update
+encicla.stations.each do |station|
   puts "#{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}"
 end
 ```
