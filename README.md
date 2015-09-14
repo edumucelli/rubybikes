@@ -16,7 +16,7 @@ end
 ```
 
 Currently, RubyBikes supports 270 system tags, i.e., 270 bike-sharing systems around the world.
-For the complete list of tags, check out documentation, or use the tags method, 'puts bikes.tags`.
+For the complete list of tags, check out documentation, or use the tags method, `puts bikes.tags`.
 
 However, generally a set bike-sharing systems belong to the same company, which we call _label_.
 
