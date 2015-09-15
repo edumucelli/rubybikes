@@ -76,8 +76,51 @@ class SmartBike < BikeShareSystem
     end
 end
 
+class SmartBikeNew < BikeShareSystem
+
+    STATIONS_RGX = /.*?Artem\.Google\.MarkersBehavior\,\ (.*?)\, null/
+    INFO_RGX = /.*?<li>.*?: (\d+)<\/li>.*?<li>.*?: (\d+)<\/li>.*?<li>.*?: (\d+)<\/li>/
+
+    attr_accessor :stations, :meta
+    def initialize(schema_instance_parameters={})
+        tag       = schema_instance_parameters.fetch('tag')
+        meta      = schema_instance_parameters.fetch('meta')
+        @feed_url = schema_instance_parameters.fetch('feed_url')
+        @meta     = meta.merge({'company' => 'ClearChannel'})
+        super(tag, @meta)
+    end
+
+    def update
+        stations = []
+        scraper = Scraper.new()
+        html = scraper.request(@feed_url)
+        data = JSON.parse(html.scan(STATIONS_RGX)[0][0])
+        data['markerOptions'].each do |marker|
+            name = marker['title']
+            latitude = marker['position']['lat']
+            longitude = marker['position']['lng']
+            raw_info = marker['info']
+            # raw_info looks like this
+            # <div style="width: 240px; height: 120px;">
+            #     <span style="font-weight: bold;">1 - Duomo</span>
+            #     <br/>
+            #     <ul>
+            #         <li>Available bicycles: 18</li>
+            #         <li>Available electrical bicycles: 0</li>
+            #         <li>Available slots: 6</li>
+            #     </ul>
+            # </div>
+            standard_bikes, electric_bikes, free = raw_info.scan(INFO_RGX)[0]
+            bikes = standard_bikes.to_i + electric_bikes.to_i
+            station = SmartBikeStation.new(name, latitude, longitude, bikes, free.to_i)
+            stations << station
+        end
+        @stations = stations
+    end
+end
+
 class SmartBikeStation < BikeShareStation
-    def initialize(name, latitude, longitude, bikes, free, extra)
+    def initialize(name, latitude, longitude, bikes, free, extra={})
         super()
         @name      = name
         @latitude  = latitude
@@ -90,9 +133,9 @@ end
 
 if __FILE__ == $0
     require 'json'
-    JSON.parse(File.read('./schemas/smartbike.json'))['class']['SmartBike']['instances'].each do |instance|
+    JSON.parse(File.read('./schemas/smartbike.json'))['class']['SmartBikeNew']['instances'].each do |instance|
     # JSON.parse(File.read('./schemas/samba.json'))['class']['SambaNew']['instances'].each do |instance|
-        smartbike = SmartBike.new(instance)
+        smartbike = SmartBikeNew.new(instance)
         # smartbike = smartbikeNew.new(instance)
         puts smartbike.meta
         smartbike.update
@@ -102,82 +145,3 @@ if __FILE__ == $0
         end
     end
 end
-
-# class SmartShitty(BaseSystem):
-#     """
-#     BikeMI decided to implement yet another way of displaying the map...
-#     So, I guess what we will do here is using a regular expression to get the
-#     info inside the $create function, and then load that as a JSON. Who the
-#     fuck pay this guys money, seriously?
-
-#     <script type="text/javascript">
-#     //<![CDATA[
-#     Sys.Application.add_init(function() {
-#         $create(Artem.Google.MarkersBehavior, {
-#             "markerOptions":[
-#                 {
-#                     "clickable":true,
-#                     "icon":{
-#                         ...
-#                     },
-#                     "optimized":true,
-#                     "position":{
-#                         "lat":45.464683238625966,
-#                         "lng":9.18879747390747
-#                     },
-#                     "raiseOnDrag":true,
-#                     "title":"01 - Duomo",    _____ Thank you...
-#                     "visible":true,         /
-#                     "info":"<div style=\"width: 240px; height: 100px;\">
-#                                 <span style=\"font-weight: bold;\">
-#                                     01 - Duomo
-#                                 </span>
-#                                 <br/>
-#                                 <ul>
-#                                     <li>Available bicycles: 17</li>
-#                                     <li>Available electrical bicycles: 0</li>
-#                                     <li>Available slots: 7</li>
-#                                 </ul>
-#                             </div>
-#                 }, ...
-#             ],
-#             "name": "fuckeduplongstring"
-#         }, null, null, $get("station-map"));
-#     })
-#     """
-#     sync = True
-
-#     _RE_MARKERS = 'Google\.MarkersBehavior\,\ (?P<data>.*?)\,\ null'
-
-#     def __init__(self, tag, meta, feed_url):
-#         super(SmartShitty, self).__init__(tag, meta)
-#         self.feed_url = feed_url
-
-#     def update(self, scraper=None):
-#         if scraper is None:
-#             scraper = utils.PyBikesScraper()
-
-#         page = scraper.request(self.feed_url)
-#         markers = json.loads(
-#             re.search(SmartShitty._RE_MARKERS, page).group('data')
-#         )['markerOptions']
-#         self.stations = map(SmartShittyStation, markers)
-
-
-# class SmartShittyStation(BikeShareStation):
-#     def __init__(self, marker):
-#         super(SmartShittyStation, self).__init__()
-#         avail_soup = html.fromstring(marker['info'])
-#         availability = map(
-#             lambda x: int(x.split(':')[1]),
-#             avail_soup.xpath("//div/ul/li/text()")
-#         )
-#         self.name = marker['title']
-#         self.latitude = marker['position']['lat']
-#         self.longitude = marker['position']['lng']
-#         self.bikes = availability[0] + availability[1]
-#         self.free = availability[2]
-#         self.extra = {}
-#         if availability[1] > 0:
-#             self.extra['has_ebikes'] = True
-#             self.extra['ebikes'] = availability[1]
