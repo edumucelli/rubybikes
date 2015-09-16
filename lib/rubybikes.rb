@@ -110,7 +110,16 @@ class RubyBikes
 	private :get_class_name_and_schema_instance, :schemas, :tags_from_schema, :create_class_instance, :require_rubybikes_class
 end
 
-# if __FILE__ == $0
+if __FILE__ == $0
+	bikes.tags.each do |tag|
+		start = Time.now
+		instance = bikes.get(tag)
+		instance.update
+		instance.stations.each do |station|
+			puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
+		end
+		puts "#{Time.now - start} seconds to update all stations"
+	end
 # 	bikes = RubyBikes.new
 	# puts bikes.tags.length
 	# ====
@@ -130,4 +139,4 @@ end
 	# cyclic.stations.each do |station|
 	#   puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
 	# end
-#end
+end

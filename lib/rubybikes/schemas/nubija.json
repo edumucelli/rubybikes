@@ -1,0 +1,18 @@
+{
+    "instances": [
+        {
+            "tag": "nubija",
+            "meta": {
+                "latitude": 35.25728935382537,
+                "longitude": 128.60714256763458,
+                "city": "Changwon",
+                "name": "Nubija",
+                "country": "KR"
+            },
+            "endpoint": "http://www.nubija.com/terminal/"
+        }
+    ],
+    "system": "nubija",
+    "class": "Nubija",
+    "label": "Nubija"
+}
