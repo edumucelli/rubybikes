@@ -26,6 +26,23 @@ DATA_RGX = /var marker = new createMarker\(point\,.*?<h3>(.*?)<\/h3>.*?<div clas
 #     </div>
 # </div>
 
+# DATA_RGX does not match the purgatory station,
+# which contains LAT_LNG points equal to zero.
+# We just remove the points later on
+
+# "<div class='markerTitle'>
+#     <h3>Purgatory</h3>
+# </div>
+# <div class='markerPublicText'>
+#     <h5>For bikes that are lost, pending recovery.</h5>
+# </div>
+# <div class='markerAddress'>
+#     unknown<br />Boulder?, CO
+# </div>
+# <div class='markerEvent'>
+#     4/30/2014 - 1/1/2020
+# </div>", icon, back, false);
+
 class BCycle < BikeShareSystem
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
@@ -41,22 +58,23 @@ class BCycle < BikeShareSystem
 
         html = scraper.request(@feed_url)
         points = html.scan(LAT_LNG_RGX)
+        points.delete_if { |latitude, longitude| latitude.to_f.zero? && longitude.to_f.zero? }
         data = html.scan(DATA_RGX)
         points.zip(data).each do |point, info|
-            name, address, bikes, free = info
-            if name.downcase == 'purgatory'
-                next
+            latitude, longitude = point.map(&:to_f)
+            unless latitude.zero? && longitude.zero?
+                name, address, bikes, free = info
+                extra = {'address' => address}
+                station = BCycleStation.new(name, latitude, longitude, bikes.to_i, free.to_i, extra)
+                stations << station
             end
-            latitude, longitude = point
-            station = BCycleStation.new(name, latitude.to_f, longitude.to_f, bikes.to_i, free.to_i)
-            stations << station
-        end
+        end 
         @stations = stations
     end
 end
 
 class BCycleStation < BikeShareStation
-    def initialize(name, latitude, longitude, bikes, free)
+    def initialize(name, latitude, longitude, bikes, free, extra)
         super()
         @name      = name
         @latitude  = latitude
@@ -66,21 +84,21 @@ class BCycleStation < BikeShareStation
     end
 end
 
-schema_instance_parameters = {
-    "tag" => "indiana-pacers-bikeshare",
-    "meta" => {
-        "latitude" => 39.791,
-        "city" => "Indianapolis, IN",
-        "name" => "Indiana Pacers Bikeshare",
-        "longitude" => -86.148,
-        "country" => "US"
-    },
-    "feed_url" => "https://www.pacersbikeshare.org/station-map"
-}
+# schema_instance_parameters = {
+#     "tag" => "boulder",
+#     "meta" => {
+#         "latitude" => 40.0149856,
+#         "city" => "Boulder, CO",
+#         "name" => "Boulder B-cycle",
+#         "longitude" => -105.2705456,
+#         "country" => "US"
+#     },
+#     "feed_url" => "http://boulder.bcycle.com/map"
+# }
 
-bcycle = BCycle.new(schema_instance_parameters)
-bcycle.update
-puts bcycle.stations.length
-bcycle.stations.each do |station|
-    puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-end
+# bcycle = BCycle.new(schema_instance_parameters)
+# bcycle.update
+# puts bcycle.stations.length
+# bcycle.stations.each do |station|
+#     puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+# end
