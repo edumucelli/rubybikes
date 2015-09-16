@@ -41,7 +41,7 @@ class Cyclocity < BikeShareSystem
             free      = info['available_bike_stands']
             extra = {
                 'address' => info['address'],
-                'status' => info['status'],
+                'closed' => info['status'] != 'OPEN',
                 'banking' => info['banking'],
                 'bonus' => info['bonus'],
                 'slots' => info['bike_stands']

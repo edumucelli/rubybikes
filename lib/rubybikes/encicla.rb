@@ -80,23 +80,16 @@ class EnciclaStation < BikeShareStation
 		}
   	end
 end
-if __FILE__ == $0
-	schema_instance_parameters = {
-	    "tag" => "encicla",
-	    "meta" => {
-	        "latitude" => 6.254942,
-	        "longitude" => -75.567982,
-	        "city" => "Medellin",
-	        "name" => "EnCicla",
-	        "country" => "CO"
-	    },
-	    "feed_url" => "http://encicla.gov.co/status"
-	}
 
-	bikeu = Encicla.new(schema_instance_parameters)
-	bikeu.update
-	puts bikeu.stations.length
-	bikeu.stations.each do |station|
-	    puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
-	end
+if __FILE__ == $0
+    require 'json'
+    JSON.parse(File.read('./schemas/encicla.json'))['instances'].each do |instance|
+        encicla = Encicla.new(instance)
+        puts encicla.meta
+        encicla.update
+        puts encicla.stations.length
+        encicla.stations.each do |station|
+            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+        end
+    end
 end

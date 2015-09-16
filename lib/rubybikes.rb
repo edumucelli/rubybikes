@@ -2,7 +2,7 @@
 # Distributed under the AGPL license, see LICENSE.txt
 
 require 'json'
-
+	
 RUBYBIKES_DIRECTORY = "rubybikes"
 SCHEMAS_DIRECTORY = "schemas"
 SCHEMAS_EXTENSION = "json"
@@ -95,7 +95,7 @@ class RubyBikes
 
 	def tags
 		tags = []
-		schemas.each do |schema_file| 
+		schemas.each do |schema_file|
 			schema = JSON.parse(File.open(schema_file).read)
 			tags.push(*tags_from_schema(schema))
 		end
@@ -103,15 +103,16 @@ class RubyBikes
 	end
 
 	def schemas
-		Dir.glob(File.join(Dir.pwd, RUBYBIKES_DIRECTORY, SCHEMAS_DIRECTORY, "*.#{SCHEMAS_EXTENSION}"))
+		# Dir.glob(File.join(Dir.pwd, RUBYBIKES_DIRECTORY, SCHEMAS_DIRECTORY, "*.#{SCHEMAS_EXTENSION}"))
+		Gem.find_files(File.join(RUBYBIKES_DIRECTORY, SCHEMAS_DIRECTORY, "*.#{SCHEMAS_EXTENSION}"))
 	end
 
 	private :get_class_name_and_schema_instance, :schemas, :tags_from_schema, :create_class_instance, :require_rubybikes_class
 end
 
-if __FILE__ == $0
-	bikes = RubyBikes.new
-	puts bikes.tags.length
+# if __FILE__ == $0
+# 	bikes = RubyBikes.new
+	# puts bikes.tags.length
 	# ====
 	# By label
 	# instances = bikes.get({'label' => 'Cyclocity', 'api_key' => '4b780b841057c43770f03bd06c8d30a7c41f9200'})
@@ -129,4 +130,4 @@ if __FILE__ == $0
 	# cyclic.stations.each do |station|
 	#   puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
 	# end
-end
+#end
