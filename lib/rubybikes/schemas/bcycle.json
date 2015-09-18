@@ -245,6 +245,5 @@
     ],
     "system": "bcycle",
     "class": "BCycle",
-    "label": "BCycle",
-    "company": ['Trek Bicycle Corporation', 'Humana', 'Crispin Porter + Bogusky']
+    "label": "BCycle"
 }
