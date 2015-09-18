@@ -1,0 +1,18 @@
+{
+    "instances": [
+        {
+            "tag": "tel-o-fun",
+            "meta": {
+                "latitude": 6.254942,
+                "longitude": -75.567982,
+                "city": "Israel",
+                "name": "Tel-O-Fun",
+                "country": "IL"
+            },
+            "feed_url": "https://www.tel-o-fun.co.il/%D7%AA%D7%97%D7%A0%D7%95%D7%AA%D7%AA%D7%9C%D7%90%D7%95%D7%A4%D7%9F.aspx"
+        }
+    ],
+    "system": "fsm",
+    "class": "FSM",
+    "label": "FSM"
+}
