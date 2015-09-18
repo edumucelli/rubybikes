@@ -4,18 +4,19 @@
 require_relative 'base'
 require_relative 'utils'
 
-LAT_LNG_RGX = /addMarker\(\d+,([-+]?\d+.\d+),([-+]?\d+.\d+)/
-DATA_RGX    = /html\[\d+\]='.*?<div style=\\"font-weight\:bold;font-size:14px;\\">.*?(.*?)<\/div><div>(.*?)<\/div><div>Bicis lliures:.*?(\d+)<\/div><div>Aparcaments lliures:.*?(\d+).*?';/
-
-# DATA_RGX parses stations' info as:
-# <div style=\"width:210px; padding-right:10px;\">
-#     <div style=\"font-weight:bold;font-size:14px;\">01- Biblioteca Antònia Adroher</div>
-#     <div>Biblioteca Antònia Adroher</div>
-#     <div>Bicis lliures: 14</div>
-#     <div>Aparcaments lliures: 4</div>
-# </div>
-
 class Emovity < BikeShareSystem
+
+    LAT_LNG_RGX = /addMarker\(\d+,([-+]?\d+.\d+),([-+]?\d+.\d+)/
+    DATA_RGX    = /html\[\d+\]='.*?<div style=\\"font-weight\:bold;font-size:14px;\\">.*?(.*?)<\/div><div>(.*?)<\/div><div>Bicis lliures:.*?(\d+)<\/div><div>Aparcaments lliures:.*?(\d+).*?';/
+
+    # DATA_RGX parses stations' info as:
+    # <div style=\"width:210px; padding-right:10px;\">
+    #     <div style=\"font-weight:bold;font-size:14px;\">01- Biblioteca Antònia Adroher</div>
+    #     <div>Biblioteca Antònia Adroher</div>
+    #     <div>Bicis lliures: 14</div>
+    #     <div>Aparcaments lliures: 4</div>
+    # </div>
+    
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
         tag         = schema_instance_parameters.fetch('tag')

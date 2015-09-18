@@ -84,7 +84,6 @@ class Bicincitta < BikeShareSystem
         else
             @feed_url = schema_instance_parameters.fetch('feed_url')
         end
-        puts @feed_url
         @meta     = meta.merge(META)
         super(tag, @meta)
     end

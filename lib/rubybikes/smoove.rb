@@ -15,9 +15,10 @@ Each station is formatted as:
 I.e., (station_id, latitude, longitude, name, available_bikes, free_bike_stands, credit_card_enabled (discarded afterwards))
 =end
 
-DATA_RGX = /\(\d+\,\ (\d+.\d+).*?(\d+.\d+)\,\ "<div.*?>(.*?)<br>.*?:(.*?)<br>.*?:(.*?)<br>.*?:(.*?)<br><\/div>"\)/
-
 class Smoove < BikeShareSystem
+
+    DATA_RGX = /\(\d+\,\ (\d+.\d+).*?(\d+.\d+)\,\ "<div.*?>(.*?)<br>.*?:(.*?)<br>.*?:(.*?)<br>.*?:(.*?)<br><\/div>"\)/
+    
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
         tag         = schema_instance_parameters.fetch('tag')

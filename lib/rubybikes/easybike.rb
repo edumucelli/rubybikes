@@ -6,11 +6,12 @@ require 'json'
 require_relative 'base'
 require_relative 'utils'
 
-API_URL = 'http://api.easybike.gr/cities.php'
-
 class CityNotAvailableError < StandardError; end
 
 class EasyBike < BikeShareSystem
+
+    API_URL = 'http://api.easybike.gr/cities.php'
+    
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
         tag       = schema_instance_parameters.fetch('tag')

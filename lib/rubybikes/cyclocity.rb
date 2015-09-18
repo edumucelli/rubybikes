@@ -8,11 +8,12 @@ require 'rexml/document'
 require_relative 'base'
 require_relative 'utils'
 
-API_URL = "https://api.jcdecaux.com/vls/v1/stations?apiKey=%{api_key}&contract=%{contract}"
-
 class APIKeyNotAvailableError < StandardError; end
 
 class Cyclocity < BikeShareSystem
+
+    API_URL = "https://api.jcdecaux.com/vls/v1/stations?apiKey=%{api_key}&contract=%{contract}"
+
     attr_accessor :stations, :meta
     def initialize(api_key = nil, schema_instance_parameters={})
         tag       = schema_instance_parameters.fetch('tag')

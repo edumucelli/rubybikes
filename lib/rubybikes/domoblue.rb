@@ -7,10 +7,10 @@ require 'rexml/document'
 require_relative 'base'
 require_relative 'utils'
 
-BASE_URL = "http://clientes.domoblue.es/onroll/"
-TOKEN_RGX = /generaXml\.php\?token=(.*?)\&/
-
 class Domoblue < BikeShareSystem
+
+    BASE_URL = "http://clientes.domoblue.es/onroll/"
+    TOKEN_RGX = /generaXml\.php\?token=(.*?)\&/
 
     attr_accessor :stations, :meta
 

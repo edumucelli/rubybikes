@@ -5,9 +5,10 @@
 require_relative 'base'
 require_relative 'utils'
 
-DATA_RGX = /setEstacao\((.*?)\);/
-
 class CicloSampa < BikeShareSystem
+
+    DATA_RGX = /setEstacao\((.*?)\);/
+    
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
         tag       = schema_instance_parameters.fetch('tag')
@@ -45,21 +46,15 @@ class CicloSampaStation < BikeShareStation
     end
 end
 
-instance = {
-    "feed_url" => "http://www.ciclosampa.com.br/estacoes.php",
-    "tag" => "ciclosampa",
-    "meta" => {
-        "latitude" => -23.55,
-        "city" => "S\u00e3o Paulo",
-        "name" => "CicloSampa",
-        "longitude" => -46.6333,
-        "country" => "BR"
-    }
-}
-
-cyclosampa = CicloSampa.new(instance)
-cyclosampa.update
-puts cyclosampa.stations.length
-cyclosampa.stations.each do |station|
-    puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
+if __FILE__ == $0
+    require 'json'
+    JSON.parse(File.read('./schemas/ciclosampa.json'))['instances'].each do |instance|
+        ciclosampa = CicloSampa.new(instance)
+        puts ciclosampa.meta
+        ciclosampa.update
+        puts ciclosampa.stations.length
+        ciclosampa.stations.each do |station|
+            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
+        end
+    end
 end

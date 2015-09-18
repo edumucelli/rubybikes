@@ -4,53 +4,53 @@
 require_relative 'base'
 require_relative 'utils'
 
-LAT_LNG_RGX = /var point = new google.maps.LatLng\(([-+]?\d+.\d+).*?([-+]?\d+.\d+)\)\;/
-DATA_RGX = /var marker = new createMarker\(point\,.*?<h3>(.*?)<\/h3>.*?<div class='markerAddress'>(.*?)<\/div>.*?<h3>(.*?)<\/h3>.*?<h3>(.*?)<\/h3>.*?\,\ icon\,\ back/
-
-# DATA_RGX deals with each of the fields bellow as groups '(.*?)'
-# <div class='markerTitle'>
-#     <h3>Gunbarrel North</h3>
-# </div>
-# <div class='markerPublicText'>
-#     <h5></h5>
-# </div>
-# <div class='markerAddress'>5510 Spine Rd.
-#     <br />Boulder, CO 80301
-# </div>
-# <div class='markerAvail'>
-#     <div style='float: left; width: 50%'>
-#         <h3>9</h3>Bikes
-#     </div>
-#     <div style='float: left; width: 50%'>
-#         <h3>12</h3>Docks
-#     </div>
-# </div>
-
-# DATA_RGX does not match the purgatory station,
-# which contains LAT_LNG points equal to zero.
-# We just remove the points later on
-
-# "<div class='markerTitle'>
-#     <h3>Purgatory</h3>
-# </div>
-# <div class='markerPublicText'>
-#     <h5>For bikes that are lost, pending recovery.</h5>
-# </div>
-# <div class='markerAddress'>
-#     unknown<br />Boulder?, CO
-# </div>
-# <div class='markerEvent'>
-#     4/30/2014 - 1/1/2020
-# </div>", icon, back, false);
-
 class BCycle < BikeShareSystem
+
+    LAT_LNG_RGX = /var point = new google.maps.LatLng\(([-+]?\d+.\d+).*?([-+]?\d+.\d+)\)\;/
+    DATA_RGX = /var marker = new createMarker\(point\,.*?<h3>(.*?)<\/h3>.*?<div class='markerAddress'>(.*?)<\/div>.*?<h3>(.*?)<\/h3>.*?<h3>(.*?)<\/h3>.*?\,\ icon\,\ back/
+
+    # DATA_RGX deals with each of the fields bellow as groups '(.*?)'
+    # <div class='markerTitle'>
+    #     <h3>Gunbarrel North</h3>
+    # </div>
+    # <div class='markerPublicText'>
+    #     <h5></h5>
+    # </div>
+    # <div class='markerAddress'>5510 Spine Rd.
+    #     <br />Boulder, CO 80301
+    # </div>
+    # <div class='markerAvail'>
+    #     <div style='float: left; width: 50%'>
+    #         <h3>9</h3>Bikes
+    #     </div>
+    #     <div style='float: left; width: 50%'>
+    #         <h3>12</h3>Docks
+    #     </div>
+    # </div>
+
+    # DATA_RGX does not match the purgatory station,
+    # which contains LAT_LNG points equal to zero.
+    # We just remove the points later on
+
+    # "<div class='markerTitle'>
+    #     <h3>Purgatory</h3>
+    # </div>
+    # <div class='markerPublicText'>
+    #     <h5>For bikes that are lost, pending recovery.</h5>
+    # </div>
+    # <div class='markerAddress'>
+    #     unknown<br />Boulder?, CO
+    # </div>
+    # <div class='markerEvent'>
+    #     4/30/2014 - 1/1/2020
+    # </div>", icon, back, false);
+
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
         @feed_url  = schema_instance_parameters.fetch('feed_url')
-        @meta     = meta.merge({'company' => ['Trek Bicycle Corporation', 'Humana', 'Crispin Porter + Bogusky']})
-        super(tag, @meta)
+        super(tag, meta)
     end
     def update
         scraper = Scraper.new(headers={'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
@@ -81,24 +81,19 @@ class BCycleStation < BikeShareStation
         @longitude = longitude
         @bikes     = bikes
         @free      = free
+        @extra     = extra
     end
 end
 
-# schema_instance_parameters = {
-#     "tag" => "boulder",
-#     "meta" => {
-#         "latitude" => 40.0149856,
-#         "city" => "Boulder, CO",
-#         "name" => "Boulder B-cycle",
-#         "longitude" => -105.2705456,
-#         "country" => "US"
-#     },
-#     "feed_url" => "http://boulder.bcycle.com/map"
-# }
-
-# bcycle = BCycle.new(schema_instance_parameters)
-# bcycle.update
-# puts bcycle.stations.length
-# bcycle.stations.each do |station|
-#     puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-# end
+if __FILE__ == $0
+    require 'json'
+    JSON.parse(File.read('./schemas/bcycle.json'))['instances'].each do |instance|
+        bcycle = BCycle.new(instance)
+        puts bcycle.meta
+        bcycle.update
+        puts bcycle.stations.length
+        bcycle.stations.each do |station|
+            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
+        end
+    end
+end

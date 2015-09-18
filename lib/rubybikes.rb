@@ -44,7 +44,7 @@ class RubyBikes
 			begin
 				return class_object.new(api_key, schema_instance_parameters)
 			rescue APIKeyNotAvailableError => e
-				puts "'#{tag}' system requires a API key." 
+				puts "'#{schema_instance_parameters['tag']}' system requires a API key." 
 			end
 		else
 			return class_object.new(schema_instance_parameters)
@@ -102,6 +102,12 @@ class RubyBikes
 		tags
 	end
 
+	def labels
+		schemas.map do |schema_file|
+			JSON.parse(File.open(schema_file).read)['label']
+		end
+	end
+
 	def schemas
 		# Dir.glob(File.join(Dir.pwd, RUBYBIKES_DIRECTORY, SCHEMAS_DIRECTORY, "*.#{SCHEMAS_EXTENSION}"))
 		Gem.find_files(File.join(RUBYBIKES_DIRECTORY, SCHEMAS_DIRECTORY, "*.#{SCHEMAS_EXTENSION}"))
@@ -120,7 +126,8 @@ if __FILE__ == $0
 	# 	end
 	# 	puts "#{Time.now - start} seconds to update all stations"
 	# end
-# 	bikes = RubyBikes.new
+	bikes = RubyBikes.new
+	# puts bikes.get({'tag' => 'vlille'}).update
 	# puts bikes.tags.length
 	# ====
 	# By label
