@@ -3,9 +3,9 @@
         {
             "tag": "tel-o-fun",
             "meta": {
-                "latitude": 34.809,
-                "longitude": 32.067,
-                "city": "Israel",
+                "latitude": 32.067,
+                "longitude": 34.809,
+                "city": "Tel-Aviv",
                 "name": "Tel-O-Fun",
                 "country": "IL"
             },

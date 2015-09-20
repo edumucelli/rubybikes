@@ -36,7 +36,7 @@ class Smoove < BikeShareSystem
             # discards the last element of stations_data
             # which indicates if the station is credit card-enabled
             latitude, longitude, name, bikes, free = station_data[0...-1]
-            SmooveStation.new(name, latitude.to_f, longitude.to_f, bikes.to_i, free.to_i)
+            SmooveStation.new(name.force_encoding('ISO-8859-1').encode('UTF-8'), latitude.to_f, longitude.to_f, bikes.to_i, free.to_i)
         end
     end
 end

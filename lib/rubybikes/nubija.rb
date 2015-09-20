@@ -25,7 +25,7 @@ class Nubija < BikeShareSystem
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
         tag             = schema_instance_parameters.fetch('tag')
-        meta            = schema_instance_parameters.fetch('meta')
+        @meta           = schema_instance_parameters.fetch('meta')
         @stations_url   = schema_instance_parameters.fetch('endpoint') + "terminalStateView.do"
         @info_url       = schema_instance_parameters.fetch('endpoint') + "terminalMapInfoWindow.do?tmno=%{tmno}"
         super(tag, @meta)

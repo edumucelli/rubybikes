@@ -1,3 +1,6 @@
+# Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
 require_relative 'base'
 require_relative 'utils'
 
@@ -27,8 +30,8 @@ class FSM < BikeShareSystem
         html = scraper.request(@feed_url)
         @stations = html.scan(STATIONS_RGX).map do |info|
             fields = info[0].gsub('\'','').split(',')
-            latitude = fields[0].to_f
-            longitude = fields[1].to_f
+            longitude = fields[0].to_f
+            latitude = fields[1].to_f
             name = fields[3]
             address = fields[4]
             slots = fields[5].to_i
