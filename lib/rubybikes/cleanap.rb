@@ -63,22 +63,22 @@ class CleanapStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    instance = {
-    "tag" => "bike-sharing-napoli",
-    "meta" => {
-        "latitude" => 40.8517746,
-        "country" => "IT",
-        "name" => "Bike Sharing Napoli",
-        "longitude" => 14.2681244,
-        "city" => "Napoli"
-    },
-    "feed_url" => "http://www.movinap.it/_CI/api_v1/station/getAllStationsInfo"
-    }
-    cleanap = Cleanap.new(instance)
-    cleanap.update
-    puts cleanap.stations.length
-    cleanap.stations.each do |station|
-        puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
-    end
-end
+# if __FILE__ == $0
+#     instance = {
+#     "tag" => "bike-sharing-napoli",
+#     "meta" => {
+#         "latitude" => 40.8517746,
+#         "country" => "IT",
+#         "name" => "Bike Sharing Napoli",
+#         "longitude" => 14.2681244,
+#         "city" => "Napoli"
+#     },
+#     "feed_url" => "http://www.movinap.it/_CI/api_v1/station/getAllStationsInfo"
+#     }
+#     cleanap = Cleanap.new(instance)
+#     cleanap.update
+#     puts cleanap.stations.length
+#     cleanap.stations.each do |station|
+#         puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
+#     end
+# end

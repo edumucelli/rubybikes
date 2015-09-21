@@ -56,15 +56,15 @@ class FSMStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    require 'json'
-    JSON.parse(File.read('./schemas/fsm.json'))['instances'].each do |instance|
-        fsm = FSM.new(instance)
-        puts fsm.meta
-        fsm.update
-        puts fsm.stations.length
-        fsm.stations.each do |station|
-            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
-        end
-    end
-end
+# if __FILE__ == $0
+#     require 'json'
+#     JSON.parse(File.read('./schemas/fsm.json'))['instances'].each do |instance|
+#         fsm = FSM.new(instance)
+#         puts fsm.meta
+#         fsm.update
+#         puts fsm.stations.length
+#         fsm.stations.each do |station|
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
+#         end
+#     end
+# end

@@ -81,15 +81,15 @@ class EnciclaStation < BikeShareStation
   	end
 end
 
-if __FILE__ == $0
-    require 'json'
-    JSON.parse(File.read('./schemas/encicla.json'))['instances'].each do |instance|
-        encicla = Encicla.new(instance)
-        puts encicla.meta
-        encicla.update
-        puts encicla.stations.length
-        encicla.stations.each do |station|
-            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-        end
-    end
-end
+# if __FILE__ == $0
+#     require 'json'
+#     JSON.parse(File.read('./schemas/encicla.json'))['instances'].each do |instance|
+#         encicla = Encicla.new(instance)
+#         puts encicla.meta
+#         encicla.update
+#         puts encicla.stations.length
+#         encicla.stations.each do |station|
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#         end
+#     end
+# end

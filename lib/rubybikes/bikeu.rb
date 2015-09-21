@@ -40,23 +40,23 @@ class BikeuStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    schema_instance_parameters = {
-        "tag" => "bbbike",
-        "url" => "https://www.bbbike.eu/LocationsMap.aspx",
-        "meta" => {
-            "latitude" => 49.8225,
-            "city" => "Bielsko-Biała",
-            "name" =>  "BBBike",
-            "longitude" => 19.044444,
-            "country" => "PL"
-        }
-    }
+# if __FILE__ == $0
+#     schema_instance_parameters = {
+#         "tag" => "bbbike",
+#         "url" => "https://www.bbbike.eu/LocationsMap.aspx",
+#         "meta" => {
+#             "latitude" => 49.8225,
+#             "city" => "Bielsko-Biała",
+#             "name" =>  "BBBike",
+#             "longitude" => 19.044444,
+#             "country" => "PL"
+#         }
+#     }
 
-    bikeu = Bikeu.new(schema_instance_parameters)
-    bikeu.update
-    puts bikeu.stations.length
-    bikeu.stations.each do |station|
-        puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-    end
-end
+#     bikeu = Bikeu.new(schema_instance_parameters)
+#     bikeu.update
+#     puts bikeu.stations.length
+#     bikeu.stations.each do |station|
+#         puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#     end
+# end

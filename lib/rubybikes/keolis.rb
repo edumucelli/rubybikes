@@ -108,15 +108,15 @@ class KeolisStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    require 'json'
-    JSON.parse(File.read('./schemas/keolis.json'))['class']['Keolis']['instances'].each do |instance|
-        keolis = Keolis.new(instance)
-        puts keolis.meta
-        keolis.update
-        puts keolis.stations.length
-        keolis.stations.each do |station|
-            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-        end
-    end
-end
+# if __FILE__ == $0
+#     require 'json'
+#     JSON.parse(File.read('./schemas/keolis.json'))['class']['Keolis']['instances'].each do |instance|
+#         keolis = Keolis.new(instance)
+#         puts keolis.meta
+#         keolis.update
+#         puts keolis.stations.length
+#         keolis.stations.each do |station|
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#         end
+#     end
+# end

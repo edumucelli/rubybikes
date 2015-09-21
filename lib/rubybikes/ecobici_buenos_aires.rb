@@ -54,15 +54,15 @@ class EcobiciBuenosAiresStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    require 'json'
-    JSON.parse(File.read('./schemas/ecobici_buenos_aires.json'))['instances'].each do |instance|
-        ecobici_buenos_aires = EcobiciBuenosAires.new(instance)
-        puts ecobici_buenos_aires.meta
-        ecobici_buenos_aires.update
-        puts ecobici_buenos_aires.stations.length
-        ecobici_buenos_aires.stations.each do |station|
-            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
-        end
-    end
-end
+# if __FILE__ == $0
+#     require 'json'
+#     JSON.parse(File.read('./schemas/ecobici_buenos_aires.json'))['instances'].each do |instance|
+#         ecobici_buenos_aires = EcobiciBuenosAires.new(instance)
+#         puts ecobici_buenos_aires.meta
+#         ecobici_buenos_aires.update
+#         puts ecobici_buenos_aires.stations.length
+#         ecobici_buenos_aires.stations.each do |station|
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
+#         end
+#     end
+# end

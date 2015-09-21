@@ -93,21 +93,21 @@ class BiciPalmaStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    instance = {
-        "tag" => "bicipalma", 
-        "meta" => {
-            "latitude" => 39.57119, 
-            "city" => "Palma", 
-            "name" => "Bicipalma", 
-            "longitude" => 2.646634, 
-            "country" => "ES"
-        }
-    }
-    bikeu = BiciPalma.new(instance)
-    bikeu.update
-    puts bikeu.stations.length
-    bikeu.stations.each do |station|
-        puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}"
-    end
-end
+# if __FILE__ == $0
+#     instance = {
+#         "tag" => "bicipalma", 
+#         "meta" => {
+#             "latitude" => 39.57119, 
+#             "city" => "Palma", 
+#             "name" => "Bicipalma", 
+#             "longitude" => 2.646634, 
+#             "country" => "ES"
+#         }
+#     }
+#     bikeu = BiciPalma.new(instance)
+#     bikeu.update
+#     puts bikeu.stations.length
+#     bikeu.stations.each do |station|
+#         puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}"
+#     end
+# end

@@ -131,17 +131,17 @@ class SmartBikeStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    require 'json'
-    JSON.parse(File.read('./schemas/smartbike.json'))['class']['SmartBikeNew']['instances'].each do |instance|
-    # JSON.parse(File.read('./schemas/samba.json'))['class']['SambaNew']['instances'].each do |instance|
-        smartbike = SmartBikeNew.new(instance)
-        # smartbike = smartbikeNew.new(instance)
-        puts smartbike.meta
-        smartbike.update
-        puts smartbike.stations.length
-        smartbike.stations.each do |station|
-            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
-        end
-    end
-end
+# if __FILE__ == $0
+#     require 'json'
+#     JSON.parse(File.read('./schemas/smartbike.json'))['class']['SmartBikeNew']['instances'].each do |instance|
+#     # JSON.parse(File.read('./schemas/samba.json'))['class']['SambaNew']['instances'].each do |instance|
+#         smartbike = SmartBikeNew.new(instance)
+#         # smartbike = smartbikeNew.new(instance)
+#         puts smartbike.meta
+#         smartbike.update
+#         puts smartbike.stations.length
+#         smartbike.stations.each do |station|
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
+#         end
+#     end
+# end

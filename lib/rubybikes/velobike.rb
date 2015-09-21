@@ -90,15 +90,15 @@ class VelobikeStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    require 'json'
-    JSON.parse(File.read('./schemas/velobike.json'))['instances'].each do |instance|
-        velobike = Velobike.new(instance)
-        puts velobike.meta
-        velobike.update
-        puts velobike.stations.length
-        velobike.stations.each do |station|
-            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-        end
-    end
-end
+# if __FILE__ == $0
+#     require 'json'
+#     JSON.parse(File.read('./schemas/velobike.json'))['instances'].each do |instance|
+#         velobike = Velobike.new(instance)
+#         puts velobike.meta
+#         velobike.update
+#         puts velobike.stations.length
+#         velobike.stations.each do |station|
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#         end
+#     end
+# end

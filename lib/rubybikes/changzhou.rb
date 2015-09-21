@@ -78,14 +78,14 @@ end
 # changzhou = Changzhou.new(instance)
 # changzhou.update
 
-if __FILE__ == $0
-    JSON.parse(File.read('./schemas/changzhou.json'))['instances'].each do |instance|
-        changzhou = Changzhou.new(instance)
-        puts changzhou.meta
-        changzhou.update
-        puts changzhou.stations.length
-        changzhou.stations.each do |station|
-            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-        end
-    end
-end
+# if __FILE__ == $0
+#     JSON.parse(File.read('./schemas/changzhou.json'))['instances'].each do |instance|
+#         changzhou = Changzhou.new(instance)
+#         puts changzhou.meta
+#         changzhou.update
+#         puts changzhou.stations.length
+#         changzhou.stations.each do |station|
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#         end
+#     end
+# end

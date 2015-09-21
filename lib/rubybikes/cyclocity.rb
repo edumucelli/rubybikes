@@ -113,33 +113,33 @@ class CyclocityStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    # instance = { "tag" => "cyclic", 
-    #     "meta" => {
-    #         "latitude" => 49.44323199999999, 
-    #         "country" => "FR", 
-    #         "name" => "cy'clic", 
-    #         "longitude" => 1.099971, 
-    #         "city" => "Rouen"
-    #     }, 
-    #     "contract" => "Rouen"
-    # }
-    instance = {
-        "city" => "brisbane", 
-        "meta" => {
-            "latitude" => -27.4710107, 
-            "city" => "Brisbane", 
-            "name" => "CityCycle", 
-            "longitude" => 153.0234489, 
-            "country" => "AU"
-        }, 
-        "tag" => "citycycle", 
-        "endpoint" => "http://www.citycycle.com.au"
-    }
-    cyclocity = CyclocityWeb.new(instance)
-    cyclocity.update
-    puts cyclocity.stations.length
-    cyclocity.stations.each do |station|
-        puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-    end
-end
+# if __FILE__ == $0
+#     # instance = { "tag" => "cyclic", 
+#     #     "meta" => {
+#     #         "latitude" => 49.44323199999999, 
+#     #         "country" => "FR", 
+#     #         "name" => "cy'clic", 
+#     #         "longitude" => 1.099971, 
+#     #         "city" => "Rouen"
+#     #     }, 
+#     #     "contract" => "Rouen"
+#     # }
+#     instance = {
+#         "city" => "brisbane", 
+#         "meta" => {
+#             "latitude" => -27.4710107, 
+#             "city" => "Brisbane", 
+#             "name" => "CityCycle", 
+#             "longitude" => 153.0234489, 
+#             "country" => "AU"
+#         }, 
+#         "tag" => "citycycle", 
+#         "endpoint" => "http://www.citycycle.com.au"
+#     }
+#     cyclocity = CyclocityWeb.new(instance)
+#     cyclocity.update
+#     puts cyclocity.stations.length
+#     cyclocity.stations.each do |station|
+#         puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#     end
+# end

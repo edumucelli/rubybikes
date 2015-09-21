@@ -59,15 +59,15 @@ class NubijaStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    require 'json'
-    JSON.parse(File.read('./schemas/nubija.json'))['instances'].each do |instance|
-        nubija = Nubija.new(instance)
-        puts nubija.meta
-        nubija.update
-        puts nubija.stations.length
-        nubija.stations.each do |station|
-            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-        end
-    end
-end
+# if __FILE__ == $0
+#     require 'json'
+#     JSON.parse(File.read('./schemas/nubija.json'))['instances'].each do |instance|
+#         nubija = Nubija.new(instance)
+#         puts nubija.meta
+#         nubija.update
+#         puts nubija.stations.length
+#         nubija.stations.each do |station|
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#         end
+#     end
+# end

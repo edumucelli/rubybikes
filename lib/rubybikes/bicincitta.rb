@@ -132,48 +132,48 @@ class BicincittaStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    instance = {
-                    "comunes" => [
-                        {
-                            "id" => 22,
-                            "name" => "Torino"
-                        },
-                        {
-                            "id" => 61,
-                            "name" => "Grugliasco"
-                        },
-                        {
-                            "id" => 62,
-                            "name" => "Collegno"
-                        },
-                        {
-                            "id" => 63,
-                            "name" => "Venaria Reale"
-                        },
-                        {
-                            "id" => 64,
-                            "name" => "Alpignano"
-                        },
-                        {
-                            "id" => 65,
-                            "name" => "Druento"
-                        }
-                    ],
-                    "meta" => {
-                        "latitude" => 45.07098200000001,
-                        "city" => "Torino",
-                        "name" => "[TO]BIKE",
-                        "longitude" => 7.685676,
-                        "country" => "IT"
-                    },
-                    "feed_url" => "http://www.tobike.it/frmLeStazioni.aspx?ID=%{id}",
-                    "tag" => "to-bike"
-    }
-    cyclocity = Bicincitta.new(instance)
-    cyclocity.update
-    puts cyclocity.stations.length
-    cyclocity.stations.each do |station|
-        puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-    end
-end
+# if __FILE__ == $0
+#     instance = {
+#                     "comunes" => [
+#                         {
+#                             "id" => 22,
+#                             "name" => "Torino"
+#                         },
+#                         {
+#                             "id" => 61,
+#                             "name" => "Grugliasco"
+#                         },
+#                         {
+#                             "id" => 62,
+#                             "name" => "Collegno"
+#                         },
+#                         {
+#                             "id" => 63,
+#                             "name" => "Venaria Reale"
+#                         },
+#                         {
+#                             "id" => 64,
+#                             "name" => "Alpignano"
+#                         },
+#                         {
+#                             "id" => 65,
+#                             "name" => "Druento"
+#                         }
+#                     ],
+#                     "meta" => {
+#                         "latitude" => 45.07098200000001,
+#                         "city" => "Torino",
+#                         "name" => "[TO]BIKE",
+#                         "longitude" => 7.685676,
+#                         "country" => "IT"
+#                     },
+#                     "feed_url" => "http://www.tobike.it/frmLeStazioni.aspx?ID=%{id}",
+#                     "tag" => "to-bike"
+#     }
+#     cyclocity = Bicincitta.new(instance)
+#     cyclocity.update
+#     puts cyclocity.stations.length
+#     cyclocity.stations.each do |station|
+#         puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#     end
+# end

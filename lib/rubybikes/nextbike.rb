@@ -66,15 +66,15 @@ class NextbikeStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    require 'json'
-    JSON.parse(File.read('./schemas/nextbike.json'))['instances'].each do |instance|
-        nextbike = Nextbike.new(instance)
-        puts nextbike.meta
-        nextbike.update
-        puts nextbike.stations.length
-        nextbike.stations.each do |station|
-            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-        end
-    end
-end
+# if __FILE__ == $0
+#     require 'json'
+#     JSON.parse(File.read('./schemas/nextbike.json'))['instances'].each do |instance|
+#         nextbike = Nextbike.new(instance)
+#         puts nextbike.meta
+#         nextbike.update
+#         puts nextbike.stations.length
+#         nextbike.stations.each do |station|
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#         end
+#     end
+# end

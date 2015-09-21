@@ -33,7 +33,7 @@ class Samba < BikeShareSystem
     
     def update
         scraper = Scraper.new(headers={'User-Agent' => USER_AGENT})
-        html = scraper.request(@feed_url)
+        html = scraper.request(@feed_url).force_encoding('ISO-8859-1').encode('UTF-8')
         html.gsub!(/\r\n|\r/, '').gsub!('"','')
         @stations = html.scan(STATIONS_RGX).map do |info|
             latitude, longitude, name, online_status, operation_status, bikes, slots, address = info
@@ -104,17 +104,17 @@ class SambaStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    require 'json'
-    JSON.parse(File.read('./schemas/samba.json'))['class']['Samba']['instances'].each do |instance|
-    # JSON.parse(File.read('./schemas/samba.json'))['class']['SambaNew']['instances'].each do |instance|
-        samba = Samba.new(instance)
-        # samba = SambaNew.new(instance)
-        puts samba.meta
-        samba.update
-        puts samba.stations.length
-        samba.stations.each do |station|
-            puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-        end
-    end
-end
+# if __FILE__ == $0
+#     require 'json'
+#     JSON.parse(File.read('./schemas/samba.json'))['class']['Samba']['instances'].each do |instance|
+#     # JSON.parse(File.read('./schemas/samba.json'))['class']['SambaNew']['instances'].each do |instance|
+#         samba = Samba.new(instance)
+#         # samba = SambaNew.new(instance)
+#         puts samba.meta
+#         samba.update
+#         puts samba.stations.length
+#         samba.stations.each do |station|
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#         end
+#     end
+# end
