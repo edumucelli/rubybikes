@@ -108,12 +108,16 @@ class Bicincitta < BikeShareSystem
             mess = info[0].split("\',\'")
             latitudes = mess[3].split('|')
             longitudes = mess[4].split('|')
-            names = mess[5].split(':|')
+            names = mess[5].gsub(':', '').split('|')
             availabilities = mess[6].split('|')
-            names.zip(latitudes, longitudes, availabilities).each do |name, latitude, longitude, availability|
+            operation_statuses = mess[8].split('|')
+            names.zip(latitudes, longitudes, availabilities, operation_statuses).each do |name, latitude, longitude, availability, operation_status|
                 bikes = availability.count('4')
                 free = availability.count('0')
-                station = BicincittaStation.new(name, latitude.to_f, longitude.to_f, bikes, free)
+                extra = {
+                    'closed' => operation_status != '0'
+                }
+                station = BicincittaStation.new(name, latitude.to_f, longitude.to_f, bikes, free, extra)
                 stations << station
             end
         end
@@ -122,58 +126,57 @@ class Bicincitta < BikeShareSystem
 end
 
 class BicincittaStation < BikeShareStation
-    def initialize(name, latitude, longitude, bikes, free)
+    def initialize(name, latitude, longitude, bikes, free, extra={})
         super()
         @name       = name
         @latitude   = latitude
         @longitude  = longitude
         @bikes      = bikes
         @free       = free
+        @extra      = extra
     end
 end
 
-# if __FILE__ == $0
-#     instance = {
-#                     "comunes" => [
-#                         {
-#                             "id" => 22,
-#                             "name" => "Torino"
-#                         },
-#                         {
-#                             "id" => 61,
-#                             "name" => "Grugliasco"
-#                         },
-#                         {
-#                             "id" => 62,
-#                             "name" => "Collegno"
-#                         },
-#                         {
-#                             "id" => 63,
-#                             "name" => "Venaria Reale"
-#                         },
-#                         {
-#                             "id" => 64,
-#                             "name" => "Alpignano"
-#                         },
-#                         {
-#                             "id" => 65,
-#                             "name" => "Druento"
-#                         }
-#                     ],
-#                     "meta" => {
-#                         "latitude" => 45.07098200000001,
-#                         "city" => "Torino",
-#                         "name" => "[TO]BIKE",
-#                         "longitude" => 7.685676,
-#                         "country" => "IT"
-#                     },
-#                     "feed_url" => "http://www.tobike.it/frmLeStazioni.aspx?ID=%{id}",
-#                     "tag" => "to-bike"
-#     }
-#     cyclocity = Bicincitta.new(instance)
-#     cyclocity.update
-#     puts cyclocity.stations.length
-#     cyclocity.stations.each do |station|
-#         puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
-#     end
-# end
+if __FILE__ == $0
+    # instance = {
+    #                 "comunes" => [
+    #                     {
+    #                         "id" => 22,
+    #                         "name" => "Torino"
+    #                     },
+    #                     {
+    #                         "id" => 61,
+    #                         "name" => "Grugliasco"
+    #                     },
+    #                     {
+    #                         "id" => 62,
+    #                         "name" => "Collegno"
+    #                     },
+    #                     {
+    #                         "id" => 63,
+    #                         "name" => "Venaria Reale"
+    #                     },
+    #                     {
+    #                         "id" => 64,
+    #                         "name" => "Alpignano"
+    #                     },
+    #                     {
+    #                         "id" => 65,
+    #                         "name" => "Druento"
+    #                     }
+    #                 ],
+    #                 "meta" => {
+    #                     "latitude" => 45.07098200000001,
+    #                     "city" => "Torino",
+    #                     "name" => "[TO]BIKE",
+    #                     "longitude" => 7.685676,
+    #                     "country" => "IT"
+    #                 },
+    #                 "feed_url" => "http://www.tobike.it/frmLeStazioni.aspx?ID=%{id}",
+    #                 "tag" => "to-bike"
+    # }
+    # puts cyclocity.stations.length
+    # cyclocity.stations.each do |station|
+    #     puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+    # end
+end

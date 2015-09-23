@@ -4,12 +4,11 @@
 require 'digest/md5'
 
 class BikeShareSystem
-    attr_accessor :tag, :meta, :sync, :authed, :unifeed
+    attr_accessor :tag, :meta, :authed
     def initialize(tag, meta)
         @stations   = []
         @tag        = tag
         @meta       = meta
-        @sync       = true
         # basemeta = dict(BikeShareSystem.meta, **self.meta)
         # self.meta = dict(basemeta, **meta)
         # if not self.meta['name'] and self.meta['system']:

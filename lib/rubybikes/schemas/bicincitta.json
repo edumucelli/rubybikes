@@ -1,8 +1,19 @@
-{   "label": "Bicincittà",
+{
+    "label": "Bicincitta",
     "system": "bicincitta",
     "class": {
         "Bicincitta": {
             "instances": [
+                {
+                    "meta": {
+                        "latitude": 43.3186,
+                        "city": "Siena",
+                        "longitude": 11.3306,
+                        "country": "IT"
+                    },
+                    "tag": "bicincitta-siena",
+                    "feed_url": "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=202"
+                },
                 {
                     "meta": {
                         "latitude": 44.272554,
@@ -422,7 +433,7 @@
                         "longitude": 7.685676,
                         "country": "IT"
                     },
-                    "feed_url": "http://www.tobike.it/frmLeStazioni.aspx?ID=%{id}",
+                    "feed_url": "http://www.tobike.it/frmLeStazioni.aspx?ID={id}",
                     "tag": "to-bike"
                 },
                 {
