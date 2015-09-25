@@ -32,6 +32,10 @@ class BikeShareStation
         @timestamp = Time.now.utc
     end
     def get_hash
-        Digest::MD5.hexdigest("#{@name},#{@latitude*1E6},#{@longitude*1E6}")
+        unless @extra.has_key?('uid')
+            Digest::MD5.hexdigest("#{@name},#{@latitude},#{@longitude}")
+        else
+            Digest::MD5.hexdigest("#{@name},#{@latitude},#{@longitude},#{@extra['uid']}")
+        end
     end
 end

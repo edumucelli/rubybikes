@@ -7,9 +7,10 @@ require 'json'
 require_relative 'base'
 require_relative 'utils'
 
-BASE_URL = "http://www.callabike-interaktiv.de/kundenbuchung/hal2ajax_process.php?callee=getMarker&mapstadt_id=%{city_id}&requester=bikesuche&ajxmod=hal2map&bereich=2&buchungsanfrage=N&webfirma_id=500&searchmode=default"
-
 class Callabike < BikeShareSystem
+
+    BASE_URL = "http://www.callabike-interaktiv.de/kundenbuchung/hal2ajax_process.php?callee=getMarker&mapstadt_id=%{city_id}&requester=bikesuche&ajxmod=hal2map&bereich=2&buchungsanfrage=N&webfirma_id=500&searchmode=default"
+
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
         tag     = schema_instance_parameters.fetch('tag')
@@ -24,20 +25,6 @@ class Callabike < BikeShareSystem
         scraper = Scraper.new()
         html = scraper.request(@feed_url)
         markers = JSON.parse(html)
-        markers['marker'].each do |marker|
-            if marker['hal2option'] && marker['hal2option']['standort_id']
-                station = CallabikeStation.new(marker)
-                stations << station
-            end
-        end
-        @stations = stations
-    end
-end
-
-
-class CallabikeStation < BikeShareStation
-    def initialize(marker)
-        super()
         # {
         #     "lat" => "49.858031000000000",
         #     "lng" => "8.651165000000000",
@@ -68,13 +55,33 @@ class CallabikeStation < BikeShareStation
         #         }], "objecttyp" => "cab_standort", "clustername" => "bikecluster", "filter" => ["cab_flex"]
         #     }
         # }
-        prefix      = marker['hal2option']
-        @name       = prefix['tooltip'].gsub('&nbsp;', ' ')
-        prefix['bikelist']
-        @latitude   = marker['lat'].to_f
-        @longitude  = marker['lng'].to_f
-        bikelist    = prefix['bikelist']
-        @bikes      = bikelist.count {|bike| bike["canBeRented"]}
+        markers['marker'].each do |marker|
+            prefix = marker['hal2option']
+            unless prefix['standort_id'].empty?
+                name       = prefix['tooltip'].gsub('&nbsp;', ' ').gsub('\'','')
+                latitude   = marker['lat'].to_f
+                longitude  = marker['lng'].to_f
+                bikelist   = prefix['bikelist']
+                bikes      = bikelist.count {|bike| bike["canBeRented"]}
+                extra      = {
+                    'uid' => prefix['standort_id']
+                }
+                station = CallabikeStation.new(name, latitude, longitude, bikes, extra)
+                stations << station
+            end
+        end
+        @stations = stations
+    end
+end
+
+class CallabikeStation < BikeShareStation
+    def initialize(name, latitude, longitude, bikes, extra)
+        super()
+        @name = name
+        @latitude = latitude
+        @longitude = longitude
+        @bikes = bikes
+        @extra = extra
     end
 end
 
@@ -84,7 +91,8 @@ end
 #         callabike.update
 #         puts callabike.stations.length
 #         callabike.stations.each do |station|
-#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#             # puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.extra}"
 #         end
 #     end
 # end

@@ -1,6 +1,6 @@
 # Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
 # Inspired on PyBikes' ciclosampa.py
-# Distributed under the GPL license, see LICENSE.txt
+# Distributed under the AGPL license, see LICENSE.txt
 
 require_relative 'base'
 require_relative 'utils'

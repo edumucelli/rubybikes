@@ -21,6 +21,7 @@ class Nextbike < BikeShareSystem
     end
 
     def update
+        stations = []
         scraper = Scraper.new()
         data = scraper.request(@feed_url)
         xml = REXML::Document.new(data)
@@ -37,32 +38,52 @@ class Nextbike < BikeShareSystem
                 # spot='1'
                 # terminal_type='7inch'
                 # uid='263966'/>
-            name = station.attributes['name']
-            latitude = station.attributes['lat'].to_f
-            longitude = station.attributes['lng'].to_f
-            raw_bikes = station.attributes['bikes']
-            # Some stations count up to 5, then it addes a '+' sign, WHY.CANNOT.COUNT.NORMALLY?
-            if raw_bikes.end_with?('+')
-                bikes = raw_bikes.gsub('+', '').to_i
-            else
-                bikes = raw_bikes.to_i
+            # Among nextbike networks, stations may contain the following attributes:
+            # uid, lat, lng, name, spot, number, bikes, terminal_type, bike_numbers,
+            # bike, bike_racks, and maintenance. Only stations with 'terminal_types' 
+            # are actual bike stands, the rest are current positions of the bicycles
+            if station.attributes.get_attribute('terminal_type')
+                name = station.attributes['name']
+                latitude = station.attributes['lat'].to_f
+                longitude = station.attributes['lng'].to_f
+                raw_bikes = station.attributes['bikes']
+                # Some stations count up to 5, then it addes a '+' sign, WHY.CANNOT.COUNT.NORMALLY?
+                if raw_bikes.end_with?('+')
+                    bikes = raw_bikes.gsub('+', '').to_i
+                else
+                    bikes = raw_bikes.to_i
+                end
+                extra = {
+                    'uid' => station.attributes['uid']
+                }
+                slots = station.attributes['bike_racks']
+                if slots
+                    free = slots.to_i - bikes
+                    extra['slots'] = slots.to_i
+                else
+                    free = 0
+                end
+                maintenance = station.attributes['maintenance']
+                if maintenance == "1"
+                    extra['closed'] = true
+                end
+                station = NextbikeStation.new(name, latitude, longitude, bikes, free, extra)
+                stations << station
             end
-            free = station.attributes['slots'].to_i
-            station = NextbikeStation.new(name, latitude, longitude, bikes, free)
-            stations << station
         end
         @stations = stations
     end
 end
 
 class NextbikeStation < BikeShareStation
-    def initialize(name, latitude, longitude, bikes, free)
+    def initialize(name, latitude, longitude, bikes, free, extra)
         super()
         @name      = name
         @latitude  = latitude
         @longitude = longitude
         @bikes     = bikes
         @free      = free
+        @extra     = extra
     end
 end
 
@@ -74,7 +95,8 @@ end
 #         nextbike.update
 #         puts nextbike.stations.length
 #         nextbike.stations.each do |station|
-#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#             # puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.extra}"
 #         end
 #     end
 # end

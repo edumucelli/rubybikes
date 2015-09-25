@@ -90,7 +90,6 @@ class Bicincitta < BikeShareSystem
 
     def update
         scraper = Scraper.new()
-        stations = []
         if @feed_url.is_a? String
             html = scraper.request(@feed_url)
             @stations = process_stations(html)
@@ -104,22 +103,21 @@ class Bicincitta < BikeShareSystem
 
     def process_stations(html)
         stations = []
-        html.scan(INFO_RGX).each do |info|
-            mess = info[0].split("\',\'")
-            latitudes = mess[3].split('|')
-            longitudes = mess[4].split('|')
-            names = mess[5].gsub(':', '').split('|')
-            availabilities = mess[6].split('|')
-            operation_statuses = mess[8].split('|')
-            names.zip(latitudes, longitudes, availabilities, operation_statuses).each do |name, latitude, longitude, availability, operation_status|
-                bikes = availability.count('4')
-                free = availability.count('0')
-                extra = {
-                    'closed' => operation_status != '0'
-                }
-                station = BicincittaStation.new(name, latitude.to_f, longitude.to_f, bikes, free, extra)
-                stations << station
-            end
+        info = html.scan(INFO_RGX)[0]
+        mess = info[0].split("\',\'")
+        latitudes = mess[3].split('|')
+        longitudes = mess[4].split('|')
+        names = mess[5].gsub(':', '').split('|')
+        availabilities = mess[6].split('|')
+        operation_statuses = mess[8].split('|')
+        names.zip(latitudes, longitudes, availabilities, operation_statuses).each do |name, latitude, longitude, availability, operation_status|
+            bikes = availability.count('4')
+            free = availability.count('0')
+            extra = {
+                'closed' => operation_status != '0'
+            }
+            station = BicincittaStation.new(name, latitude.to_f, longitude.to_f, bikes, free, extra)
+            stations << station
         end
         stations
     end
@@ -137,46 +135,23 @@ class BicincittaStation < BikeShareStation
     end
 end
 
-if __FILE__ == $0
-    # instance = {
-    #                 "comunes" => [
-    #                     {
-    #                         "id" => 22,
-    #                         "name" => "Torino"
-    #                     },
-    #                     {
-    #                         "id" => 61,
-    #                         "name" => "Grugliasco"
-    #                     },
-    #                     {
-    #                         "id" => 62,
-    #                         "name" => "Collegno"
-    #                     },
-    #                     {
-    #                         "id" => 63,
-    #                         "name" => "Venaria Reale"
-    #                     },
-    #                     {
-    #                         "id" => 64,
-    #                         "name" => "Alpignano"
-    #                     },
-    #                     {
-    #                         "id" => 65,
-    #                         "name" => "Druento"
-    #                     }
-    #                 ],
-    #                 "meta" => {
-    #                     "latitude" => 45.07098200000001,
-    #                     "city" => "Torino",
-    #                     "name" => "[TO]BIKE",
-    #                     "longitude" => 7.685676,
-    #                     "country" => "IT"
-    #                 },
-    #                 "feed_url" => "http://www.tobike.it/frmLeStazioni.aspx?ID=%{id}",
-    #                 "tag" => "to-bike"
+# if __FILE__ == $0
+
+    # instance =  {
+    #     "meta" => {
+    #         "latitude" => 45.83745947067494,
+    #         "longitude" => 9.073591857810925,
+    #         "city" => "Cernobbio",
+    #         "country" => "IT"
+    #     },
+    #     "tag" => "bicincitta-cernobbio",
+    #     "feed_url" => "http://bicincitta.tobike.it/frmLeStazioni.aspx?ID=212"
     # }
-    # puts cyclocity.stations.length
-    # cyclocity.stations.each do |station|
-    #     puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+
+    # bicincitta = Bicincitta.new(instance)
+    # bicincitta.update
+    # puts bicincitta.stations.length
+    # bicincitta.stations.each do |station|
+    #     puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
     # end
-end
+# end
