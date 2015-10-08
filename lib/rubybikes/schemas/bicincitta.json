@@ -215,17 +215,6 @@
                 },
                 {
                     "meta": {
-                        "latitude": 44.550723,
-                        "city": "Fossano",
-                        "name": "Fossano",
-                        "longitude": 7.7215,
-                        "country": "IT"
-                    },
-                    "tag": "fossano",
-                    "feed_url": "http://www.bicincittabip.com/frmLeStazioni.aspx?ID=107"
-                },
-                {
-                    "meta": {
                         "latitude": 41.645081,
                         "city": "Frosinone",
                         "name": "FRee Bike sharing",
