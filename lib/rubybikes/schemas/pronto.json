@@ -13,5 +13,6 @@
         }
     ],
     "system": "pronto",
-    "class": "Pronto"
+    "class": "Pronto",
+    "label": "Pronto"
 }
