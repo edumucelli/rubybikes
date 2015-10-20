@@ -18,7 +18,7 @@ class Scraper
     end
     def request(url, method = 'GET', params = nil, data = nil)
     	if method == 'GET'
-			response = open(url, @headers.merge(:allow_unsafe_redirects => true))
+			response = open(url, @headers.merge(:allow_unsafe_redirects => true, :read_timeout => 17))
             # puts response.charset
     	else
     		raise '#{method} not implemented yet.'

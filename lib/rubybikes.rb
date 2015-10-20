@@ -117,33 +117,48 @@ class RubyBikes
 end
 
 # if __FILE__ == $0
-# 	# bikes.tags.each do |tag|
-# 	# 	start = Time.now
-# 	# 	instance = bikes.get(tag)
-# 	# 	instance.update
-# 	# 	instance.stations.each do |station|
-# 	# 		puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
-# 	# 	end
-# 	# 	puts "#{Time.now - start} seconds to update all stations"
-# 	# end
-# 	bikes = RubyBikes.new
-# 	# puts bikes.get({'tag' => 'vlille'}).update
-# 	# puts bikes.tags.length
-# 	# ====
-# 	# By label
-# 	# instances = bikes.get({'label' => 'Cyclocity', 'api_key' => '4b780b841057c43770f03bd06c8d30a7c41f9200'})
-# 	# instances.each do |instance|
-# 	# 	puts instance.meta
-# 	# 	instance.update
-# 	# 	instance.stations.each do |station|
-# 	# 		puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
-# 	# 	end
-# 	# end
-# 	# ====
-# 	# By tag
-# 	# cyclic = bikes.get({'tag' => 'cyclic', 'api_key' => '4b780b841057c43770f03bd06c8d30a7c41f9200'})
-# 	# cyclic.update
-# 	# cyclic.stations.each do |station|
-# 	#   puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
-# 	# end
+	# bikes.tags.each do |tag|
+	# 	start = Time.now
+	# 	instance = bikes.get(tag)
+	# 	begin
+	# 		instance.update
+	# 	rescue Net::ReadTimeout => e
+	# 		puts e.message
+	# 		next
+	# 	end
+	# 	instance.stations.each do |station|
+	# 		puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
+	# 	end
+	# 	puts "#{Time.now - start} seconds to update all stations"
+	# end
+	# bikes = RubyBikes.new
+	# puts bikes.get({'tag' => 'vlille'}).update
+	# puts bikes.tags.length
+	# ====
+	# By label
+	# instances = bikes.get({'label' => 'Cyclocity', 'api_key' => '4b780b841057c43770f03bd06c8d30a7c41f9200'})
+	# instances.each do |instance|
+	# 	puts instance.meta
+	# 	begin
+	# 		instance.update
+	# 	rescue Net::ReadTimeout => e
+	# 		puts e.message
+	# 		next
+	# 	end
+	# 	instance.stations.each do |station|
+	# 		puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
+	# 	end
+	# end
+	# ====
+	# By tag
+	# cyclic = bikes.get({'tag' => 'cyclic', 'api_key' => '4b780b841057c43770f03bd06c8d30a7c41f9200'})
+	# begin
+	# 	cyclic.update
+	# rescue Net::ReadTimeout => e
+	# 	puts e.message
+	# 	next
+	# end
+	# cyclic.stations.each do |station|
+	#   puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
+	# end
 # end
