@@ -16,9 +16,11 @@ class Changzhou < BikeShareSystem
         super(tag, meta)
     end
 
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         html = scraper.request(@feed_url)
         # There is one station in one of the cities in which the
         # address has a double quote mark in the middle of the string.

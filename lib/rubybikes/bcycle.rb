@@ -53,10 +53,12 @@ class BCycle < BikeShareSystem
         @meta   = meta.merge({"company" => ['Trek Bicycle Corporation', 'Humana', 'Crispin Porter + Bogusky']})
         super(tag, meta)
     end
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new(headers={'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
+                                                            (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"})
+        end
         stations = []
-        scraper = Scraper.new(headers={'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
-                                                        (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"})
 
         html = scraper.request(@feed_url)
         points = html.scan(LAT_LNG_RGX)

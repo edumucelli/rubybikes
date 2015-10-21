@@ -31,8 +31,10 @@ class Samba < BikeShareSystem
         super(tag, @meta)
     end
     
-    def update
-        scraper = Scraper.new(headers={'User-Agent' => USER_AGENT})
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new(headers={'User-Agent' => USER_AGENT})
+        end
         html = scraper.request(@feed_url).force_encoding('ISO-8859-1').encode('UTF-8')
         html.gsub!(/\r\n|\r/, '').gsub!('"','')
         @stations = html.scan(STATIONS_RGX).map do |info|
@@ -81,8 +83,10 @@ class SambaNew < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
-        scraper = Scraper.new(headers={'User-Agent' => USER_AGENT})
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new(headers={'User-Agent' => USER_AGENT})
+        end
         html = scraper.request(@feed_url)
         @stations = html.scan(STATIONS_RGX).map do |info|
             name, latitude, longitude, address, online_status, operation_status, bikes, free = info

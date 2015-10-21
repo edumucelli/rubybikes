@@ -27,8 +27,10 @@ class Smoove < BikeShareSystem
         @meta       = meta.merge(meta = {'company' => 'Smoove'})
         super(tag, @meta)
     end
-    def update
-        scraper = Scraper.new()
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         html = scraper.request(@feed_url)
         stations_data = html.scan(DATA_RGX)
 

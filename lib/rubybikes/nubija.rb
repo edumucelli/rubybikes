@@ -30,9 +30,11 @@ class Nubija < BikeShareSystem
         @info_url       = schema_instance_parameters.fetch('endpoint') + "terminalMapInfoWindow.do?tmno=%{tmno}"
         super(tag, @meta)
     end
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         html = scraper.request(@stations_url)
         html.scan(STATIONS_RGX).each do |marker|
             fields = marker[0].gsub("\'", '').gsub(' ', '').split(',')

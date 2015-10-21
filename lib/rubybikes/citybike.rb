@@ -15,8 +15,10 @@ class CityBike < BikeShareSystem
         @meta       = meta.merge({'company' => 'Gewista Werbegesellschaft m.b.H'})
         super(tag, @meta)
     end
-    def update
-        scraper = Scraper.new()
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         data = scraper.request(@feed_url)
         # <station>
         #     <id>102</id>

@@ -26,8 +26,10 @@ class Emovity < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
-        scraper = Scraper.new
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         html = scraper.request(@feed_url)
         points = html.scan(LAT_LNG_RGX)
         data = html.scan(DATA_RGX)

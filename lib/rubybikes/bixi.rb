@@ -22,9 +22,11 @@ class Bixi < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         html = scraper.request(@feed_url)
         if @format == FORMAT_JSON
             # {

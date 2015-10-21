@@ -20,8 +20,10 @@ class EcobiciBuenosAires < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
-        scraper = Scraper.new()
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         data = scraper.request(@feed_url)
         xml = REXML::Document.new(data)
         stations = []

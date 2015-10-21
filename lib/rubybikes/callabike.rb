@@ -20,9 +20,11 @@ class Callabike < BikeShareSystem
         super(tag, @meta)
         @feed_url = BASE_URL % {:city_id => city_id}
     end
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         html = scraper.request(@feed_url)
         markers = JSON.parse(html)
         # {

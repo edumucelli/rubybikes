@@ -19,9 +19,11 @@ class CocaCola < BikeShareSystem
         @meta   = meta.merge({'company' => 'The National Transport Authority'})
         super(tag, meta)
     end
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
 
         html = scraper.request(FEED_URL)
         stations_html = html.scan(STATIONS_RGX)

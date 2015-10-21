@@ -51,9 +51,11 @@ class BicincittaOld < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
-        scraper = Scraper.new(headers={'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
-                                                        (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"})
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new(headers={'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
+                                                            (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"})
+        end
         html = scraper.request(@feed_url)
         latitudes = html.scan(LAT_RGX)[0][0].split('_').map{ |latitude| latitude.to_f}
         longitudes = html.scan(LNG_RGX)[0][0].split('_').map{ |longitude| longitude.to_f}
@@ -88,8 +90,10 @@ class Bicincitta < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
-        scraper = Scraper.new()
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         if @feed_url.is_a? String
             html = scraper.request(@feed_url)
             @stations = process_stations(html)

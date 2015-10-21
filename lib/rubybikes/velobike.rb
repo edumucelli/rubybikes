@@ -43,8 +43,10 @@ class Velobike < BikeShareSystem
                                 })
         super(tag, @meta)
     end
-    def update
-        scraper = Scraper.new()
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         data = JSON.parse(scraper.request(@feed_url))
         stations = []
         data['data'].each do |station|

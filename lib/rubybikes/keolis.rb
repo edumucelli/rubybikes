@@ -29,8 +29,10 @@ class Keolis < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
-        scraper = Scraper.new()
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         html = scraper.request(@feed_url)
         stations = []
         html.scan(STATIONS_RGX).each do |data|

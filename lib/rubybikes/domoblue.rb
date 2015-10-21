@@ -22,10 +22,11 @@ class Domoblue < BikeShareSystem
         @meta     = meta.merge({'company' => 'Domoblue'})
         super(tag, @meta)
     end
-    def update
-        scraper = Scraper.new(headers={'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new(headers={'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
                                                         (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"})
-
+        end
         html = scraper.request(@token_url)
         token = html.scan(TOKEN_RGX)[0][0]
         scraper.headers['Referer'] = @token_url

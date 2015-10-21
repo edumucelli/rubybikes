@@ -16,9 +16,11 @@ class Veloway < BikeShareSystem
         @meta   = meta.merge({'company' => 'Veolia'})
         super(tag, @meta)
     end
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         data = JSON.parse(scraper.request(@feed_url))
         # "stand"=>[{"wcom"=>"",
         #             "disp"=>"1",

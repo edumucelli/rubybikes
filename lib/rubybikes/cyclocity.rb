@@ -30,9 +30,11 @@ class Cyclocity < BikeShareSystem
         @api_key    = api_key
         @feed_url   = API_URL % {:api_key => @api_key, :contract => @contract}
     end
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         data = JSON.parse(scraper.request(@feed_url))
         data.each do |info|
             name      = info['name']
@@ -67,9 +69,11 @@ class CyclocityWeb < BikeShareSystem
         @carto_url = "#{schema_instance_parameters.fetch('endpoint')}/service/carto"
         @station_url = "#{schema_instance_parameters.fetch('endpoint')}/service/stationdetails/#{city}/%{id}"
     end
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         carto_xml = REXML::Document.new(scraper.request(@carto_url))
         carto_xml.elements.each('carto/markers/marker') do |marker|
             name        = marker.attributes['name']

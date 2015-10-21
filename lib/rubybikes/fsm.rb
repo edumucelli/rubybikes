@@ -25,8 +25,10 @@ class FSM < BikeShareSystem
         @meta     = meta.merge({'company' => 'FSM'})
         super(tag, @meta)
     end
-    def update
-    	scraper = Scraper.new
+    def update(scraper = nil)
+        unless scraper
+    	   scraper = Scraper.new
+        end
         html = scraper.request(@feed_url)
         @stations = html.scan(STATIONS_RGX).map do |info|
             fields = info[0].gsub('\'','').split(',')

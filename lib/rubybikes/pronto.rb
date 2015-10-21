@@ -17,9 +17,11 @@ class Pronto < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         data = JSON.parse(scraper.request(@feed_url))
         # Each station is
         # {

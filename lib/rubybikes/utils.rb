@@ -12,13 +12,15 @@ suppress_warnings { OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE }
 class Scraper
 	attr_accessor :headers, :user_agent
 
-    def initialize(headers=nil)
-    	@headers = headers || { 'User-Agent' => 'RubyBikes' }
+    def initialize(headers = nil, proxy = nil)
+        #{ 'User-Agent' => 'RubyBikes' }
+    	@headers = headers || {'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"}
+        @proxy = URI.parse(proxy) if proxy
         @last_request = nil
     end
-    def request(url, method = 'GET', params = nil, data = nil)
+    def request(url, method = 'GET')
     	if method == 'GET'
-			response = open(url, @headers.merge(:allow_unsafe_redirects => true, :read_timeout => 17))
+			response = open(url, @headers.merge(:allow_unsafe_redirects => true, :read_timeout => 17, :proxy => @proxy))
             # puts response.charset
     	else
     		raise '#{method} not implemented yet.'

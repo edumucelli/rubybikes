@@ -1,5 +1,5 @@
 # Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
-# Inspired on PyBikes' smartbike.py (mainly the messy double encoded JSON, damn it!)
+# Inspired on PyBikes' smartbike.py, mainly on how to deal with the messy double encoded JSON, damn it!)
 # Distributed under the AGPL license, see LICENSE.txt
 
 require 'json'
@@ -19,9 +19,11 @@ class SmartBike < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         data = JSON.parse(scraper.request(@feed_url))
         if @format == "json_v1"
             # {"StationID":"1",
@@ -90,9 +92,11 @@ class SmartBikeNew < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         html = scraper.request(@feed_url)
         data = JSON.parse(html.scan(STATIONS_RGX)[0][0])
         data['markerOptions'].each do |marker|

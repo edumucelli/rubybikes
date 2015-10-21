@@ -20,9 +20,11 @@ class BiciPalma < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
-        scraper = Scraper.new(headers = {'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36",
-                                        'Referer' => 'http://83.36.51.60:8080/eTraffic3/Control?act=mp'})
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new(headers = {'User-Agent' => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36",
+                                             'Referer' => 'http://83.36.51.60:8080/eTraffic3/Control?act=mp'})
+        end
         # First visit just to eat the cookie ;-)
         scraper.request(COOKIE_URL)
         html = scraper.request(DATA_URL)

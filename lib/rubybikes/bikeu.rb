@@ -17,9 +17,11 @@ class Bikeu < BikeShareSystem
         @meta     = meta.merge({'company' => 'Bike U Sp. z o.o.'})
         super(tag, @meta)
     end
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         html = scraper.request(@feed_url)
         data = JSON.parse(html.scan(REGEX)[0][0])
         data.each do |marker|

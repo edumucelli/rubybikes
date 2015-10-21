@@ -21,9 +21,11 @@ class EasyBike < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         networks = JSON.parse(scraper.request(API_URL))
         network = networks.detect {|network| network["city"] == @city_id }
         raise CityNotAvailableError unless network

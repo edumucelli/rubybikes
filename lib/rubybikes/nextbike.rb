@@ -20,9 +20,11 @@ class Nextbike < BikeShareSystem
         super(tag, @meta)
     end
 
-    def update
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         stations = []
-        scraper = Scraper.new()
         data = scraper.request(@feed_url)
         xml = REXML::Document.new(data)
         xml.elements.each("//city[@uid=#{@city_uid}]/place") do |station|

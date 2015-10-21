@@ -21,8 +21,10 @@ class Encicla < BikeShareSystem
 		@meta     = meta.merge({'company' => 'Sistema de Bicicletas Públicas del Valle de Aburrá'})
 		super(tag, @meta)
 	end
-	def update
-		scraper = Scraper.new()
+	def update(scraper = nil)
+		unless scraper
+			scraper = Scraper.new
+		end
 		data = JSON.parse(scraper.request(@feed_url))
 		stations = []
 		data['stations'].each do |station|

@@ -15,8 +15,10 @@ class Cleanap < BikeShareSystem
         @meta     = meta.merge({'company' => 'CleaNap'})
         super(tag, @meta)
     end
-    def update
-        scraper = Scraper.new
+    def update(scraper = nil)
+        unless scraper
+            scraper = Scraper.new
+        end
         data = JSON.parse(scraper.request(@feed_url))
         stations = []
          # {"status"=>1,
