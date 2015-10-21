@@ -10,7 +10,7 @@ require_relative 'redirections'
 suppress_warnings { OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE }
 
 class Scraper
-	attr_accessor :headers, :user_agent
+	attr_accessor :headers, :proxy
 
     def initialize(headers = nil, proxy = nil)
         #{ 'User-Agent' => 'RubyBikes' }
