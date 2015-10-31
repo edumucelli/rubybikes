@@ -9,7 +9,7 @@ require_relative 'utils'
 
 class Callabike < BikeShareSystem
 
-    BASE_URL = "http://www.callabike-interaktiv.de/kundenbuchung/hal2ajax_process.php?callee=getMarker&mapstadt_id=%{city_id}&requester=bikesuche&ajxmod=hal2map&bereich=2&buchungsanfrage=N&webfirma_id=500&searchmode=default"
+    BASE_URL = "https://www.callabike-interaktiv.de/kundenbuchung/hal2ajax_process.php?callee=getMarker&mapstadt_id=%{city_id}&requester=bikesuche&ajxmod=hal2map&bereich=2&buchungsanfrage=N&webfirma_id=500&searchmode=default"
 
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
