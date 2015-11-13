@@ -13,5 +13,6 @@
         }
     ],
     "system": "mvgmeinrad",
-    "class": "Mvgmeinrad"
+    "class": "Mvgmeinrad",
+    "label": "Mvgmeinrad"
 }
