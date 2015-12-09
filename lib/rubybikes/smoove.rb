@@ -17,7 +17,7 @@ I.e., (station_id, latitude, longitude, name, available_bikes, free_bike_stands,
 
 class Smoove < BikeShareSystem
 
-    DATA_RGX = /\(\d+\,\ (\d+.\d+).*?(\d+.\d+)\,\ "<div.*?>(.*?)<br>.*?:(.*?)<br>.*?:(.*?)<br>.*?:(.*?)<br><\/div>"\)/
+    DATA_RGX = /newmark_\d+\(\s*(\d+)\s*,\s*(\d+.\d+),\s*(\d+.\d+)\s*,\s*\"<div.*?>(.*?)<br>.*?:\s*(.*?)<br>.*?:\s*(.*?)<br>.*?:\s*(.*?)<br><\/div>\"/
     
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
@@ -37,20 +37,24 @@ class Smoove < BikeShareSystem
         @stations = stations_data.map do |station_data|
             # discards the last element of stations_data
             # which indicates if the station is credit card-enabled
-            latitude, longitude, name, bikes, free = station_data[0...-1]
-            SmooveStation.new(name.force_encoding('ISO-8859-1').encode('UTF-8'), latitude.to_f, longitude.to_f, bikes.to_i, free.to_i)
+            uid, latitude, longitude, name, bikes, free = station_data[0...-1]
+            extra = {
+                'uid' => uid.to_i
+            }
+            SmooveStation.new(name.force_encoding('ISO-8859-1').encode('UTF-8'), latitude.to_f, longitude.to_f, bikes.to_i, free.to_i, extra)
         end
     end
 end
 
 class SmooveStation < BikeShareStation
-    def initialize(name, latitude, longitude, bikes, free)
+    def initialize(name, latitude, longitude, bikes, free, extra)
         super()
         @name      = name
         @latitude  = latitude
         @longitude = longitude
         @bikes     = bikes
         @free      = free
+        @extra     = extra
     end
 end
 
@@ -61,7 +65,7 @@ end
 #         smoove.update
 #         puts smoove.stations.length
 #         smoove.stations.each do |station|
-#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}, #{station.timestamp}"
 #         end
 #     end
 # end
