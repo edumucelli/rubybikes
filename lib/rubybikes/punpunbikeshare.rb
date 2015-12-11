@@ -48,7 +48,7 @@ class Punpunbikeshare < BikeShareSystem
             latitude = item['lat'].to_f
             longitude = item['lng'].to_f
             slots = item['bikeDockCount'].to_i
-            bikes = item['bikeDocks'].count{ |h| !h['bikeId'].empty? }.size
+            bikes = item['bikeDocks'].count{ |h| !h['bikeId'].empty? }
             free = slots - bikes
             extra = {
                 'slots' => slots,
