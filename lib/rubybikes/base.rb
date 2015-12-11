@@ -18,14 +18,14 @@ end
 
 class BikeShareStation
     attr_accessor :name, :latitude, :longitude, :bikes, :free, :timestamp, :extra
-    def initialize(timestamp = nil)
+    def initialize
         @name       = nil
         @latitude   = nil
         @longitude  = nil
         @bikes      = 0
         @free       = 0
         # Timestamp is UTC
-        @timestamp  = timestamp || Time.now.utc
+        @timestamp  = Time.now.utc
         @extra      = {}
     end
     def update
