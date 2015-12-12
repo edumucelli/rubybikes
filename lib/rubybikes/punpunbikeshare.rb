@@ -42,7 +42,6 @@ class Punpunbikeshare < BikeShareSystem
         #     ]
         # }
         stations = []
-        
         data['stations'].each do |item|
             name = item['stationName']
             latitude = item['lat'].to_f
@@ -58,7 +57,6 @@ class Punpunbikeshare < BikeShareSystem
             station = PunpunbikeshareStation.new(name, latitude, longitude, bikes, free, extra)
             stations << station
         end
-
         @stations = stations
     end
 end
