@@ -3,6 +3,7 @@
 # Distributed under the AGPL license, see LICENSE.txt
 
 require 'json'
+require 'cgi'
 
 require_relative 'base'
 require_relative 'utils'
@@ -80,8 +81,25 @@ end
 
 class SmartBikeNew < BikeShareSystem
 
-    STATIONS_RGX = /.*?Artem\.Google\.MarkersBehavior\,\ (.*?)\, null/
-    INFO_RGX = /.*?<li>.*?: (\d+)<\/li>.*?<li>.*?: (\d+)<\/li>.*?<li>.*?: (\d+)<\/li>/
+    # Stations looks like this, however HTML is not clean as shown bellow,
+    # but a mess of unescaped-unicode-formatted string
+    # GoogleMap.addMarker(
+    # '/media/assets/images/station_map/more_than_five_bikes_flag.png',
+    # 45.464683238626,
+    # 9.18879747390747,
+    # 'Duomo',
+    # '<div style="width: 240px; height: 120px;">
+    #     <span style="font-weight: bold;">178 - V Alpini</span>
+    #     <br>
+    #     <ul>
+    #         <li>Available bicycles: 9</li>
+    #         <li>Available electrical bicycles: 0</li>
+    #         <li>Available slots: 20</li>
+    #         </ul>
+    # </div>');
+    
+    STATIONS_RGX = /GoogleMap\.addMarker\(.*?,\s*(\d+.\d+)\s*,\s*(\d+.\d+),\s*\'(.*?)\',(.*?)\)\;/
+    STATUS_RGX = /.*?Available bicycles:\s*(\d+).*?Available electrical bicycles:\s*(\d+).*?Available slots:\s*(\d+)/
 
     attr_accessor :stations, :meta
     def initialize(schema_instance_parameters={})
@@ -98,25 +116,12 @@ class SmartBikeNew < BikeShareSystem
         end
         stations = []
         html = scraper.request(@feed_url)
-        data = JSON.parse(html.scan(STATIONS_RGX)[0][0])
-        data['markerOptions'].each do |marker|
-            name = marker['title']
-            latitude = marker['position']['lat']
-            longitude = marker['position']['lng']
-            raw_info = marker['info']
-            # raw_info looks like this
-            # <div style="width: 240px; height: 120px;">
-            #     <span style="font-weight: bold;">1 - Duomo</span>
-            #     <br/>
-            #     <ul>
-            #         <li>Available bicycles: 18</li>
-            #         <li>Available electrical bicycles: 0</li>
-            #         <li>Available slots: 6</li>
-            #     </ul>
-            # </div>
-            standard_bikes, electric_bikes, free = raw_info.scan(INFO_RGX)[0]
+        data = html.scan(STATIONS_RGX)
+        data.each do |item|
+            latitude, longitude, name, mess = item
+            standard_bikes, electric_bikes, free = mess.scan(STATUS_RGX)[0]
             bikes = standard_bikes.to_i + electric_bikes.to_i
-            station = SmartBikeStation.new(name, latitude, longitude, bikes, free.to_i)
+            station = SmartBikeStation.new(name, latitude.to_f, longitude.to_f, bikes, free.to_i)
             stations << station
         end
         @stations = stations
@@ -140,7 +145,6 @@ end
 #     JSON.parse(File.read('./schemas/smartbike.json'))['class']['SmartBikeNew']['instances'].each do |instance|
 #     # JSON.parse(File.read('./schemas/samba.json'))['class']['SambaNew']['instances'].each do |instance|
 #         smartbike = SmartBikeNew.new(instance)
-#         # smartbike = smartbikeNew.new(instance)
 #         puts smartbike.meta
 #         smartbike.update
 #         puts smartbike.stations.length
