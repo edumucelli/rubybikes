@@ -7,7 +7,7 @@ require 'json'
 require_relative 'base'
 require_relative 'utils'
 
-class CocaCola < BikeShareSystem
+class BikeshareIE < BikeShareSystem
 
     FEED_URL = "https://www.bikeshare.ie/"
     STATIONS_RGX = /var\ mapsfromcache\ =\ (.*?);/
@@ -16,6 +16,7 @@ class CocaCola < BikeShareSystem
     def initialize(schema_instance_parameters={})
         tag     = schema_instance_parameters.fetch('tag')
         meta    = schema_instance_parameters.fetch('meta')
+        @system_id = schema_instance_parameters.fetch('system_id')
         @meta   = meta.merge({'company' => 'The National Transport Authority'})
         super(tag, meta)
     end
@@ -29,26 +30,26 @@ class CocaCola < BikeShareSystem
         stations_html = html.scan(STATIONS_RGX)
         data = JSON.parse(stations_html[0][0])
 
-        data[@tag].each do |item|
+        data[@system_id].each do |item|
             name = item['name']
             latitude = item['latitude']
             longitude = item['longitude']
             bikes = item['bikesAvailable']
             free = item['docksAvailable']
             extra = {
-                'uid' => item['stationId']
+                'uid' => item['stationId'],
+                'slots' => item['docksCount']
             }
-            station = CocaColaStation.new(name, latitude, longitude, bikes, free, extra)
+            station = BikeshareIEStation.new(name, latitude, longitude, bikes, free, extra)
             stations << station
         end
         @stations = stations
     end
 end
 
-class CocaColaStation< BikeShareStation
+class BikeshareIEStation< BikeShareStation
     def initialize(name, latitude, longitude, bikes, free, extra)
         super()
-
         @name      = name
         @latitude  = latitude
         @longitude = longitude
@@ -60,12 +61,12 @@ end
 
 # if __FILE__ == $0
 #     require 'json'
-#     JSON.parse(File.read('./schemas/cocacola.json'))['instances'].each do |instance|
-#         cocacola = CocaCola.new(instance)
-#         puts cocacola.meta
-#         cocacola.update
-#         puts cocacola.stations.length
-#         cocacola.stations.each do |station|
+#     JSON.parse(File.read('./schemas/bikeshare_ie.json'))['instances'].each do |instance|
+#         bikeshare_ie = BikeshareIE.new(instance)
+#         puts bikeshare_ie.meta
+#         bikeshare_ie.update
+#         puts bikeshare_ie.stations.length
+#         bikeshare_ie.stations.each do |station|
 #             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}, #{station.extra}"
 #         end
 #     end
