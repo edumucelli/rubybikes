@@ -33,7 +33,44 @@ class Encicla < BikeShareSystem
 				if item['cdo'].to_i != 0
 					next
 				end
-				station = EnciclaStation.new(item)
+
+				# {
+				# "order": 0,
+				# "name": "Moravia",
+				# "address": "CALLE 82A # 52-29",
+				# "description": "Frente a la entrada principal del Centro de Desarrollo Cultural de Moravia",
+				# "lat": "6.276585",
+				# "lon": "-75.564804",
+				# "type": "manual",
+				# "capacity": 15,
+				# "bikes": 8,
+				# "places": null,
+				# "picture": "http:\/\/encicla.gov.co\/wp-content\/uploads\/estaciones-360-moravia.jpg",
+				# "bikes_state": 0,
+				# "places_state": "danger",
+				# "closed": 0,
+				# "cdo": 0
+				# }
+				name      = item['name']
+				longitude = item['lon'].to_f
+				latitude  = item['lat'].to_f
+				bikes     = item['bikes'].to_i
+				places    = item['places']
+				unless places
+					free = 0
+				else
+					free  = places.to_i
+				end
+				# 'capacity' is often incorrect, even smaller than the number of bikes
+				# therefore it was not included on the 'slots' field
+				extra = {
+					'address'     => item['address'],
+				  	'description' => item['description'],
+				  	'type'        => item['type'],
+				  	'picture'     => item['picture'],
+				  	'closed'      => !item['closed'].zero?
+				}
+				station = EnciclaStation.new(name, latitude, longitude, bikes, free, extra)
 				stations << station
 		  	end
 		end
@@ -42,45 +79,15 @@ class Encicla < BikeShareSystem
 end
 
 class EnciclaStation < BikeShareStation
-	def initialize(item)
-		super
-		# {
-		# "order": 0,
-		# "name": "Moravia",
-		# "address": "CALLE 82A # 52-29",
-		# "description": "Frente a la entrada principal del Centro de Desarrollo Cultural de Moravia",
-		# "lat": "6.276585",
-		# "lon": "-75.564804",
-		# "type": "manual",
-		# "capacity": 15,
-		# "bikes": 8,
-		# "places": null,
-		# "picture": "http:\/\/encicla.gov.co\/wp-content\/uploads\/estaciones-360-moravia.jpg",
-		# "bikes_state": 0,
-		# "places_state": "danger",
-		# "closed": 0,
-		# "cdo": 0
-		# }
-		@name      = item['name']
-		@longitude = item['lon'].to_f
-		@latitude  = item['lat'].to_f
-		@bikes     = item['bikes'].to_i
-		places     = item['places']
-		unless places
-			@free = 0
-		else
-			@free  = places.to_i
-		end
-		# 'capacity' is often incorrect, even smaller than the number of bikes
-		# therefore it was not included on the 'slots' field
-		@extra = {
-			'address'     => item['address'],
-		  	'description' => item['description'],
-		  	'type'        => item['type'],
-		  	'picture'     => item['picture'],
-		  	'closed'      => !item['closed'].zero?
-		}
-  	end
+	def initialize(name, latitude, longitude, bikes, free, extra)
+        super()
+        @name = name
+        @latitude = latitude
+        @longitude = longitude
+        @bikes = bikes
+        @free = free
+        @extra = extra
+    end
 end
 
 # if __FILE__ == $0
@@ -91,7 +98,7 @@ end
 #         encicla.update
 #         puts encicla.stations.length
 #         encicla.stations.each do |station|
-#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.timestamp}"
+#             puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
 #         end
 #     end
 # end
