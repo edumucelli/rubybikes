@@ -2,6 +2,7 @@
 # Distributed under the AGPL license, see LICENSE.txt
 
 require 'open-uri'
+require 'net/http'
 require 'openssl'
 
 require_relative 'warnings'
@@ -18,17 +19,32 @@ class Scraper
         @proxy = URI.parse(proxy) if proxy
         @last_request = nil
     end
-    def request(url, method = 'GET')
+    def request(url, method = 'GET', params = nil)
     	if method == 'GET'
 			response = open(url, @headers.merge(:allow_unsafe_redirects => true, :read_timeout => 17, :proxy => @proxy))
             # puts response.charset
+            data = response.read
+            if response.meta.has_key?('set-cookie')
+                @headers['Cookie'] = response.meta['set-cookie']
+            end
+        elsif method == 'POST'
+            # As open-uri does not provide GET, fall-back to net/http
+            uri = URI.parse(url)
+            http = Net::HTTP.new(uri.host, uri.port)
+            http.use_ssl = uri.scheme == 'https'
+            request = Net::HTTP::Post.new(uri.path)
+            request.set_form_data(params)
+            response = http.request(request)
+            if response['set-cookie']
+                @headers['Cookie'] = response['set-cookie']
+            end
+            data = response.body
     	else
-    		raise '#{method} not implemented yet.'
+    		raise '#{method} not implemented.'
     	end
-        data = response.read
-        if response.meta.has_key?('set-cookie')
-        	@headers['Cookie'] = response.meta['set-cookie']
-		end
+        # FIXME: the method should be stored with last_response
+        # to indicate how to read it, since they differ with
+        # the HTTP method
         @last_request = response
         return data
     end
