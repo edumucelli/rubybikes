@@ -1,0 +1,18 @@
+{
+    "instances": [
+        {
+            "tag": "bikeandroll",
+            "meta": {
+                "latitude": 41.99827575683594,
+                "longitude": -87.786865234375,
+                "city": "Chicago, IL",
+                "name": "Bike and Roll",
+                "country": "US"
+            },
+            "feed_url": "http://chicago.smoovebike.com/en"
+        }
+    ],
+    "system": "bikeandroll",
+    "class": "BikeAndRoll",
+    "label": "Bike and Roll"
+}
