@@ -1,8 +1,10 @@
 # RubyBikes
 
-RubyBikes works with 2 concepts, _labels_ and _tags_.
+RubyBikes was inspired by [PyBikes](https://github.com/eskerda/pybikes).
 
-For instance, if you want to get information from the stations in the 'encicla' (Medellin, Colombia) system, you'd use:
+RubyBikes has two main concepts, _labels_ and _tags_.
+
+For instance, if you want to get information from the stations in the 'Encicla' (Medellin, Colombia) system, you'd use:
 
 ```ruby
 require 'rubybikes'
