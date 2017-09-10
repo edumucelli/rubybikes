@@ -30,6 +30,51 @@ class RubyBikesTest < Minitest::Test
         end
     end
 
+    def test_bicincitta_has_at_least_one_station
+        bikes = RubyBikes.new
+        bicincitta_instances = bikes.get({'label' => 'Bicincitta'})
+        bicincitta_instances.each do |instance|
+            instance.update
+            assert instance.stations.length > 0, "Failed for #{instance.meta}"
+        end
+    end
+
+    def test_bicipalma_has_at_least_one_station
+        bikes = RubyBikes.new
+        bicipalma_instances = bikes.get({'label' => 'BiciPalma'})
+        bicipalma_instances.each do |instance|
+            instance.update
+            assert instance.stations.length > 0, "Failed for #{instance.meta}"
+        end
+    end
+
+    def test_bikeandroll_has_at_least_one_station
+        bikes = RubyBikes.new
+        bikeandroll_instances = bikes.get({'label' => 'Bike and Roll'})
+        bikeandroll_instances.each do |instance|
+            instance.update
+            assert instance.stations.length > 0, "Failed for #{instance.meta}"
+        end
+    end
+
+    def test_bikeshareie_has_at_least_one_station
+        bikes = RubyBikes.new
+        bikeshareie_instances = bikes.get({'label' => 'BikeshareIE'})
+        bikeshareie_instances.each do |instance|
+            instance.update
+            assert instance.stations.length > 0, "Failed for #{instance.meta}"
+        end
+    end
+
+    def test_bikeu_has_at_least_one_station
+        bikes = RubyBikes.new
+        bikeu_instances = bikes.get({'label' => 'Bikeu'})
+        bikeu_instances.each do |instance|
+            instance.update
+            assert instance.stations.length > 0, "Failed for #{instance.meta}"
+        end
+    end
+
     # def test_baksi_has_at_least_one_station
     #     bikes = RubyBikes.new
         

@@ -6,39 +6,53 @@ require 'json'
 require_relative 'base'
 require_relative 'utils'
 
-REGEX = /var stationsData = (\[.*\]);/
+REGEX = /setConfig\('StationsData',(\[.*\])\);/
+
 
 class Bikeu < BikeShareSystem
+    
     attr_accessor :stations, :meta
+
     def initialize(schema_instance_parameters={})
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
-        @feed_url  = schema_instance_parameters.fetch('url')
+        @feed_url = schema_instance_parameters.fetch('url')
         @meta     = meta.merge({'company' => 'Bike U Sp. z o.o.'})
         super(tag, @meta)
     end
+
     def update(scraper = nil)
         unless scraper
             scraper = Scraper.new
         end
+
         stations = []
         html = scraper.request(@feed_url)
-        data = JSON.parse(html.scan(REGEX)[0][0])
-        data.each do |marker|
-            station = BikeuStation.new(marker)
+        data = html.scan(REGEX)[0][0]
+
+        markers = JSON.parse(data)
+        markers.each do |marker|
+            name       = marker['Name']
+            latitude   = marker['Latitude']
+            longitude  = marker['Longitude']
+            bikes      = marker['TotalAvailableBikes']
+            free       = marker['TotalLocks'] - bikes
+            station = BikeuStation.new(name, latitude, longitude, bikes, free)
             stations << station
         end
+
         @stations = stations
     end 
 end
+
 class BikeuStation < BikeShareStation
-    def initialize(info)
-        super
-        @latitude   = info['Latitude']
-        @longitude  = info['Longitude']
-        @name       = info['Name']
-        @bikes      = info['TotalAvailableBikes']
-        @free       = info['TotalLocks'] - @bikes
+    def initialize(name, latitude, longitude, bikes, free)
+        super()
+        @name = name
+        @latitude = latitude
+        @longitude = longitude
+        @bikes = bikes
+        @free = free
     end
 end
 

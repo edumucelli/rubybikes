@@ -32,5 +32,6 @@
         }
     ],
     "system": "bikeshare_ie",
-    "class": "BikeshareIE"
+    "class": "BikeshareIE",
+    "label": "BikeshareIE"
 }

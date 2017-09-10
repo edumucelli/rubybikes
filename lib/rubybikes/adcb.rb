@@ -8,14 +8,17 @@ require_relative 'base'
 require_relative 'utils'
 
 class AdcbBikeshare < BikeShareSystem
-	attr_accessor :stations, :meta
-	def initialize(schema_instance_parameters={})
+	
+    attr_accessor :stations, :meta
+	
+    def initialize(schema_instance_parameters={})
 		tag       = schema_instance_parameters.fetch('tag')
 		meta      = schema_instance_parameters.fetch('meta')
 		@feed_url  = schema_instance_parameters.fetch('feed_url')
 		@meta     = meta.merge({'company' => 'Cyacle Bicycle Rental LLC'})
 		super(tag, @meta)
 	end
+
 	def update(scraper = nil)
 		unless scraper
 			scraper = Scraper.new

@@ -11,6 +11,7 @@ class BikeAndRoll < BikeShareSystem
     STATIONS_RGX = /jQuery\.extend\(Drupal.settings,\s*(.*?)\);/
 
     attr_accessor :stations, :meta
+    
     def initialize(schema_instance_parameters={})
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
@@ -18,6 +19,7 @@ class BikeAndRoll < BikeShareSystem
         @meta     = meta.merge({'company' => ['Bike and Roll Chicago', 'Smoove']})
         super(tag, @meta)
     end
+
     def update(scraper = nil)
         unless scraper
             scraper = Scraper.new

@@ -13,6 +13,7 @@ class BikeshareIE < BikeShareSystem
     STATIONS_RGX = /var\ mapsfromcache\ =\ (.*?);/
 
     attr_accessor :stations, :meta
+
     def initialize(schema_instance_parameters={})
         tag     = schema_instance_parameters.fetch('tag')
         meta    = schema_instance_parameters.fetch('meta')
@@ -20,6 +21,7 @@ class BikeshareIE < BikeShareSystem
         @meta   = meta.merge({'company' => 'The National Transport Authority'})
         super(tag, meta)
     end
+    
     def update(scraper = nil)
         unless scraper
             scraper = Scraper.new
