@@ -13,5 +13,6 @@
         }
     ],
     "system": "adcb",
-    "class": "AdcbBikeshare"
+    "class": "AdcbBikeshare",
+    "label": "AdcbBikeshare"
 }

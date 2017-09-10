@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.files       = Dir.glob("lib/**/*") + %w(LICENSE README.md)
   s.homepage    = 'http://rubygems.org/gems/rubybikes'
   s.license     = 'AGPL'
+  s.add_development_dependency "rspec"
 end
