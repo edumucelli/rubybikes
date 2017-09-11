@@ -75,6 +75,15 @@ class RubyBikesTest < Minitest::Test
         end
     end
 
+    def test_bixi_has_at_least_one_station
+        bikes = RubyBikes.new
+        bixi_instances = bikes.get({'label' => 'Bixi'})
+        bixi_instances.each do |instance|
+            instance.update
+            assert instance.stations.length > 0, "Failed for #{instance.meta}"
+        end
+    end
+
     # def test_baksi_has_at_least_one_station
     #     bikes = RubyBikes.new
         

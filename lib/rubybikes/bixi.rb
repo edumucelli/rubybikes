@@ -12,7 +12,9 @@ FORMAT_XML  = 'xml'
 FORMAT_JSON_FROM_XML = 'json_from_xml'
 
 class Bixi < BikeShareSystem
+    
     attr_accessor :stations, :meta
+
     def initialize(schema_instance_parameters={})
         tag       = schema_instance_parameters.fetch('tag')
         meta      = schema_instance_parameters.fetch('meta')
