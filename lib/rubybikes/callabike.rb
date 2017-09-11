@@ -25,6 +25,7 @@ class Callabike < BikeShareSystem
             scraper = Scraper.new
         end
         stations = []
+        puts @feed_url
         html = scraper.request(@feed_url)
         markers = JSON.parse(html)
         # {

@@ -1,3 +1,4 @@
+# encoding: utf-8
 # Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
 # Distributed under the AGPL license, see LICENSE.txt
 
@@ -28,8 +29,11 @@ class Bixi < BikeShareSystem
         unless scraper
             scraper = Scraper.new
         end
+
         stations = []
+        
         html = scraper.request(@feed_url)
+
         if @format == FORMAT_JSON
             # {
             #   "id":2026,
