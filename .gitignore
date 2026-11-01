@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+*.gem
+.bundle/
+Gemfile.lock

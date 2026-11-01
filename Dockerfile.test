@@ -1,0 +1,12 @@
+FROM ruby:3.4-slim-trixie@sha256:3a8122c4267d89a95b1ce0f3029b44e325180314661856300d29d3e8a80ec46f
+RUN apt-get update && apt-get install -y --no-install-recommends git python3-venv \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /rubybikes
+COPY requirements-engine.txt ./
+RUN python3 -m venv /opt/pybikes && /opt/pybikes/bin/pip install --no-cache-dir -r requirements-engine.txt
+ENV RUBYBIKES_PYTHON=/opt/pybikes/bin/python
+COPY Gemfile rubybikes.gemspec ./
+COPY lib ./lib
+RUN bundle install
+COPY . .
+CMD ["sh", "-c", "bundle exec rake test && /opt/pybikes/bin/python -m unittest discover -s test/python"]

@@ -1,0 +1,14 @@
+name: Ruby and pybikes compatibility
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Ruby 3.4 and Python engine on Debian 13
+        run: docker build -f Dockerfile.test -t rubybikes-test .
+      - name: Run Ruby protocol and upstream provider conformance tests
+        run: docker run --rm --network none rubybikes-test

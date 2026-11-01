@@ -1,164 +1,147 @@
-# Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
-# Distributed under the AGPL license, see LICENSE.txt
-
+# Copyright (C) Eduardo Mucelli Rezende Oliveira
+# Distributed under the AGPL license, see LICENSE.
 require 'json'
-	
-RUBYBIKES_DIRECTORY = "rubybikes"
-SCHEMAS_DIRECTORY = "schemas"
-SCHEMAS_EXTENSION = "json"
-
-class NoSystemFoundError < StandardError; end
-class NoGetCriteriaError < StandardError; end
-class APIKeyNotAvailableError < StandardError; end
+require 'time'
 
 class RubyBikes
+  VERSION = '0.1.0'
 
-	def get(options = {})
-		label	= options.fetch('label', nil)
-        tag     = options.fetch('tag', nil)
-        api_key = options.fetch('api_key', nil)
-		if tag
-			class_name, schema_instance_parameters = get_class_name_and_schema_instance(tag)
-			return create_class_instance(class_name, schema_instance_parameters, api_key)
-		elsif label
-			class_objects = []
-			schemas.each do |schema_file|
-				schema = JSON.parse(File.open(schema_file).read)
-				if schema['label'] == label
-					tags = tags_from_schema(schema)
-					tags.each do |tag|
-						class_name, schema_instance_parameters = get_class_name_and_schema_instance(tag)
-						class_objects << create_class_instance(class_name, schema_instance_parameters, api_key)
-					end
-				end
-			end
-			class_objects
-		else
-			raise NoGetCriteriaError, "No 'label' or 'tag' given."
-		end
-	end
+  class Error < StandardError
+    attr_reader :details
+    def initialize(message, details: {})
+      @details = details
+      super(message)
+    end
+  end
+  class DependencyError < Error; end
+  class ProviderError < Error; end
+  class ProtocolError < Error; end
+  class TimeoutError < Error; end
+  class RateLimitedError < ProviderError
+    def retry_after = details.fetch('retry_after', 300).to_f
+    def host = details['host']
+  end
+  class NoSystemFoundError < Error; end
+  class NoGetCriteriaError < Error; end
+  class APIKeyNotAvailableError < Error; end
 
-	def create_class_instance(class_name, schema_instance_parameters, api_key)
-		class_object = Object::const_get(class_name)
-		if class_object.methods.include? :authed
-			begin
-				return class_object.new(api_key, schema_instance_parameters)
-			rescue APIKeyNotAvailableError => e
-				puts "'#{schema_instance_parameters['tag']}' system requires a API key." 
-			end
-		else
-			return class_object.new(schema_instance_parameters)
-		end
-	end
+  def initialize(python: ENV.fetch('RUBYBIKES_PYTHON', 'python3'), timeout: 60, keys: {}, engine: nil)
+    @engine = engine || Engine.new(python: python, timeout: timeout)
+    @keys = keys.transform_keys(&:to_s)
+  end
 
-	def get_class_name_and_schema_instance(tag)
-		schemas.each do |schema_file|
-			schema = JSON.parse(File.open(schema_file).read)
-			klass 	= schema['class']	# class name, as Encicla, Cyclocity, ...
-			system 	= schema['system']	# system is the name of the ruby file, without extension, as encicla, cyclocity, ...
-			if klass.is_a? String
-				# Schemas with one class
-				instance = schema['instances'].detect{|instance| instance['tag'] == tag}
-				if instance
-					require_rubybikes_class(system)
-					return klass, instance
-				end
-			else
-				# Schemas with multiple classes
-				klass.each do |name, instances|
-					instance = instances['instances'].detect{|instance|	instance['tag'] == tag}
-					if instance
-						require_rubybikes_class(system)
-						return name, instance
-					end
-				end
-			end
-		end
-		raise NoSystemFoundError, "System '#{tag}' was not found. For the complete list of supported tags, use the 'tags' method."
-	end
+  def catalog
+    @catalog ||= @engine.request('catalog').fetch('networks')
+  end
 
-	def tags_from_schema(schema)
-		tags = []
-		if schema['class'].is_a? String
-			tags.push(*schema['instances'].map {|instance| instance['tag']})
-		else
-			schema['class'].map do|name, instances|
-				tags.push(*instances['instances'].map {|instance| instance['tag']})
-			end
-		end
-		tags
-	end
+  def engine_info = @engine.request('version')
+  def tags = catalog.map { |entry| entry.fetch('tag') }
+  def labels = catalog.map { |entry| entry.fetch('label') }.uniq.sort
 
-	def require_rubybikes_class(system)
-		require File.dirname(__FILE__) + "/#{RUBYBIKES_DIRECTORY}/#{system}.rb"
-	end
+  # Original string-keyed hashes and modern keyword/string forms are accepted.
+  def get(options = {}, **keywords)
+    options = options.is_a?(String) ? { 'tag' => options } : options.transform_keys(&:to_s)
+    options = options.merge(keywords.transform_keys(&:to_s))
+    if (tag = options['tag'])
+      entry = catalog.find { |row| row['tag'] == tag }
+      raise NoSystemFoundError, "Unknown system tag: #{tag}" unless entry
+      key = options['api_key'] || options['key'] || @keys[tag] || @keys[entry['module']] || @keys[entry['class']]
+      description = @engine.request('describe', tag: tag, key: key)
+      System.new(@engine, description, key)
+    elsif (label = options['label'])
+      entries = catalog.select do |row|
+        [row['label'], row['class'], row['module']].any? { |value| value.to_s.casecmp?(label.to_s) }
+      end
+      entries.map { |entry| get(options.merge('tag' => entry['tag'])) }
+    else
+      raise NoGetCriteriaError, "Supply a 'tag' or 'label'"
+    end
+  end
 
-	def tags
-		tags = []
-		schemas.each do |schema_file|
-			schema = JSON.parse(File.open(schema_file).read)
-			tags.push(*tags_from_schema(schema))
-		end
-		tags
-	end
+  def close = @engine.close
 
-	def labels
-		schemas.map do |schema_file|
-			JSON.parse(File.open(schema_file).read)['label']
-		end
-	end
+  def self.open(**options)
+    factory = new(**options)
+    return factory unless block_given?
+    begin
+      yield factory
+    ensure
+      factory.close
+    end
+  end
 
-	def schemas
-		# Dir.glob(File.join(Dir.pwd, RUBYBIKES_DIRECTORY, SCHEMAS_DIRECTORY, "*.#{SCHEMAS_EXTENSION}"))
-		Gem.find_files(File.join(RUBYBIKES_DIRECTORY, SCHEMAS_DIRECTORY, "*.#{SCHEMAS_EXTENSION}"))
-	end
+  class Station
+    attr_reader :id, :name, :latitude, :longitude, :bikes, :free, :timestamp, :extra
+    def initialize(row)
+      @id, @name = row.fetch('id'), row.fetch('name')
+      @latitude, @longitude = row.fetch('latitude'), row.fetch('longitude')
+      @bikes, @free, @extra = row['bikes'], row['free'], row.fetch('extra', {})
+      @timestamp = row['timestamp'] && Time.iso8601(row['timestamp']).utc
+    end
+    def get_hash = id
+    def to_h
+      { 'id' => id, 'name' => name, 'latitude' => latitude, 'longitude' => longitude,
+        'bikes' => bikes, 'free' => free, 'timestamp' => timestamp&.iso8601(6), 'extra' => extra }
+    end
+    alias to_dict to_h
+    def to_json(*args) = to_h.to_json(*args)
+    def to_geojson
+      { 'type' => 'Feature', 'geometry' => { 'type' => 'Point', 'coordinates' => [longitude, latitude] },
+        'properties' => to_h.reject { |key, _| %w[id timestamp].include?(key) }.merge('type' => 'station') }
+    end
+  end
 
-	private :get_class_name_and_schema_instance, :schemas, :tags_from_schema, :create_class_instance, :require_rubybikes_class
+  class Vehicle
+    attr_reader :id, :latitude, :longitude, :kind, :timestamp, :extra
+    def initialize(row)
+      @id, @latitude, @longitude, @kind = row.values_at('id', 'latitude', 'longitude', 'kind')
+      @extra = row.fetch('extra', {})
+      @timestamp = row['timestamp'] && Time.iso8601(row['timestamp']).utc
+    end
+    def get_hash = id
+    def to_h
+      { 'id' => id, 'latitude' => latitude, 'longitude' => longitude, 'kind' => kind,
+        'timestamp' => timestamp&.iso8601(6), 'extra' => extra }
+    end
+    alias to_dict to_h
+    def to_json(*args) = to_h.to_json(*args)
+    def to_geojson
+      { 'type' => 'Feature', 'geometry' => { 'type' => 'Point', 'coordinates' => [longitude, latitude] },
+        'properties' => to_h.reject { |key, _| key == 'timestamp' }.merge('type' => 'vehicle') }
+    end
+  end
+
+  class System
+    attr_reader :tag, :meta, :stations, :vehicles, :authed, :sync
+    def initialize(engine, description, key)
+      @engine, @key = engine, key
+      @tag, @meta, @authed, @sync = description.values_at('tag', 'meta', 'authed', 'sync')
+      @stations, @vehicles = [], []
+    end
+    def update(timeout: @engine.timeout, scraper: {})
+      row = @engine.request('update', timeout: timeout, tag: tag, key: @key, scraper: scraper)
+      raise ProtocolError, 'Provider returned a different system' unless row.fetch('tag') == tag
+      # Build the complete snapshot first, retaining the previous one on failure.
+      stations = row.fetch('stations').map { |station| Station.new(station) }
+      vehicles = row.fetch('vehicles', []).map { |vehicle| Vehicle.new(vehicle) }
+      @meta, @stations, @vehicles = row.fetch('meta'), stations, vehicles
+      self
+    rescue KeyError, TypeError, ArgumentError
+      raise ProtocolError, 'Provider returned an invalid snapshot'
+    end
+    def to_h
+      { 'tag' => tag, 'meta' => meta, 'stations' => stations.map(&:to_h), 'vehicles' => vehicles.map(&:to_h) }
+    end
+    alias to_dict to_h
+    def to_json(*args) = to_h.to_json(*args)
+    def to_geojson
+      { 'type' => 'FeatureCollection', 'features' => (stations + vehicles).map(&:to_geojson) }
+    end
+  end
 end
 
-# if __FILE__ == $0
-	# bikes.tags.each do |tag|
-	# 	start = Time.now
-	# 	instance = bikes.get(tag)
-	# 	begin
-	# 		instance.update
-	# 	rescue Net::ReadTimeout => e
-	# 		puts e.message
-	# 		next
-	# 	end
-	# 	instance.stations.each do |station|
-	# 		puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
-	# 	end
-	# 	puts "#{Time.now - start} seconds to update all stations"
-	# end
-	# bikes = RubyBikes.new
-	# puts bikes.get({'tag' => 'vlille'}).update
-	# puts bikes.tags.length
-	# ====
-	# By label
-	# instances = bikes.get({'label' => 'Cyclocity', 'api_key' => '4b780b841057c43770f03bd06c8d30a7c41f9200'})
-	# instances.each do |instance|
-	# 	puts instance.meta
-	# 	begin
-	# 		instance.update
-	# 	rescue Net::ReadTimeout => e
-	# 		puts e.message
-	# 		next
-	# 	end
-	# 	instance.stations.each do |station|
-	# 		puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
-	# 	end
-	# end
-	# ====
-	# By tag
-	# cyclic = bikes.get({'tag' => 'cyclic', 'api_key' => '4b780b841057c43770f03bd06c8d30a7c41f9200'})
-	# begin
-	# 	cyclic.update
-	# rescue Net::ReadTimeout => e
-	# 	puts e.message
-	# 	next
-	# end
-	# cyclic.stations.each do |station|
-	#   puts "#{station.get_hash()}, #{station.name}, #{station.latitude}, #{station.longitude}, #{station.free}, #{station.bikes}, #{station.extra}"
-	# end
-# end
+# Preserve the exception names used by existing RubyBikes consumers.
+NoSystemFoundError = RubyBikes::NoSystemFoundError unless defined?(NoSystemFoundError)
+NoGetCriteriaError = RubyBikes::NoGetCriteriaError unless defined?(NoGetCriteriaError)
+APIKeyNotAvailableError = RubyBikes::APIKeyNotAvailableError unless defined?(APIKeyNotAvailableError)
+require_relative 'rubybikes/engine'

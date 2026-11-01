@@ -1,10 +1,6 @@
 require 'rake/testtask'
-
-Rake::TestTask.new do |t|
-  t.libs << 'test'
-  t.verbose = false
-  t.warning = false
+Rake::TestTask.new do |task|
+  task.libs << 'lib'
+  task.pattern = 'test/test_*.rb'
 end
-
-desc "Run tests"
-task :default => :test
+task default: :test

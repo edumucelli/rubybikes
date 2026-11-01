@@ -1,3 +1,4 @@
+# Historical network probes; run explicitly against selected current providers.
 require 'minitest/autorun'
 require 'rubybikes'
 
