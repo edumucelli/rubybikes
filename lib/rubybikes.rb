@@ -4,7 +4,7 @@ require 'json'
 require 'time'
 
 class RubyBikes
-  VERSION = '0.1.0'
+  VERSION = '0.2.0'
 
   class Error < StandardError
     attr_reader :details
@@ -35,6 +35,7 @@ class RubyBikes
   end
 
   def engine_info = @engine.request('version')
+  def providers = @providers ||= @engine.request('providers').fetch('providers')
   def tags = catalog.map { |entry| entry.fetch('tag') }
   def labels = catalog.map { |entry| entry.fetch('label') }.uniq.sort
 
@@ -56,6 +57,28 @@ class RubyBikes
     else
       raise NoGetCriteriaError, "Supply a 'tag' or 'label'"
     end
+  end
+
+  # Instantiate any upstream client, including clients without catalog entries.
+  # Parameters follow that client's PyBikes constructor (feed_url, domain, etc.).
+  def build(provider:, tag:, meta:, class_name: nil, api_key: nil, **parameters)
+    entries = providers.select { |row| row['class'].casecmp?(provider.to_s) } unless class_name
+    if !entries || entries.empty?
+      entries = providers.select do |row|
+        row['module'].casecmp?(provider.to_s) && (!class_name || row['class'].casecmp?(class_name.to_s))
+      end
+    end
+    raise NoSystemFoundError, "Unknown provider: #{provider}" if entries.empty?
+    raise ArgumentError, 'Select a class_name for this provider module' if entries.size > 1
+    entry = entries.first
+    key = api_key || @keys[tag] || @keys[entry['module']] || @keys[entry['class']]
+    definition = { 'module' => entry['module'], 'class' => entry['class'],
+                   'parameters' => parameters.merge(meta: meta) }
+    # Detach nested caller-owned values so updates and process restarts keep
+    # using the same definition that was originally described.
+    definition = JSON.parse(JSON.generate(definition))
+    description = @engine.request('describe', tag: tag, key: key, definition: definition)
+    System.new(@engine, description, key, definition: definition)
   end
 
   def close = @engine.close
@@ -112,14 +135,18 @@ class RubyBikes
   end
 
   class System
-    attr_reader :tag, :meta, :stations, :vehicles, :authed, :sync
-    def initialize(engine, description, key)
+    attr_reader :tag, :meta, :stations, :vehicles, :authed, :sync, :unifeed, :provider, :client_class
+    def initialize(engine, description, key, definition: nil)
       @engine, @key = engine, key
+      @definition = definition
       @tag, @meta, @authed, @sync = description.values_at('tag', 'meta', 'authed', 'sync')
+      @provider, @client_class, @unifeed = description.values_at('module', 'class', 'unifeed')
       @stations, @vehicles = [], []
     end
     def update(timeout: @engine.timeout, scraper: {})
-      row = @engine.request('update', timeout: timeout, tag: tag, key: @key, scraper: scraper)
+      arguments = { tag: tag, key: @key, scraper: scraper }
+      arguments[:definition] = @definition if @definition
+      row = @engine.request('update', timeout: timeout, **arguments)
       raise ProtocolError, 'Provider returned a different system' unless row.fetch('tag') == tag
       # Build the complete snapshot first, retaining the previous one on failure.
       stations = row.fetch('stations').map { |station| Station.new(station) }

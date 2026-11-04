@@ -6,10 +6,12 @@ output is discarded and only structured results are written to stdout.
 """
 import asyncio
 import contextlib
+import importlib
 import importlib.metadata
 import inspect
 import json
 import os
+import pkgutil
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -25,6 +27,7 @@ if hasattr(time, 'tzset'):
 PROTOCOL = 1
 _SYSTEMS = {}
 _CATALOG = None
+_PROVIDERS = None
 _COOLDOWNS = {}
 
 
@@ -70,10 +73,43 @@ def engine_info():
     return {'protocol': PROTOCOL, 'version': version, 'revision': revision}
 
 
+def providers():
+    """Discover concrete clients, including those without catalog entries."""
+    global _PROVIDERS
+    if _PROVIDERS is None:
+        import pybikes
+        declared = {}
+        for schema in sorted(pybikes.get_schemas()):
+            data = pybikes.get_data(schema)
+            classes = data['class'] if isinstance(data['class'], dict) else [data['class']]
+            instances = list(pybikes.get_instances(schema))
+            for class_name in classes:
+                declared[(data['system'], class_name)] = {
+                    'label': data.get('label') or class_name,
+                    'tags': sorted(params['tag'] for name, params in instances if name == class_name),
+                }
+        rows = []
+        for module in pkgutil.iter_modules(pybikes.__path__):
+            if module.ispkg:
+                continue
+            imported = importlib.import_module('pybikes.' + module.name)
+            for class_name, cls in inspect.getmembers(imported, inspect.isclass):
+                if (cls.__module__ != imported.__name__ or
+                        not issubclass(cls, pybikes.BikeShareSystem) or
+                        not callable(getattr(cls, 'update', None))):
+                    continue
+                rows.append({'module': module.name, 'class': class_name,
+                             **declared.get((module.name, class_name), {'label': class_name, 'tags': []}),
+                             'authed': cls.authed, 'sync': cls.sync, 'unifeed': cls.unifeed})
+        _PROVIDERS = sorted(rows, key=lambda row: (row['module'], row['class']))
+    return {'providers': _PROVIDERS}
+
+
 def catalog():
     global _CATALOG
     if _CATALOG is None:
         import pybikes
+        clients = {(row['module'], row['class']): row for row in providers()['providers']}
         rows = []
         for schema in sorted(pybikes.get_schemas()):
             data = pybikes.get_data(schema)
@@ -81,23 +117,39 @@ def catalog():
                 meta = dict(params['meta'])
                 meta.setdefault('system', class_name)
                 endpoint = params.get('feed_url') or params.get('endpoint') or ''
+                client = clients[(data['system'], class_name)]
                 rows.append({'tag': params['tag'], 'class': class_name,
                              'module': data['system'], 'label': data.get('label') or class_name,
+                             **{flag: client[flag] for flag in ('authed', 'sync', 'unifeed')},
                              'endpoint_host': urlsplit(endpoint).hostname, 'meta': meta})
         _CATALOG = sorted(rows, key=lambda row: row['tag'])
     return {'engine': engine_info(), 'networks': _CATALOG}
 
 
-def system(tag, key):
+def system(tag, key, definition=None):
     import pybikes
     from pybikes import data
-    identity = (tag, json.dumps(key, sort_keys=True))
+    identity = (tag, json.dumps(key, sort_keys=True), json.dumps(definition, sort_keys=True))
     if identity not in _SYSTEMS:
-        module, class_name, _ = data.find(tag)
-        cls = getattr(__import__('pybikes.' + module, fromlist=[class_name]), class_name)
+        if definition is None:
+            module, class_name, _ = data.find(tag)
+        else:
+            module, class_name = definition['module'], definition['class']
+            if not any(row['module'] == module and row['class'] == class_name
+                       for row in providers()['providers']):
+                raise ValueError('Unknown provider class')
+        cls = pybikes.get_system_cls(module, class_name)
         if cls.authed and not key:
             raise MissingKey()
-        _SYSTEMS[identity] = pybikes.get(tag, key=key)
+        if definition is None:
+            network = pybikes.get(tag, key=key)
+        else:
+            params = dict(definition['parameters'])
+            params['tag'] = tag
+            if cls.authed:
+                params['key'] = key
+            network = cls(**params)
+        _SYSTEMS[identity] = network
     return _SYSTEMS[identity]
 
 
@@ -153,7 +205,7 @@ def scraper(options):
 
 
 def update(request):
-    network = system(request['tag'], request.get('key'))
+    network = system(request['tag'], request.get('key'), request.get('definition'))
     options = request.get('scraper') or {}
     transport = scraper(options)
     result = network.update(transport)
@@ -173,9 +225,14 @@ def handle(request):
     operation = request.get('op')
     if operation == 'catalog':
         return catalog()
+    if operation == 'providers':
+        return providers()
     if operation == 'describe':
-        network = system(request['tag'], request.get('key'))
-        return {'tag': network.tag, 'meta': network.meta, 'authed': network.authed, 'sync': network.sync}
+        network = system(request['tag'], request.get('key'), request.get('definition'))
+        return {'tag': network.tag, 'meta': network.meta, 'authed': network.authed,
+                'sync': network.sync, 'unifeed': network.unifeed,
+                'module': type(network).__module__.removeprefix('pybikes.'),
+                'class': type(network).__name__}
     if operation == 'update':
         return update(request)
     if operation == 'version':
