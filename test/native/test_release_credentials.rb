@@ -18,13 +18,13 @@ class NativeReleaseCredentialsTest < Minitest::Test
     saved&.each { |name, value| ENV[name] = value }
   end
 
-  def test_exchange_explicitly_sends_owner_and_masks_short_lived_key
+  def test_exchange_sends_owner_as_a_string_and_masks_short_lived_key
     with_actions_environment do |env_file|
       github = stub_request(:get, 'https://oidc.fixture.test/token?api-version=1&audience=rubygems.org')
                .with(headers: { 'Authorization' => 'Bearer fixture-actions-token' })
                .to_return(body: JSON.generate('value' => 'fixture-jwt'))
       registry = stub_request(:post, RubyGemsCredentials::EXCHANGE_URL.to_s)
-                 .with(body: JSON.generate(jwt: 'fixture-jwt', owner: 255_571), headers: { 'Content-Type' => 'application/json' })
+                 .with(body: JSON.generate(jwt: 'fixture-jwt', owner: '255571'), headers: { 'Content-Type' => 'application/json' })
                  .to_return(body: JSON.generate('rubygems_api_key' => 'fixture-short-lived-key'))
       output, errors = capture_io { RubyGemsCredentials.configure }
 
@@ -41,6 +41,7 @@ class NativeReleaseCredentialsTest < Minitest::Test
       stub_request(:get, 'https://oidc.fixture.test/token?api-version=1&audience=rubygems.org').to_return(body: JSON.generate('value' => 'fixture-jwt'))
       stub_request(:post, RubyGemsCredentials::EXCHANGE_URL.to_s).to_return(status: 403, body: 'private-response')
       error = assert_raises(RuntimeError) { RubyGemsCredentials.configure }
+      assert_includes error.message, 'HTTP 403'
       refute_includes error.message, 'private-response'
       refute_path_exists env_file
     end

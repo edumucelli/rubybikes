@@ -5,6 +5,8 @@ on:
     paths:
       - lib/rubybikes/version.rb
       - .github/workflows/release.yml
+      - .github/scripts/configure_rubygems.rb
+      - .github/scripts/release_version.rb
   workflow_dispatch:
 permissions:
   contents: read

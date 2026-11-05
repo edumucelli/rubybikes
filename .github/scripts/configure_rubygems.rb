@@ -6,7 +6,7 @@ require 'net/http'
 require 'uri'
 
 module RubyGemsCredentials
-  OWNER = 255_571
+  OWNER = '255571'
   EXCHANGE_URL = URI('https://rubygems.org/api/v1/oidc/trusted_publisher/exchange_token')
 
   def self.exchange_payload(jwt)
@@ -36,7 +36,9 @@ module RubyGemsCredentials
     request['Accept'] = 'application/json'
     request.body = JSON.generate(exchange_payload(jwt))
     response = Net::HTTP.start(EXCHANGE_URL.host, EXCHANGE_URL.port, use_ssl: true, open_timeout: 10, read_timeout: 20) { |http| http.request(request) }
-    raise 'RubyGems OIDC exchange failed; check pending publisher expiry, owner, repository, workflow, and environment' unless response.is_a?(Net::HTTPSuccess)
+    unless response.is_a?(Net::HTTPSuccess)
+      raise "RubyGems OIDC exchange failed (HTTP #{response.code}); check pending publisher expiry, owner, repository, workflow, and environment"
+    end
 
     key = response_value(response, 'rubygems_api_key')
     puts "::add-mask::#{key}"
