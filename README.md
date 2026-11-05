@@ -6,8 +6,7 @@ clients** adapted from [PyBikes](https://github.com/eskerda/pybikes). Operators 
 queried directly; no CityBikes API service or Python installation is required.
 
 Requires Ruby **3.1 or newer**. Install with `gem install rubybikes`, or add
-`gem 'rubybikes'` to your application's Gemfile. Version 0.3.0 is being prepared;
-installation from RubyGems becomes available after its first release.
+`gem 'rubybikes'` to your application's Gemfile.
 
 ```ruby
 require 'rubybikes'

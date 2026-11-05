@@ -1,18 +1,22 @@
 name: Release RubyBikes
 on:
   push:
-    tags: ['v*']
+    branches: [master]
+    paths:
+      - lib/rubybikes/version.rb
+      - .github/workflows/release.yml
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: release-${{ github.ref }}
+  group: rubygems-release
   cancel-in-progress: false
 jobs:
   check:
     uses: ./.github/workflows/ci.yml
   publish:
     needs: check
-    if: github.repository == 'edumucelli/rubybikes'
+    if: github.repository == 'edumucelli/rubybikes' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-24.04
     environment: release
     permissions:
@@ -27,22 +31,42 @@ jobs:
         with:
           ruby-version: '3.4'
           bundler-cache: true
-      - name: Validate tag and master ancestry
+      - name: Read version and check RubyGems
+        id: version
+        run: ruby .github/scripts/release_version.rb
+      - name: Validate master ancestry and existing tag
+        if: steps.version.outputs.publish == 'true'
+        env:
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
         shell: bash
         run: |
-          ruby -Ilib -rrubybikes/version -e 'abort "Tag must match gem version" unless ENV.fetch("GITHUB_REF_NAME") == "v#{RubyBikes::VERSION}"'
           git merge-base --is-ancestor "$GITHUB_SHA" origin/master
+          if git show-ref --verify --quiet "refs/tags/$RELEASE_TAG"; then
+            test "$(git rev-list -n 1 "$RELEASE_TAG")" = "$GITHUB_SHA" || {
+              echo "Existing release tag points to a different commit"
+              exit 1
+            }
+          fi
       - run: bundle exec rake build
+        if: steps.version.outputs.publish == 'true'
       - run: ruby .github/scripts/package_smoke.rb
+        if: steps.version.outputs.publish == 'true'
       # The public credential actions inspected during implementation do not yet
       # expose owner. Send the pending publisher's immutable owner explicitly.
       - name: Exchange OIDC token for owner 255571
+        if: steps.version.outputs.publish == 'true'
         run: ruby .github/scripts/configure_rubygems.rb
       - name: Publish gem
+        if: steps.version.outputs.publish == 'true'
+        env:
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
         shell: bash
-        run: gem push pkg/rubybikes-*.gem
+        run: gem push "pkg/rubybikes-$RELEASE_VERSION.gem"
       - name: Create GitHub release
+        if: steps.version.outputs.publish == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
         shell: bash
-        run: gh release create "$GITHUB_REF_NAME" pkg/rubybikes-*.gem --verify-tag --generate-notes
+        run: gh release create "$RELEASE_TAG" "pkg/rubybikes-$RELEASE_VERSION.gem" --target "$GITHUB_SHA" --generate-notes

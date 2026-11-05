@@ -1,12 +1,10 @@
 # Changelog
 
-## 0.3.0 — Unreleased
+## 0.3.0 — 2026-11-05
 
 - Native Ruby provider engine and packaged provider catalog.
 - Ruby gem packaging, offline provider fixtures, coverage, signatures, and quality checks.
-- GitHub version-tag releases using RubyGems OIDC trusted publishing.
-
-The native migration is in development. No 0.3.0 release has been published.
+- Automatic releases from the Ruby version file using RubyGems OIDC trusted publishing.
 
 ## 0.2.0
 
