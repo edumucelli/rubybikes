@@ -4,6 +4,7 @@ require 'rubygems/package'
 require 'tmpdir'
 require 'open3'
 require 'rbconfig'
+require 'bundler/setup'
 
 artifact = Dir['pkg/rubybikes-*.gem'].max_by { |file| File.mtime(file) }
 abort 'Build the gem before running package checks' unless artifact

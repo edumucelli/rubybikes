@@ -5,6 +5,7 @@ AllCops:
   Exclude:
     - lib/rubybikes/baksi.rb
     - lib/rubybikes/schemas/**/*
+    - vendor/**/*
   NewCops: enable
   Include:
     - lib/rubybikes.rb
