@@ -59,7 +59,7 @@ class NativeTransportTest < Minitest::Test
   end
 
   def test_oidc_first_push_names_the_configured_owner
-    assert_equal({ jwt: 'fixture-jwt', owner: 255_571 }, RubyGemsCredentials.exchange_payload('fixture-jwt'))
+    assert_equal({ jwt: 'fixture-jwt', owner: '255571' }, RubyGemsCredentials.exchange_payload('fixture-jwt'))
     assert_equal 'https://rubygems.org/api/v1/oidc/trusted_publisher/exchange_token', RubyGemsCredentials::EXCHANGE_URL.to_s
   end
 
