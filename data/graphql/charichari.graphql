@@ -1,0 +1,12 @@
+query listPorts($regionId: String!) {
+                ports(regionId: $regionId) {
+                    id
+                    title
+                    address
+                    capacity
+                    location {
+                        latitude
+                        longitude
+                    }
+                }
+            }

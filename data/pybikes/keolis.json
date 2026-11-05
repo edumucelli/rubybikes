@@ -1,0 +1,22 @@
+{
+    "system": "keolis",
+    "class": {
+        "KeolisSTAR": {
+            "instances": [
+                {
+                    "tag": "le-velo-star",
+                    "meta": {
+                        "latitude": 48.114167,
+                        "country": "FR",
+                        "name": "LE vélo Star",
+                        "longitude": -1.680833,
+                        "city": "Rennes",
+                        "company": ["Keolis", "Rennes Metropole"],
+                        "source": "https://data.explore.star.fr/explore/dataset/vls-stations-etat-tr/"
+                    },
+                    "dataset": "vls-stations-etat-tr"
+                }
+            ]
+        }
+    }
+}

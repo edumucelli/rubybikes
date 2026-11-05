@@ -1,0 +1,17 @@
+target :rubybikes do
+  signature 'sig'
+  check 'lib/rubybikes.rb'
+  check 'lib/rubybikes/version.rb'
+  check 'lib/rubybikes/engine.rb'
+  check 'lib/rubybikes/native.rb'
+  check 'lib/rubybikes/native'
+  check 'test/types/public_api.rb'
+  library 'json'
+  library 'time'
+  library 'uri'
+  library 'net-http'
+  library 'timeout'
+  library 'csv'
+  library 'strscan'
+  library 'digest'
+end

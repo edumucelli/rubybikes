@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body><response xmlns="http://inter.webservice.web.ptpportal.guloo.org"><out>
+  [{"sitename":"和平广场","latitude":"34.26","longitude":"108.95","locknum":"10","emptynum":"7","siteid":"x-1","location":"东大街"}]
+  </out></response></soap:Body>
+</soap:Envelope>

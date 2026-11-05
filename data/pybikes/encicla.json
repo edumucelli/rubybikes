@@ -1,0 +1,17 @@
+{
+    "instances": [
+        {
+            "tag": "encicla",
+            "meta": {
+                "latitude": 6.2443,
+                "longitude": -75.5735,
+                "city": "Medellin",
+                "name": "EnCicla",
+                "country": "CO"
+            },
+            "bounds": [[5.9052, -75.8259], [6.4900, -75.1456]]
+        }
+    ],
+    "system": "encicla",
+    "class": "Encicla"
+}

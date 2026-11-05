@@ -1,0 +1,205 @@
+{
+    "class": "Bicicard",
+    "instances": [
+        {
+            "endpoint": "https://services.vaibike.bicicard.es",
+            "meta": {
+                "city": "Vilagarcía de Arousa",
+                "country": "ES",
+                "latitude": 42.5954,
+                "longitude": -8.7659,
+                "name": "VaiBike"
+            },
+            "tag": "vaibike"
+        },
+        {
+            "endpoint": "https://services.bikenmedio.bicicard.es",
+            "meta": {
+                "city": "Campoo de Enmedio",
+                "country": "ES",
+                "latitude": 42.9995,
+                "longitude": -4.1393,
+                "name": "BikEnmedio",
+                "status": "suspended"
+            },
+            "tag": "bikenmedio"
+        },
+        {
+            "endpoint": "https://services.pedaleandoaller.bicicard.es",
+            "meta": {
+                "city": "Aller",
+                "country": "ES",
+                "latitude": 43.1482,
+                "longitude": -5.6295,
+                "name": "Pedaleando por Aller (BeALLER)"
+            },
+            "tag": "bealler"
+        },
+        {
+            "endpoint": "https://bicis.ailladearousa.es/prodwservice",
+            "meta": {
+                "city": "A Illa de Arousa",
+                "country": "ES",
+                "latitude": 42.5521,
+                "longitude": -8.8666,
+                "name": "BiciArousa"
+            },
+            "tag": "biciarousa"
+        },
+        {
+            "endpoint": "https://albabici.bicicard.es",
+            "meta": {
+                "city": "Albacete",
+                "country": "ES",
+                "latitude": 38.9943,
+                "longitude": -1.8602,
+                "name": "AlbaBici"
+            },
+            "tag": "albabici"
+        },
+        {
+            "endpoint": "https://services.alcazar.bicicard.es",
+            "meta": {
+                "city": "Alcázar de San Juan",
+                "country": "ES",
+                "latitude": 39.3901,
+                "longitude": -3.2101,
+                "name": "BiciAlcázar"
+            },
+            "tag": "bicialcazar"
+        },
+        {
+            "endpoint": "https://bikews.publictransport.com.mt/prodws2",
+            "meta": {
+                "city": "Valletta - Malta - Gozo",
+                "country": "MT",
+                "latitude": 35.8992,
+                "longitude": 14.5141,
+                "name": "Tallinja Bike"
+            },
+            "tag": "tallinja-bike"
+        },
+        {
+            "endpoint": "https://enbici.aviles.es/prodws",
+            "meta": {
+                "city": "Avilés",
+                "country": "ES",
+                "latitude": 43.5554,
+                "longitude": -5.9222,
+                "name": "Avilés en Bici"
+            },
+            "tag": "aviles-en-bici"
+        },
+        {
+            "endpoint": "https://prodws.verdeciclos.com",
+            "meta": {
+                "city": "Caldas de Reis",
+                "country": "ES",
+                "latitude": 42.6041,
+                "longitude": -8.6419,
+                "name": "VerdeCiclos"
+            },
+            "tag": "verdeciclos"
+        },
+        {
+            "endpoint": "https://bicibadajoz.aytobadajoz.es/prodwservice",
+            "meta": {
+                "city": "Badajoz",
+                "country": "ES",
+                "latitude": 38.8780,
+                "longitude": -6.9701,
+                "name": "BiBa"
+            },
+            "tag": "biba"
+        },
+        {
+            "endpoint": "https://services.bicibur.bicicard.es",
+            "meta": {
+                "city": "Burgos",
+                "country": "ES",
+                "latitude": 42.34392,
+                "longitude": -3.69697,
+                "name": "BiciBur"
+            },
+            "tag": "bicibur"
+        },
+        {
+            "endpoint": "https://services.villarcayo.bicicard.es",
+            "meta": {
+                "city": "Villarcayo",
+                "country": "ES",
+                "latitude": 42.9384,
+                "longitude":  -3.5724,
+                "name": "Vive Villarcayo"
+            },
+            "tag": "vive-villarcayo"
+        },
+        {
+            "endpoint": "https://services.cenicientos.bicicard.es",
+            "meta": {
+                "city": "Cenicientos",
+                "country": "ES",
+                "latitude": 40.2623,
+                "longitude": -4.4661,
+                "name": "Cenibici"
+            },
+            "tag": "cenibici"
+        },
+        {
+            "endpoint": "https://services.castro.bicicard.es",
+            "meta": {
+                "city": "Castro-Urdiales",
+                "country": "ES",
+                "latitude": 43.3849,
+                "longitude": -3.2181,
+                "name": "BiciCastro"
+            },
+            "tag": "bicicastro"
+        },
+        {
+            "endpoint": "https://services.enkartur.bicicard.es",
+            "meta": {
+                "city": "Enkarterri",
+                "country": "ES",
+                "latitude": 43.2,
+                "longitude": -3.2,
+                "name": "ENKbike"
+            },
+            "tag": "enkbike"
+        },
+        {
+            "endpoint": "https://services.aduriz.bicicard.es",
+            "meta": {
+                "city": "Medina de Pomar",
+                "country": "ES",
+                "latitude": 42.9294,
+                "longitude": -3.4880,
+                "name": "Aduriz en Bici"
+            },
+            "tag": "aduriz"
+        },
+        {
+            "endpoint": "https://services.betanzos.bicicard.es",
+            "meta": {
+                "city": "Betanzos",
+                "country": "ES",
+                "latitude": 43.2810597,
+                "longitude": -8.2113155,
+                "name": "Betanzos"
+            },
+            "tag": "betanzos"
+        },
+        {
+            "endpoint": "https://services.dpb.bicicard.es",
+            "meta": {
+                "city": "Peñalba de Castro",
+                "country": "ES",
+                "latitude": 41.7840,
+                "longitude": -3.3656,
+                "name": "Clunia Volve"
+            },
+            "tag": "clunia-volve"
+        }
+    ],
+    "system": "bicicard"
+}

@@ -1,0 +1,34 @@
+plugins:
+  - rubocop-minitest
+AllCops:
+  TargetRubyVersion: 3.1
+  Exclude:
+    - lib/rubybikes/baksi.rb
+    - lib/rubybikes/schemas/**/*
+  NewCops: enable
+  Include:
+    - lib/rubybikes.rb
+    - lib/rubybikes/version.rb
+    - lib/rubybikes/engine.rb
+    - lib/rubybikes/native.rb
+    - lib/rubybikes/native/**/*.rb
+    - test/native/**/*.rb
+    - test/types/**/*.rb
+    - '*.gemspec'
+    - Rakefile
+    - Gemfile
+    - gemfiles/*.gemfile
+    - bin/*
+    - .github/scripts/*.rb
+Layout/LineLength:
+  Max: 180
+Metrics:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Minitest/MultipleAssertions:
+  Max: 40
+Style/ParallelAssignment:
+  Enabled: false
+Naming/MethodParameterName:
+  AllowedNames: [x, y]

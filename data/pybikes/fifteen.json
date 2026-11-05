@@ -1,0 +1,50 @@
+{
+    "system": "fifteen",
+    "class": "FifteenAPI",
+    "instances": [
+        {
+            "tag": "gijon",
+            "meta": {
+                "city": "Gijón",
+                "name": "Gijón Bici",
+                "country": "ES",
+                "company": [
+                    "Citybike España S.L.U.",
+                    "Fifteen SAS"
+                ],
+                "longitude": -5.6663604,
+                "latitude": 43.5396116
+            },
+            "bbox": [[43.4024, -5.8008], [43.6527, -5.4591]],
+            "feed_url": "https://bici.gijon.es/api/client/entities"
+        },
+        {
+            "tag": "velomodalis",
+            "meta": {
+                "city": "Ligne TER Royan - Angoulême",
+                "name": "Vélo Modalis",
+                "country": "FR",
+                "company": [
+                    "Fifteen SAS"
+                ],
+                "longitude": -0.33,
+                "latitude": 45.7
+            },
+            "feed_url": "https://www.velomodalis.fr/api/client/entities"
+        },
+        {
+            "tag": "velomat",
+            "meta": {
+                "city": "Saint-Malo",
+                "name": "Vélo MAT",
+                "country": "FR",
+                "company": [
+                    "Fifteen SAS"
+                ],
+                "longitude": -2.0,
+                "latitude": 48.64
+            },
+            "feed_url": "https://velomat.stmalo-agglomeration.fr/api/client/entities"
+        }
+    ]
+}

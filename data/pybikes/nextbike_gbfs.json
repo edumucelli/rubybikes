@@ -1,0 +1,5 @@
+{
+    "system": "nextbike_gbfs",
+    "class": "NextbikeGbfs",
+    "instances": []
+}

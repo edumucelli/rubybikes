@@ -1,0 +1,143 @@
+class RubyBikes
+  VERSION: String
+  type json = nil | bool | Integer | Float | String | Array[json] | Hash[String, json]
+  type object = Hash[String, untyped]
+  type options = Hash[String | Symbol, untyped]
+  type api_key = String | options | nil
+  type station_row = { 'id' => String, 'name' => String?, 'latitude' => Float, 'longitude' => Float, 'bikes' => Integer?, 'free' => Integer?, 'timestamp' => String?, 'extra' => object }
+  type vehicle_row = { 'id' => String, 'latitude' => Float, 'longitude' => Float, 'kind' => String, 'timestamp' => String?, 'extra' => object }
+
+  interface _Engine
+    def timeout: () -> Float
+    def request: (String, ?timeout: Numeric, **untyped) -> untyped
+    def close: () -> void
+  end
+
+  @engine: _Engine
+  @keys: object
+  @catalog: Array[object]?
+  @providers: Array[object]?
+
+  def initialize: (?timeout: Numeric, ?keys: options, ?engine: _Engine?) -> void
+  def catalog: () -> Array[object]
+  def engine_info: () -> object
+  def providers: () -> Array[object]
+  def tags: () -> Array[String]
+  def labels: () -> Array[String]
+  def get: (String) -> System
+         | (tag: String, ?api_key: api_key, ?key: api_key) -> System
+         | (label: String, ?api_key: api_key, ?key: api_key) -> Array[System]
+         | ({ 'tag' => String }, **untyped) -> System
+         | ({ 'label' => String }, **untyped) -> Array[System]
+         | (?options, **untyped) -> (System | Array[System])
+  def build: (provider: String | Symbol, tag: String, meta: options, ?class_name: String?, ?api_key: api_key, **untyped) -> System
+  def close: () -> void
+  def self.open: (?timeout: Numeric, ?keys: options, ?engine: _Engine?) -> RubyBikes
+               | [A] (?timeout: Numeric, ?keys: options, ?engine: _Engine?) { (RubyBikes) -> A } -> A
+
+  class Error < StandardError
+    @details: object
+    attr_reader details: object
+    def initialize: (String, ?details: object) -> void
+  end
+  class DependencyError < Error
+  end
+  class ProviderError < Error
+  end
+  class ProtocolError < Error
+  end
+  class TimeoutError < Error
+  end
+  class RateLimitedError < ProviderError
+    def retry_after: () -> Float
+    def host: () -> String?
+  end
+  class NoSystemFoundError < Error
+  end
+  class NoGetCriteriaError < Error
+  end
+  class APIKeyNotAvailableError < Error
+  end
+
+  class Station
+    @id: String
+    @name: String?
+    @latitude: Float
+    @longitude: Float
+    @bikes: Integer?
+    @free: Integer?
+    @timestamp: Time?
+    @extra: object
+    attr_reader id: String
+    attr_reader name: String?
+    attr_reader latitude: Float
+    attr_reader longitude: Float
+    attr_reader bikes: Integer?
+    attr_reader free: Integer?
+    attr_reader timestamp: Time?
+    attr_reader extra: object
+    def initialize: (object) -> void
+    def get_hash: () -> String
+    def to_h: () -> station_row
+    alias to_dict to_h
+    def to_json: (?untyped) -> String
+    def to_geojson: () -> object
+  end
+
+  class Vehicle
+    @id: String
+    @latitude: Float
+    @longitude: Float
+    @kind: String
+    @timestamp: Time?
+    @extra: object
+    attr_reader id: String
+    attr_reader latitude: Float
+    attr_reader longitude: Float
+    attr_reader kind: String
+    attr_reader timestamp: Time?
+    attr_reader extra: object
+    def initialize: (object) -> void
+    def get_hash: () -> String
+    def to_h: () -> vehicle_row
+    alias to_dict to_h
+    def to_json: (?untyped) -> String
+    def to_geojson: () -> object
+  end
+
+  class System
+    @engine: _Engine
+    @key: api_key
+    @definition: object?
+    @tag: String
+    @meta: object
+    @stations: Array[Station]
+    @vehicles: Array[Vehicle]
+    @authed: bool
+    @sync: bool
+    @unifeed: bool
+    @provider: String
+    @client_class: String
+    attr_reader tag: String
+    attr_reader meta: object
+    attr_reader stations: Array[Station]
+    attr_reader vehicles: Array[Vehicle]
+    attr_reader authed: bool
+    attr_reader sync: bool
+    attr_reader unifeed: bool
+    attr_reader provider: String
+    attr_reader client_class: String
+    def initialize: (_Engine, object, api_key, ?definition: object?) -> void
+    def update: (?timeout: Numeric, ?scraper: options) -> self
+    def to_h: () -> object
+    alias to_dict to_h
+    def to_json: (?untyped) -> String
+    def to_geojson: () -> object
+  end
+
+  class Engine = Native::Engine
+end
+
+class NoSystemFoundError = RubyBikes::NoSystemFoundError
+class NoGetCriteriaError = RubyBikes::NoGetCriteriaError
+class APIKeyNotAvailableError = RubyBikes::APIKeyNotAvailableError

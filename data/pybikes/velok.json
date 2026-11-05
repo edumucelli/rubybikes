@@ -1,0 +1,16 @@
+{
+    "instances": [
+        {
+            "tag": "velok",
+            "meta": {
+                "city": "Esch-sur-alzette",
+                "name": "Vël'Ok",
+                "country": "LU",
+                "longitude": 5.9722,
+                "latitude": 49.5024
+            }
+        }
+    ],
+    "system": "velok",
+    "class": "VelokSystem"
+}

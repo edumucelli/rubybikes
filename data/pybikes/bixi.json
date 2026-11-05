@@ -1,0 +1,21 @@
+{
+    "instances": [
+        {
+            "tag": "santander-cycles",
+            "meta": {
+                "city": "London",
+                "name": "Santander Cycles",
+                "country": "GB",
+                "company": [
+                    "PBSC",
+                    "Serco Group plc"
+                ],
+                "longitude": -0.1198244,
+                "latitude": 51.51121389999999
+            },
+            "feed_url": "http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml"
+        }
+    ],
+    "system": "bixi",
+    "class": "BixiSystem"
+}

@@ -1,0 +1,9 @@
+.git
+.venv
+.bundle
+coverage
+pkg
+__pycache__
+**/__pycache__
+*.gem
+rubygems-recovery-codes.txt

@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+
+eval_gemfile '../Gemfile'
+gem 'rbs', '~> 3.9.0', require: false
+gem 'rubocop', '~> 1.0', require: false
+gem 'rubocop-minitest', '~> 0.38', require: false
+gem 'steep', '~> 1.10.0', require: false

@@ -1,0 +1,1578 @@
+{
+    "instances": [
+        {
+            "tag": "twisto-velo",
+            "meta": {
+                "latitude": 49.1813403,
+                "longitude": -0.3635615,
+                "city": "Caen",
+                "name": "Twisto vélo",
+                "country": "FR",
+                "company": [
+                    "Fifteen"
+                ]
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/2.2/caen/en/gbfs.json"
+        },
+        {
+            "tag": "bixi-montreal",
+            "meta": {
+                "latitude": 45.508693,
+                "longitude": -73.553928,
+                "city": "Montréal, QC",
+                "name": "Bixi",
+                "country": "CA",
+                "company": [
+                    "Motivate International, Inc.",
+                    "PBSC Urban Solutions",
+                    "BIXI Montréal"
+                ],
+                "ebikes": true
+            },
+            "feed_url": "https://gbfs.velobixi.com/gbfs/gbfs.json"
+        },
+        {
+            "tag": "bixi-toronto",
+            "meta": {
+                "latitude": 43.653226,
+                "longitude": -79.3831843,
+                "city": "Toronto, ON",
+                "name": "Bike Share Toronto",
+                "country": "CA",
+                "company": [
+                    "Motivate International, Inc.",
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://tor.publicbikesystem.net/ube/gbfs/v1/"
+        },
+        {
+            "tag": "sobi-hamilton",
+            "meta": {
+                "latitude": 43.25643601915583,
+                "longitude": -79.86929655075073,
+                "city": "Hamilton, ON",
+                "name": "SoBi",
+                "country": "CA",
+                "company": [
+                    "Social Bicycles Inc."
+                ]
+            },
+            "feed_url": "https://hamilton.socialbicycles.com/opendata/gbfs.json"
+        },
+        {
+            "tag": "bike-chattanooga",
+            "meta": {
+                "longitude": -85.3096801,
+                "latitude": 35.0456297,
+                "city": "Chattanooga, TN",
+                "name": "Bike Chattanooga",
+                "country": "US",
+                "company": [
+                    "Motivate International, Inc",
+                    "PBSC"
+                ],
+                "ebikes": true
+            },
+            "feed_url": "https://chat.publicbikesystem.net/ube/gbfs/v1/"
+        },
+        {
+            "tag": "biketown",
+            "meta": {
+                "latitude": 45.52175423291714,
+                "longitude": -122.68107935786247,
+                "city": "Portland, OR",
+                "name": "BIKETOWN",
+                "country": "US",
+                "company": [
+                    "Portland Bureau of Transportation (PBOT)",
+                    "Lyft Inc."
+                ]
+            },
+            "feed_url": "https://gbfs.biketownpdx.com/gbfs/gbfs.json"
+        },
+        {
+            "tag": "reddy-bike-share",
+            "meta": {
+                "latitude": 42.89373841865211,
+                "longitude": -78.8718044757843,
+                "city": "Buffalo, NY",
+                "name": "Reddy Bike Share",
+                "country": "US",
+                "company": [
+                    "Shared Mobility Inc.",
+                    "Social Bicycles Inc."
+                ]
+            },
+            "feed_url": "https://reddybikeshare.socialbicycles.com/opendata/gbfs.json"
+        },
+        {
+            "tag": "capital-bikeshare",
+            "meta": {
+                "latitude": 38.8967584,
+                "longitude": -77.03701629999999,
+                "city": "Washington, DC",
+                "name": "Capital BikeShare",
+                "country": "US",
+                "company": [
+                    "Motivate International, Inc.",
+                    "PBSC Urban Solutions"
+                ],
+                "ebikes": true
+            },
+            "feed_url": "https://gbfs.capitalbikeshare.com/gbfs/gbfs.json"
+        },
+        {
+            "tag": "citi-bike-nyc",
+            "meta": {
+                "latitude": 40.7143528,
+                "longitude": -74.00597309999999,
+                "city": "New York, NY",
+                "name": "Citi Bike",
+                "country": "US",
+                "company": [
+                    "NYC Bike Share, LLC",
+                    "Motivate International, Inc.",
+                    "PBSC Urban Solutions"
+                ],
+                "ebikes": true
+            },
+            "feed_url": "https://gbfs.citibikenyc.com/gbfs/gbfs.json"
+        },
+        {
+            "tag": "denver",
+            "meta": {
+                "latitude": 39.72055,
+                "longitude": -104.95253,
+                "city": "Denver, CO",
+                "name": "Lyft",
+                "country": "US",
+                "company": [
+                    "Lyft Inc."
+                ]
+            },
+            "feed_url": "https://s3.amazonaws.com/lyft-lastmile-production-iad/lbs/den/gbfs.json"
+        },
+        {
+            "tag": "divvy",
+            "meta": {
+                "latitude": 41.8781136,
+                "longitude": -87.6297982,
+                "city": "Chicago, IL",
+                "name": "Divvy",
+                "country": "US",
+                "company": [
+                    "Motivate International, Inc.",
+                    "PBSC Urban Solutions"
+                ],
+                "ebikes": true
+            },
+            "feed_url": "https://gbfs.divvybikes.com/gbfs/gbfs.json"
+        },
+        {
+            "tag": "blue-bikes",
+            "meta": {
+                "latitude": 42.3584308,
+                "longitude": -71.0597732,
+                "city": "Boston, MA",
+                "name": "Blue Bikes",
+                "country": "US",
+                "company": [
+                    "Motivate International, Inc.",
+                    "PBSC Urban Solutions"
+                ],
+                "ebikes": true
+            },
+            "feed_url": "https://gbfs.bluebikes.com/gbfs/gbfs.json"
+        },
+        {
+            "tag": "sobi-long-beach",
+            "meta": {
+                "latitude": 33.76897,
+                "longitude": -118.19164,
+                "city": "Long Beach, CA",
+                "name": "SoBi",
+                "country": "US",
+                "company": [
+                    "Social Bicycles Inc."
+                ]
+            },
+            "feed_url": "https://www.longbeachbikeshare.com/opendata/gbfs.json"
+        },
+        {
+            "tag": "bay-wheels",
+            "meta": {
+                "latitude": 37.7141454,
+                "longitude": -122.25,
+                "city": "San Francisco Bay Area, CA",
+                "name": "Bay Wheels",
+                "country": "US",
+                "company": [
+                    "Motivate LLC"
+                ]
+            },
+            "feed_url": "https://gbfs.baywheels.com/gbfs/gbfs.json"
+        },
+        {
+            "tag": "bikerecife",
+            "meta": {
+                "latitude": -8.047129,
+                "city": "Recife",
+                "name": "BikeRecife",
+                "longitude": -34.873437,
+                "country": "BR",
+                "company": [
+                    "Tembici",
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://rec.publicbikesystem.net/ube/gbfs/v1/",
+            "force_https": "true"
+        },
+        {
+            "tag": "bikesampa",
+            "meta": {
+                "latitude": -23.55,
+                "city": "São Paulo",
+                "name": "BikeSampa",
+                "longitude": -46.6333,
+                "country": "BR",
+                "company": [
+                    "Tembici",
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://saopaulo.publicbikesystem.net/ube/gbfs/v1/",
+            "force_https": "true",
+            "ignore_errors": true
+        },
+        {
+            "tag": "bikerio",
+            "meta": {
+                "latitude": -22.904315,
+                "city": "Rio de Janeiro",
+                "name": "BikeRio",
+                "longitude": -43.184776,
+                "country": "BR",
+                "company": [
+                    "Tembici",
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://riodejaneiro.publicbikesystem.net/ube/gbfs/v1/",
+            "force_https": "true",
+            "ignore_errors": true
+        },
+        {
+            "tag": "bikesalvador",
+            "meta": {
+                "latitude": -12.973959,
+                "city": "Salvador",
+                "name": "BikeSalvador",
+                "longitude": -38.508171,
+                "country": "BR",
+                "company": [
+                    "Tembici",
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://salvador.publicbikesystem.net/ube/gbfs/v1/"
+        },
+        {
+            "tag": "bikepoa",
+            "meta": {
+                "latitude": -30.033079,
+                "city": "Porto Alegre",
+                "name": "BikePOA",
+                "longitude": -51.23654,
+                "country": "BR",
+                "company": [
+                    "Tembici",
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://poa.publicbikesystem.net/ube/gbfs/v1/",
+            "force_https": "true"
+        },
+        {
+            "tag": "mibici-guadalajara",
+            "meta": {
+                "latitude": 20.6737883,
+                "city": "Guadalajara",
+                "name": "MIBICI",
+                "longitude": -103.3704325,
+                "country": "MX",
+                "company": [
+                    "BKT bici publica S.A. de C.V.",
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://guad.publicbikesystem.net/ube/gbfs/v1/",
+            "force_https": "true"
+        },
+        {
+            "tag": "libelo",
+            "meta": {
+                "latitude": 44.922726,
+                "longitude": 4.905634,
+                "city": "Valence",
+                "name": "Libélo",
+                "country": "FR",
+                "company": [
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://valencefr.publicbikesystem.net/ube/gbfs/v1/"
+        },
+        {
+            "tag": "bikesantiago",
+            "meta": {
+                "latitude": -33.45,
+                "city": "Santiago",
+                "name": "BikeSantiago",
+                "longitude": -70.67,
+                "country": "CL",
+                "company": [
+                    "Tembici",
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://santiago.publicbikesystem.net/ube/gbfs/v1/",
+            "ignore_errors": true,
+            "bbox": [
+                [
+                    -33.266358,
+                    -70.993412
+                ],
+                [
+                    -33.776481,
+                    -70.253289
+                ]
+            ]
+        },
+        {
+            "tag": "oslo-bysykkel",
+            "meta": {
+                "latitude": 59.913869,
+                "country": "NO",
+                "name": "Bysykkel",
+                "longitude": 10.752245,
+                "city": "Oslo",
+                "company": [
+                    "Urban Sharing AS"
+                ]
+            },
+            "feed_url": "https://gbfs.urbansharing.com/oslobysykkel.no/gbfs.json"
+        },
+        {
+            "tag": "bergen-bysykkel",
+            "meta": {
+                "latitude": 60.391263,
+                "country": "NO",
+                "name": "Bysykkel",
+                "longitude": 5.322054,
+                "city": "Bergen",
+                "company": [
+                    "Urban Sharing AS"
+                ]
+            },
+            "feed_url": "https://gbfs.urbansharing.com/bergenbysykkel.no/gbfs.json"
+        },
+        {
+            "tag": "trondheim-bysykkel",
+            "meta": {
+                "latitude": 63.4307238,
+                "country": "NO",
+                "name": "Bysykkel",
+                "longitude": 10.3936781,
+                "city": "Trondheim",
+                "company": [
+                    "Urban Sharing AS"
+                ]
+            },
+            "feed_url": "https://gbfs.urbansharing.com/trondheimbysykkel.no/gbfs.json"
+        },
+        {
+            "tag": "we-cycle",
+            "meta": {
+                "city": "Aspen, CO",
+                "name": "WE-cycle",
+                "country": "US",
+                "company": [
+                    "PBSC",
+                    "Alta Bicycle Share, Inc"
+                ],
+                "longitude": -106.837002,
+                "latitude": 39.194951
+            },
+            "feed_url": "https://asp.publicbikesystem.net/ube/gbfs/v1/gbfs.json"
+        },
+        {
+            "tag": "velivert",
+            "meta": {
+                "city": "Saint-Étienne",
+                "name": "VéliVert",
+                "country": "FR",
+                "company": [
+                    "Fifteen"
+                ],
+                "latitude": 45.396667,
+                "longitude": 4.290833
+            },
+            "feed_url": "https://api.saint-etienne-metropole.fr/velivert/api/gbfs/gbfs.json"
+        },
+        {
+            "tag": "velopop",
+            "meta": {
+                "city": "Avignon",
+                "name": "Vélopop",
+                "country": "FR",
+                "company": [
+                    "TCRA Public Transport Region Avignon",
+                    "Fifteen"
+                ],
+                "latitude": 43.943689,
+                "longitude": 4.805833
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/avignon/gbfs.json"
+        },
+        {
+            "tag": "c-velo",
+            "meta": {
+                "city": "Clermont-Ferrand",
+                "name": "C.vélo",
+                "country": "FR",
+                "company": [
+                    "CityBike France",
+                    "PBSC Urban Solutions"
+                ],
+                "latitude": 45.7831,
+                "longitude": 3.0824
+            },
+            "feed_url": "https://clermontferrand.publicbikesystem.net/customer/ube/gbfs/v1/"
+        },
+        {
+            "tag": "monabike",
+            "meta": {
+                "city": "Monaco",
+                "name": "MonaBike",
+                "country": "MC",
+                "company": [
+                    "PBSC Urban Solutions"
+                ],
+                "latitude": 43.733333,
+                "longitude": 7.416667
+            },
+            "feed_url": "https://monaco.publicbikesystem.net/customer/ube/gbfs/v1/"
+        },
+        {
+            "tag": "mibicitubici",
+            "meta": {
+                "city": "Rosario",
+                "name": "Mi bici tu bici",
+                "country": "AR",
+                "longitude": -60.65,
+                "latitude": -32.95,
+                "company": [
+                    "Mobilicidade Tecnologia LTD",
+                    "Municipalidad de Rosario"
+                ]
+            },
+            "feed_url": "https://www.mibicitubici.gob.ar/opendata/gbfs.json",
+            "ignore_errors": true
+        },
+        {
+            "tag": "bikeverona",
+            "meta": {
+                "city": "Verona",
+                "name": "Verona Bike",
+                "country": "IT",
+                "latitude": 45.438611,
+                "longitude": 10.992778,
+                "company": [
+                    "IGP S.p.A.",
+                    "Urban Sharing AS"
+                ]
+            },
+            "feed_url": "https://gbfs.urbansharing.com/bikeverona.it/gbfs.json"
+        },
+        {
+            "tag": "velomagg",
+            "meta": {
+                "city": "Montpellier",
+                "name": "Vélomagg",
+                "country": "FR",
+                "latitude": 43.6119,
+                "longitude": 3.8772,
+                "company": [
+                    "TaM",
+                    "Fifteen"
+                ],
+                "source": "https://transport.data.gouv.fr/datasets/disponibilite-en-temps-reel-des-velos-en-libre-service-velomagg-de-montpellier/",
+                "license": {
+                    "name": "Open Data Commons Open Database License (ODbL)",
+                    "url": "http://opendatacommons.org/licenses/odbl/summary/"
+                }
+            },
+            "ignore_errors": true,
+            "feed_url": "https://gbfs.theta.fifteen.eu/gbfs/2.2/montpellier/en/gbfs.json",
+            "station_information": "https://gbfs.theta.fifteen.eu/gbfs/2.2/montpellier/en/station_information.json",
+            "station_status": "https://gbfs.theta.fifteen.eu/gbfs/2.2/montpellier/en/station_status.json"
+        },
+        {
+            "tag": "bikebrasilia",
+            "meta": {
+                "city": "Brasília",
+                "name": "BikeBrasilia",
+                "country": "BR",
+                "longitude": -47.887424,
+                "latitude": -15.795115,
+                "company": [
+                    "Tembici"
+                ]
+            },
+            "feed_url": "https://brasilia.publicbikesystem.net/customer/ube/gbfs/v1/"
+        },
+        {
+            "tag": "optymo",
+            "meta": {
+                "latitude": 47.641111,
+                "city": "Belfort",
+                "name": "Optymo",
+                "longitude": 6.849444,
+                "country": "FR",
+                "company": [
+                    "SMTC 90"
+                ]
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/2.2/belfort/gbfs.json"
+        },
+        {
+            "tag": "bicicorunha",
+            "meta": {
+                "name": "Bicicoruña",
+                "city": "A Coruña",
+                "latitude": 43.3623,
+                "longitude": -8.4115,
+                "country": "ES",
+                "company": [
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://acoruna.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "avelo-quebec",
+            "meta": {
+                "latitude": 46.81305,
+                "city": "Québec",
+                "name": "àVélo",
+                "longitude": -71.2168,
+                "country": "CA",
+                "company": [
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://quebec.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "acces-velo-saguenay",
+            "meta": {
+                "latitude": 48.433333,
+                "city": "Saguenay",
+                "name": "Accès Vélo",
+                "longitude": -71.083333,
+                "country": "CA",
+                "company": [
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://saguenay.publicbikesystem.net/customer/gbfs/v2/gbfs.json",
+            "force_https": "true"
+        },
+        {
+            "tag": "ecobici",
+            "meta": {
+                "latitude": 19.4326077,
+                "city": "Cd de México",
+                "name": "EcoBici",
+                "longitude": -99.133208,
+                "country": "MX",
+                "company": [
+                    "5M2 S.A. DE C.V.",
+                    "BKT BICIPÚBLICA S.A. DE C.V.",
+                    "Lyft Inc."
+                ]
+            },
+            "feed_url": "https://gbfs.mex.lyftbikes.com/gbfs/gbfs.json"
+        },
+        {
+            "tag": "velobaie",
+            "meta": {
+                "city": "Saint-Brieuc",
+                "name": "VeloBaie",
+                "country": "FR",
+                "company": [
+                    "VeloBaie",
+                    "Fifteen SAS"
+                ],
+                "longitude": -2.765,
+                "latitude": 48.514
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/saintbrieuc/gbfs.json"
+        },
+        {
+            "tag": "donkey-gh",
+            "meta": {
+                "latitude": 51.0500,
+                "longitude": 3.7303,
+                "name": "Donkey Republic - Gent",
+                "city": "Gent",
+                "country": "BE",
+                "company": [
+                    "Donkey Republic"
+                ]
+            },
+            "feed_url": "https://stables.donkey.bike/api/public/gbfs/donkey_gh/gbfs"
+        },
+        {
+            "tag": "sprottenflotte-kiel",
+            "meta": {
+                "latitude": 54.2837,
+                "longitude": 10.13213,
+                "name": "Sprottenflotte",
+                "city": "Kiel",
+                "country": "DE",
+                "company": [
+                    "Donkey Republic"
+                ]
+            },
+            "feed_url": "https://stables.donkey.bike/api/public/gbfs/2/donkey_kiel/gbfs"
+        },
+        {
+            "tag": "mobibikes",
+            "meta": {
+                "city": "Vancouver",
+                "name": "Mobi",
+                "country": "CA",
+                "company": [
+                    "Vanncouver Bike Share Inc.",
+                    "CycleHop LLC",
+                    "City of Vancouver",
+                    "Shaw Communications Inc.",
+                    "Fifteen"
+                ],
+                "longitude": -123.1207,
+                "latitude": 49.2827
+            },
+            "feed_url": "https://gbfs.kappa.fifteen.eu/gbfs/2.2/mobi/en/gbfs.json",
+            "bbox": [
+                [
+                    49.378755,
+                    -123.379146
+                ],
+                [
+                    49.133163,
+                    -122.828082
+                ]
+            ]
+        },
+        {
+            "tag": "lovelolibreservice",
+            "meta": {
+                "latitude": 49.4432552,
+                "longitude": 1.0999821,
+                "city": "Rouen",
+                "name": "Lovélo Libre Service",
+                "country": "FR",
+                "company": [
+                    "Citybike Normandie",
+                    "INURBA Mobility"
+                ]
+            },
+            "feed_url": "https://gbfs.urbansharing.com/lovelolibreservice.fr/gbfs.json"
+        },
+        {
+            "tag": "foli",
+            "meta": {
+                "city": "Turku",
+                "name": "Fölläri bikes",
+                "country": "FI",
+                "company": [
+                    "Turku Region Traffic Föli",
+                    "DonkeyRepublic Admin ApS"
+                ],
+                "longitude": 22.2666,
+                "latitude": 60.4506
+            },
+            "feed_url": "https://stables.donkey.bike/api/public/gbfs/2/donkey_turku/gbfs.json"
+        },
+        {
+            "tag": "tugo-bike-share",
+            "meta": {
+                "city": "Tucson, AZ",
+                "name": "Tugo Bike Share",
+                "country": "US",
+                "company": [
+                    "PBSC Urban Solutions",
+                    "Shift Transit"
+                ],
+                "latitude": 32.2225,
+                "longitude": -110.9749
+            },
+            "feed_url": "https://tucson.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "docomo-cycle-tokyo",
+            "meta": {
+                "city": "Tokyo",
+                "name": "Docomo Bike Share Tokyo",
+                "country": "JP",
+                "company": [
+                    "DOCOMO BIKE SHARE, INC."
+                ],
+                "latitude": 35.6827,
+                "longitude": 139.7660,
+                "source": "https://ckan.odpt.org/en/dataset/c_bikeshare_gbfs-d-bikeshare",
+                "license": {
+                    "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+                    "url": "https://creativecommons.org/licenses/by/4.0/"
+                }
+            },
+            "feed_url": "https://api-public.odpt.org/api/v4/gbfs/docomo-cycle-tokyo/gbfs.json"
+        },
+        {
+            "tag": "tembici-bogota",
+            "meta": {
+                "city": "Bogotá",
+                "name": "Tembici",
+                "country": "CO",
+                "company": [
+                    "M1 Transportes Sustentáveis Ltda.",
+                    "Tembici"
+                ],
+                "latitude": 4.6569,
+                "longitude": -74.0656
+            },
+            "bbox": [
+                [
+                    4.719375734803037,
+                    -74.02234088704458
+                ],
+                [
+                    4.588374427629375,
+                    -74.0977190296218
+                ]
+            ],
+            "feed_url": "https://bogota.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "bike-curitiba",
+            "meta": {
+                "city": "Curitiba",
+                "name": "BikeCuritiba",
+                "country": "BR",
+                "company": [
+                    "M1 Transportes Sustentáveis Ltda.",
+                    "M2 Soluções Em Engenharia Ltda.",
+                    "Tembici"
+                ],
+                "latitude": -25.4299,
+                "longitude": -49.2722
+            },
+            "feed_url": "https://curitiba.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "rivibike",
+            "meta": {
+                "city": "Riviera de São Lourenço",
+                "name": "Rivibike",
+                "country": "BR",
+                "company": [
+                    "Sobloco Construtora S/A",
+                    "Associação dos Amigos da Riviera",
+                    "Tembici"
+                ],
+                "latitude": -23.7998,
+                "longitude": -46.0223
+            },
+            "feed_url": "https://riviera.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "bike-itau-nordelta",
+            "meta": {
+                "city": "Nordelta",
+                "name": "Bike Itaú Nordelta",
+                "country": "AR",
+                "company": [
+                    "Tembici",
+                    "Itaú Argentina",
+                    "Zurich Insurance Group"
+                ],
+                "latitude": -34.4146,
+                "longitude": -58.6493
+            },
+            "feed_url": "https://nordelta.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "ecobici-buenos-aires",
+            "meta": {
+                "city": "Buenos Aires",
+                "name": "Ecobici",
+                "country": "AR",
+                "company": [
+                    "Tembici",
+                    "Itaú Argentina"
+                ],
+                "latitude": -34.630665,
+                "longitude": -58.411560
+            },
+            "bbox": [[-35.1453, -59.0845], [-34.0791, -57.7991]],
+            "feed_url": "https://buenosaires.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "ti-velo",
+            "meta": {
+                "city": "Landernau",
+                "name": "Ti Vélo",
+                "country": "FR",
+                "company": [
+                    "Fifteen SAS"
+                ],
+                "latitude": 48.4512,
+                "longitude": -4.2551,
+                "source": "https://www.data.gouv.fr/fr/datasets/r/e32b6154-ab60-4eca-8271-0ce846c7bace",
+                "license": {
+                    "name": "Open Data Commons Open Database License (ODbL)",
+                    "url": "http://opendatacommons.org/licenses/odbl/summary/"
+                }
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/landerneau/gbfs.json"
+        },
+        {
+            "tag": "velopartage-geneve",
+            "meta": {
+                "city": "Genève",
+                "name": "VéloPartage",
+                "country": "CH",
+                "company": [
+                    "Genèveroule",
+                    "Donkey Republic"
+                ],
+                "latitude": 46.2021,
+                "longitude": 6.1457
+            },
+            "feed_url": "https://stables.donkey.bike/api/public/gbfs/2/donkey_ge/gbfs.json"
+        },
+        {
+            "tag": "regivelo-kreuzlingen",
+            "meta": {
+                "city": "Kreuzlingen",
+                "name": "Regivelo",
+                "country": "CH",
+                "company": [
+                    "Regivelo",
+                    "Donkey Republic"
+                ],
+                "latitude": 47.6460,
+                "longitude": 9.1716
+            },
+            "feed_url": "https://stables.donkey.bike/api/public/gbfs/2/donkey_kreuzlingen/gbfs.json"
+        },
+        {
+            "tag": "neuchatelroule",
+            "meta": {
+                "city": "Neuchâtel",
+                "name": "Neuchâtelroule",
+                "country": "CH",
+                "company": [
+                    "Donkey Republic"
+                ],
+                "latitude": 46.9916,
+                "longitude": 6.9269
+            },
+            "feed_url": "https://stables.donkey.bike/api/public/gbfs/2/donkey_neuchatel/gbfs.json"
+        },
+        {
+            "tag": "thun",
+            "meta": {
+                "city": "Thun",
+                "name": "Donkey Republic Thun",
+                "country": "CH",
+                "company": [
+                    "Donkey Republic"
+                ],
+                "latitude": 46.7576,
+                "longitude": 7.6287
+            },
+            "feed_url": "https://stables.donkey.bike/api/public/gbfs/2/donkey_thun/gbfs.json"
+        },
+        {
+            "tag": "yverdon-les-bains",
+            "meta": {
+                "city": "Yverdon-les-Bains",
+                "name": "Donkey Republic Yverdon-les-Bains",
+                "country": "CH",
+                "company": [
+                    "Donkey Republic"
+                ],
+                "latitude": 46.7788,
+                "longitude": 6.6414
+            },
+            "feed_url": "https://stables.donkey.bike/api/public/gbfs/2/donkey_yverdon-les-bains/gbfs.json"
+        },
+        {
+            "tag": "hibike",
+            "meta": {
+                "city": "Kailua-Kona",
+                "name": "Hibike",
+                "country": "US",
+                "company": [
+                    "Bikeshare Hawaii Island"
+                ],
+                "latitude": 19.6417,
+                "longitude": -155.9962
+            },
+            "bbox": [
+                [
+                    18.704,
+                    -156.4264
+                ],
+                [
+                    20.4842,
+                    -154.5371
+                ]
+            ],
+            "feed_url": "https://kona.publicbikesystem.net/customer/ube/gbfs/v1/en/gbfs.json"
+        },
+        {
+            "tag": "gobiki",
+            "meta": {
+                "city": "Honolulu",
+                "name": "Biki",
+                "country": "US",
+                "company": [
+                    "Bikeshare Hawaii Island"
+                ],
+                "latitude": 21.3043,
+                "longitude": -157.8560
+            },
+            "feed_url": "https://hon.publicbikesystem.net/customer/ube/gbfs/v1/en/gbfs.json"
+        },
+        {
+            "tag": "wolf-ride-bike-share",
+            "meta": {
+                "city": "Stony Brook",
+                "name": "Wolf Ride Bike Share (Stony Brook University)",
+                "country": "US",
+                "company": [
+                    "Stony Brook University"
+                ],
+                "latitude": 40.9124,
+                "longitude": -73.1249
+            },
+            "feed_url": "https://sbu.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "peacehealth-rides",
+            "meta": {
+                "city": "Eugene, OR",
+                "name": "PeaceHealth Rides",
+                "country": "US",
+                "company": [
+                    "Social Bicycles Inc."
+                ],
+                "latitude": 44.0502,
+                "longitude": -123.0949
+            },
+            "feed_url": "https://peacehealthrides.com/opendata/gbfs.json"
+        },
+        {
+            "tag": "bikemi",
+            "meta": {
+                "latitude": 45.4654542,
+                "city": "Milano",
+                "name": "BikeMi",
+                "longitude": 9.186516,
+                "country": "IT",
+                "ebikes": true,
+                "company": [
+                    "IGP S.p.A."
+                ]
+            },
+            "feed_url": "https://gbfs.urbansharing.com/bikemi.com/gbfs.json"
+        },
+        {
+            "tag": "mogo-detroit",
+            "meta": {
+                "latitude": 42.331548,
+                "longitude": -83.0465,
+                "city": "Detroit, MI",
+                "name": "MoGo",
+                "country": "US",
+                "company": [
+                    "PBSC Urban Solutions",
+                    "Shift Transit"
+                ],
+                "ebikes": true
+            },
+            "feed_url": "https://detroit.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "biketown-whq",
+            "meta": {
+                "latitude": 45.5087,
+                "longitude": -122.8294,
+                "city": "Beaverton, OR",
+                "name": "Biketown WHQ (Nike campus)",
+                "country": "US",
+                "company": []
+            },
+            "feed_url": "https://nike.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "sibiu",
+            "meta": {
+                "latitude": 45.7963,
+                "longitude": 24.1518,
+                "city": "Sibiu",
+                "name": "Sibiu Bike Share",
+                "country": "RO",
+                "company": [
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://sibiu.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "santana",
+            "meta": {
+                "latitude": 46.3461,
+                "longitude": 21.5064,
+                "city": "Sântana",
+                "name": "Sântana Velo",
+                "country": "RO",
+                "company": [
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://santana.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "dbizi",
+            "meta": {
+                "latitude": 43.3186,
+                "longitude": -1.9836,
+                "city": "Donostia/San Sebastián",
+                "name": "Dbizi",
+                "country": "ES",
+                "company": [
+                    "UTE BIZISS",
+                    "Movilidad Urbana Sostenible SLU",
+                    "URBASER, S.A.",
+                    "AENOR INTERNACIONAL S.A.",
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://sansebastian.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "pittsburgh",
+            "meta": {
+                "latitude": 40.4406,
+                "longitude": -79.9893,
+                "city": "Pittsburgh, PA",
+                "name": "Pogoh",
+                "country": "US",
+                "company": [
+                    "Bike Share Pittsburgh Inc.",
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://pittsburgh.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "velozef",
+            "meta": {
+                "latitude": 48.3905,
+                "longitude": -4.48732,
+                "city": "Brest",
+                "name": "VéloZef",
+                "country": "FR",
+                "company": [
+                    "Fifteen SAS"
+                ],
+                "source": "https://www.data.gouv.fr/fr/datasets/velos-a-assistance-electrique-en-libre-service-velozef-sur-brest/"
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/brest/gbfs.json"
+        },
+        {
+            "tag": "le-velo",
+            "meta": {
+                "city": "Marseille",
+                "name": "LeVélo",
+                "country": "FR",
+                "company": [
+                    "LeVélo AMP Métropole",
+                    "Ville de Marseille",
+                    "Fifteen SAS"
+                ],
+                "longitude": 5.36978,
+                "latitude": 43.296482,
+                "source": "https://www.data.gouv.fr/fr/datasets/velos-a-assistance-electrique-en-libre-service-levelo-sur-marseille/",
+                "license": {
+                    "name": "Open Data Commons Open Database License (ODbL)",
+                    "url": "http://opendatacommons.org/licenses/odbl/summary/"
+                }
+            },
+            "append_feed_args_to_req": true,
+            "feed_url": "https://api.omega.fifteen.eu/gbfs/2.2/marseille/en/gbfs.json?&key=MjE0ZDNmMGEtNGFkZS00M2FlLWFmMWItZGNhOTZhMWQyYzM2"
+        },
+        {
+            "tag": "bizi",
+            "meta": {
+                "latitude": 41.6487908,
+                "city": "Zaragoza",
+                "name": "Bizi",
+                "longitude": -0.8895811,
+                "country": "ES",
+                "company": [
+                    "UTE Serveo Servicios",
+                    "PBSC Urban Solutions"
+                ]
+            },
+            "feed_url": "https://zaragoza.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "v3-bordeaux",
+            "meta": {
+                "country": "FR",
+                "city": "Bordeaux",
+                "latitude": 44.837789,
+                "longitude": -0.57918,
+                "company": [
+                    "Keolis Bordeaux Métropole"
+                ],
+                "name": "V³"
+            },
+            "feed_url": "https://bdx.mecatran.com/utw/ws/gbfs/bordeaux/v3/gbfs.json?apiKey=opendata-bordeaux-metropole-flux-gtfs-rt"
+        },
+        {
+            "tag": "capmetro-austin",
+            "meta": {
+                "latitude": 30.26408,
+                "longitude": -97.74355,
+                "city": "Austin, TX",
+                "name": "CapMetro Bikeshare",
+                "country": "US",
+                "company": [
+                    "CapMetro",
+                    "City of Austin"
+                ]
+            },
+            "feed_url": "https://austin.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "fortworth",
+            "meta": {
+                "latitude": 32.7516,
+                "longitude": -97.32888,
+                "city": "Fort Worth, TX",
+                "name": "Trinity Metro Bikes",
+                "country": "US",
+                "company": [
+                    "Trinity Metro",
+                    "Lyft Inc."
+                ]
+            },
+            "feed_url": "https://fortworth.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "pony-nice",
+            "meta": {
+                "country": "FR",
+                "city": "Nice",
+                "latitude": 43.695949,
+                "longitude": 7.271413,
+                "company": ["Pony"],
+                "name": "Pony"
+            },
+            "feed_url": "https://gbfs.getapony.com/v1/Nice/en/gbfs.json?key=AIzaSyBMkR2fCYvZZC22Ls5A5wJQRwDERao07Nc"
+        },
+        {
+            "tag": "dott-murcia",
+            "meta": {
+                "country": "ES",
+                "city": "Murcia",
+                "latitude": 37.9872,
+                "longitude": -1.1287,
+                "company": ["Dott"],
+                "name": "Dott"
+            },
+            "feed_url": "https://gbfs.api.ridedott.com/public/v2/murcia/gbfs.json"
+        },
+        {
+            "tag": "dott-ibiza",
+            "meta": {
+                "country": "ES",
+                "city": "Ibiza",
+                "latitude": 38.9100,
+                "longitude": 1.4334,
+                "company": ["Dott"],
+                "name": "Dott Ibiza"
+            },
+            "feed_url": "https://gbfs.api.ridedott.com/public/v2/ibiza/gbfs.json"
+        },
+        {
+            "tag": "dott-tarragona",
+            "meta": {
+                "country": "ES",
+                "city": "Tarragona",
+                "latitude": 41.1178,
+                "longitude": 1.2553,
+                "company": ["Dott"],
+                "name": "Dott Tarragona"
+            },
+            "feed_url": "https://gbfs.api.ridedott.com/public/v2/tarragona/gbfs.json"
+        },
+        {
+            "tag": "dott-tubingen",
+            "meta": {
+                "country": "DE",
+                "city": "Tübingen",
+                "company": ["Dott"],
+                "name": "Dott Tübingen",
+                "latitude": 48.5210,
+                "longitude": 9.0534
+            },
+            "feed_url": "https://gbfs.api.ridedott.com/public/v2/tubingen/gbfs.json"
+        },
+        {
+            "tag": "bicinrivas",
+            "meta": {
+                "city": "Rivas-Vaciamadrid",
+                "country": "ES",
+                "latitude": 40.35353,
+                "longitude": -3.53095,
+                "name": "BiciNRivas",
+                "company": ["Lyft Inc."]
+            },
+            "feed_url": "https://rivas.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "bilbon-bizi",
+            "meta": {
+                "name": "Bilbaobizi",
+                "city": "Bilbao",
+                "country": "ES",
+                "latitude": 43.2630,
+                "longitude": -2.9350,
+                "company": ["Lyft Inc."]
+            },
+            "feed_url": "https://bilbao.publicbikesystem.net/customer/gbfs/v2/gbfs.json"
+        },
+        {
+            "tag": "aqta",
+            "meta": {
+                "latitude": 47.665705,
+                "longitude": -2.983669,
+                "city": "Auray-Quiberon",
+                "name": "VLS AQTAs",
+                "country": "FR",
+                "company": [
+                    "Fifteen",
+                    "Veloc'Ouest"
+                ]
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/2.2/auray-quiberon/en/gbfs.json"
+        },
+        {
+            "tag": "bird-seattle",
+            "meta": {
+                "latitude": 47.6062,
+                "longitude": -122.3321,
+                "city": "Seattle, WA",
+                "name": "Bird Seattle",
+                "country": "US",
+                "company": [
+                    "Bird Rides, Inc."
+                ]
+            },
+            "feed_url": "https://mds.bird.co/gbfs/v2/public/seattle-washington/gbfs.json"
+        },
+        {
+            "tag": "lime-seattle",
+            "meta": {
+                "latitude": 47.6062,
+                "longitude": -122.3321,
+                "city": "Seattle, WA",
+                "name": "Lime Seattle",
+                "country": "US",
+                "company": [
+                    "Lime"
+                ]
+            },
+            "feed_url": "https://data.lime.bike/api/partners/v2/gbfs/seattle/gbfs.json"
+        },
+        {
+            "tag": "lime-portland",
+            "meta": {
+                "latitude": 45.5152,
+                "longitude": -122.6784,
+                "city": "Portland, OR",
+                "name": "Lime Portland",
+                "country": "US",
+                "company": [
+                    "Lime"
+                ]
+            },
+            "feed_url": "https://data.lime.bike/api/partners/v2/gbfs/portland/gbfs.json"
+        },
+        {
+            "tag": "lime-san-francisco",
+            "meta": {
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "city": "San Francisco, CA",
+                "name": "Lime San Francisco",
+                "country": "US",
+                "company": [
+                    "Lime"
+                ]
+            },
+            "feed_url": "https://data.lime.bike/api/partners/v2/gbfs/san_francisco/gbfs.json"
+        },
+        {
+            "tag": "spin-san-francisco",
+            "meta": {
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "city": "San Francisco, CA",
+                "name": "Spin San Francisco",
+                "country": "US",
+                "company": [
+                    "Bird Rides, Inc."
+                ]
+            },
+            "feed_url": "https://mds.bird.co/gbfs/v2/public/provider/spin/san_francisco/gbfs.json"
+        },
+        {
+            "tag": "bird-los-angeles",
+            "meta": {
+                "latitude": 34.0522,
+                "longitude": -118.2437,
+                "city": "Los Angeles, CA",
+                "name": "Bird Los Angeles",
+                "country": "US",
+                "company": [
+                    "Bird Rides, Inc."
+                ]
+            },
+            "feed_url": "https://mds.bird.co/gbfs/v2/public/los-angeles/gbfs.json"
+        },
+        {
+            "tag": "spin-los-angeles",
+            "meta": {
+                "latitude": 34.0522,
+                "longitude": -118.2437,
+                "city": "Los Angeles, CA",
+                "name": "Spin Los Angeles",
+                "country": "US",
+                "company": [
+                    "Bird Rides, Inc."
+                ]
+            },
+            "feed_url": "https://mds.bird.co/gbfs/v2/public/provider/spin/los_angeles/gbfs.json"
+        },
+        {
+            "tag": "velonecy",
+            "meta": {
+                "latitude": 45.8997,
+                "longitude": 6.1233,
+                "city": "Annecy",
+                "name": "Vélonecy",
+                "country": "FR",
+                "company": [
+                    "Communauté d'Agglomération du Grand Annecy",
+                    "Fifteen SAS",
+                    "Mobil'éco"
+                ]
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/2.2/annecy/en/gbfs.json"
+        },
+        {
+            "tag": "graoulib",
+            "meta": {
+                "latitude": 49.1167,
+                "longitude": 6.1667,
+                "city": "Metz",
+                "name": "Graoulib",
+                "country": "FR",
+                "company": ["Metz Métropole", "Fifteen SAS"]
+            },
+            "feed_url": "https://gbfs.graoulib.fifteen.eu/gbfs/metz/gbfs.json",
+            "station_information": "https://gbfs.graoulib.fifteen.eu/gbfs/metz/station_information.json",
+            "station_status": "https://gbfs.graoulib.fifteen.eu/gbfs/metz/station_status.json",
+            "vehicle_types": "https://gbfs.graoulib.fifteen.eu/gbfs/metz/vehicle_types.json",
+            "free_bike_status": "https://gbfs.graoulib.fifteen.eu/gbfs/metz/free_bike_status.json"
+        },
+        {
+            "tag": "vilvolt",
+            "meta": {
+                "city": "Épinal",
+                "name": "Vilvolt",
+                "country": "FR",
+                "company": [
+                    "Vilvolt CA Épinal",
+                    "Communauté d'agglomération Épinal",
+                    "Fifteen SAS"
+                ],
+                "longitude": 6.4508,
+                "latitude": 48.1833
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/2.2/epinal/gbfs.json"
+        },
+        {
+            "tag": "mugibike",
+            "meta": {
+                "city": "Vitoria-Gasteiz",
+                "name": "MugiBIKE",
+                "country": "ES",
+                "company": [
+                    "UTE MoFIf Vitoria",
+                    "Movilidad Urbana Sostenible SLU",
+                    "Fifteen SAS"
+                ],
+                "latitude": 42.8465,
+                "longitude": -2.6724
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/vitoria/gbfs.json"
+        },
+        {
+            "tag": "idecycle",
+            "meta": {
+                "name": "IDEcycle",
+                "city": "Pau",
+                "country": "FR",
+                "company": [
+                    "Fifteen SAS"
+                ],
+                "latitude": 43.2957547,
+                "longitude": -0.3685668
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/pau/gbfs.json"
+        },
+        {
+            "tag": "auxrmlevelo",
+            "meta": {
+                "name": "AuxR_M",
+                "city": "Auxerre",
+                "country": "FR",
+                "company": [
+                    "Fifteen SAS"
+                ],
+                "latitude": 47.796054,
+                "longitude": 3.571375
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/auxerre/gbfs.json"
+        },
+        {
+            "tag": "velofluo",
+            "meta": {
+				"city": "Grand Est",
+                "name": "Vélo Fluo",
+                "country": "FR",
+                "company": [
+                    "Fifteen SAS"
+                ],
+                "latitude": 48.484322,
+                "longitude": 6.114004
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/velo-fluo/gbfs.json"
+        },
+        {
+            "tag": "brennus",
+            "meta": {
+                "name": "Brennus à vélo",
+                "city": "Sens",
+                "country": "FR",
+                "company": [
+                    "Fifteen SAS"
+                ],
+                "latitude": 48.197815,
+                "longitude": 3.282785
+            },
+            "feed_url": "https://gbfs.partners.fifteen.eu/gbfs/sens/gbfs.json"
+        },
+        {
+            "tag": "esel-ac",
+            "meta": {
+                "name": "esel.ac",
+                "city": "Aachen",
+                "country": "DE",
+                "company": [
+                    "esel.ac Bikesharing e.V."
+                ],
+                "latitude": 50.776346,
+                "longitude": 6.083856
+            },
+            "feed_url": "https://di.esel.ac/gbfs/gbfs.json"
+        },
+        {
+            "tag": "dott-aachen",
+            "meta": {
+                "country": "DE",
+                "city": "Aachen",
+                "company": ["Dott"],
+                "name": "Dott Aachen",
+                "latitude": 50.776346,
+                "longitude": 6.083856
+            },
+            "feed_url": "https://gbfs.api.ridedott.com/public/v2/aachen/gbfs.json"
+        },
+        {
+            "tag": "vlille",
+            "meta": {
+                "latitude": 50.62925,
+                "city": "Lille",
+                "name": "V'Lille",
+                "longitude": 3.057256,
+                "company": ["Keolis", "ilévia"],
+                "country": "FR",
+                "source": "https://transport.data.gouv.fr/datasets/ilevia-vlille-disponibilite-en-temps-reel",
+                "license": {
+                    "name": "Licence Ouverte 2.0",
+                    "url": "https://www.data.gouv.fr/pages/legal/licences/etalab-2.0"
+                }
+            },
+            "feed_url":  "https://media.ilevia.fr/opendata/gbfs.json"
+        },
+        {
+            "tag": "mevo",
+            "meta": {
+                "country": "PL",
+                "city": "Tricity",
+                "company": ["Inurba Gdańsk", "City Bike Global, S.A"],
+                "name": "Mevo",
+                "latitude": 54.3476,
+                "longitude": 18.6522,
+                "source": "https://rowermevo.pl/en/open-data/realtime"
+            },
+            "feed_url": "https://gbfs.urbansharing.com/rowermevo.pl/gbfs.json"
+        },
+        {
+            "tag": "mol-bubi",
+            "meta": {
+                "country": "HU",
+                "city": "Budapest",
+                "company": ["BKK Centre for Budapest Transport", "Citybike Global S.A."],
+                "name": "MOL Bubi",
+                "latitude": 47.4998,
+                "longitude": 19.0492
+            },
+            "feed_url": "https://gbfs.urbansharing.com/molbubi.hu/gbfs.json"
+        }
+    ],
+    "system": "gbfs",
+    "class": "Gbfs"
+}

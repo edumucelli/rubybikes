@@ -4,3 +4,10 @@ __pycache__/
 *.gem
 .bundle/
 Gemfile.lock
+/rubygems-recovery-codes.txt
+/pkg/
+/coverage/
+/.gem_rbs_collection/
+/.steep_cache/
+/.rubocop_cache/
+/provider-status.json

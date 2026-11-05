@@ -1,0 +1,195 @@
+{
+    "system": "beryl",
+    "class": "Beryl",
+    "instances": [
+        {
+            "tag": "beryl-bcp",
+            "meta": {
+                "city": "Bournemouth, Christchurch and Poole",
+                "name": "Beryl - Bournemouth, Christchurch and Poole",
+                "country": "GB",
+                "latitude": 50.7196,
+                "longitude": -1.8734
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/BCP/gbfs.json"
+        },
+        {
+            "tag": "beryl-brighton",
+            "meta": {
+                "city": "Brighton",
+                "name": "Beryl - Brighton",
+                "country": "GB",
+                "latitude": 50.8222,
+                "longitude": -0.1403
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Brighton/gbfs.json"
+        },
+        {
+            "tag": "beryl-cornwall",
+            "meta": {
+                "city": "Cornwall",
+                "name": "Beryl - Cornwall",
+                "country": "GB",
+                "latitude": 50.2616,
+                "longitude": -5.0510
+            },
+            "bbox": [[49.9554, -5.7471], [50.9313, -4.1649]],
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Cornwall/gbfs.json"
+        },
+        {
+            "tag": "beryl-dorchester-weymouth-portland",
+            "meta": {
+                "city": "Dorchester, Weymouth and Portland",
+                "name": "Beryl - Dorchester, Weymouth and Portland",
+                "country": "GB",
+                "latitude": 50.6085,
+                "longitude": -2.4540
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Weymouth/gbfs.json"
+        },
+        {
+            "tag": "beryl-eastleigh",
+            "meta": {
+                "city": "Eastleigh",
+                "name": "Beryl - Eastleigh",
+                "country": "GB",
+                "latitude": 50.9691,
+                "longitude": -1.3603
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Eastleigh/gbfs.json"
+        },
+        {
+            "tag": "beryl-greater-manchester",
+            "meta": {
+                "city": "Greater Manchester",
+                "name": "Beryl - Greater Manchester",
+                "country": "GB",
+                "latitude": 53.4795,
+                "longitude": -2.2436
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Greater_Manchester/gbfs.json"
+        },
+        {
+            "tag": "beryl-guildford",
+            "meta": {
+                "city": "Guildford",
+                "name": "Beryl - Guildford",
+                "country": "GB",
+                "latitude": 51.2397,
+                "longitude": -0.5764
+            },
+            "bbox": [[51.1736, -0.7081], [51.3139, -0.4613]],
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Guildford/gbfs.json"
+        },
+        {
+            "tag": "beryl-hereford",
+            "meta": {
+                "city": "Hereford",
+                "name": "Beryl - Hereford",
+                "country": "GB",
+                "latitude": 52.0549,
+                "longitude": -2.7156
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Hereford/gbfs.json"
+        },
+        {
+            "tag": "beryl-hertsmere",
+            "meta": {
+                "city": "Hertsmere",
+                "name": "Beryl - Hertsmere",
+                "country": "GB",
+                "latitude": 51.6577,
+                "longitude": -0.2695
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Hertsmere/gbfs.json"
+        },
+        {
+            "tag": "beryl-leeds",
+            "meta": {
+                "city": "Leeds",
+                "name": "Beryl - Leeds",
+                "country": "GB",
+                "latitude": 53.7971,
+                "longitude": -1.5438
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Leeds/gbfs.json"
+        },
+        {
+            "tag": "beryl-norwich",
+            "meta": {
+                "city": "Norwich",
+                "name": "Beryl - Norwich",
+                "country": "GB",
+                "latitude": 52.6288,
+                "longitude": 1.2934
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Norwich/gbfs.json"
+        },
+        {
+            "tag": "beryl-plymouth",
+            "meta": {
+                "city": "Plymouth",
+                "name": "Beryl - Plymouth",
+                "country": "GB",
+                "latitude": 50.3714,
+                "longitude": -4.1421
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Plymouth/gbfs.json"
+        },
+        {
+            "tag": "beryl-stevenage",
+            "meta": {
+                "city": "Stevenage",
+                "name": "Beryl - Stevenage",
+                "country": "GB",
+                "latitude": 51.9059,
+                "longitude": -0.1905
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Stevenage/gbfs.json"
+        },
+        {
+            "tag": "beryl-watford",
+            "meta": {
+                "city": "Watford",
+                "name": "Beryl - Watford",
+                "country": "GB",
+                "latitude": 51.6556,
+                "longitude": -0.3953
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Watford/gbfs.json"
+        },
+        {
+            "tag": "beryl-west-midlands",
+            "meta": {
+                "city": "West Midlands",
+                "name": "Beryl - West Midlands",
+                "country": "GB",
+                "latitude": 52.4798,
+                "longitude": -1.9014
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/West_Midlands/gbfs.json"
+        },
+        {
+            "tag": "beryl-worcester",
+            "meta": {
+                "city": "Worcester",
+                "name": "Beryl - Worcester",
+                "country": "GB",
+                "latitude": 52.1912,
+                "longitude": -2.2206
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Worcester/gbfs.json"
+        },
+        {
+            "tag": "belfastbikes-belfast",
+            "meta": {
+                "name": "BelfastBikes",
+                "city": "Belfast",
+                "country": "GB",
+                "latitude": 54.5969,
+                "longitude": -5.92918
+            },
+            "feed_url": "https://gbfs.beryl.cc/v2_2/Belfast/gbfs.json"
+        }
+    ]
+}

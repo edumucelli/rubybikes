@@ -1,0 +1,22 @@
+query StationsRealtime {
+            get_data_real_time {
+                station_id
+                station_state_id
+                station_name
+                station_address
+                latitude
+                longitude
+                bikes_total
+                bikes_available
+                bikes_reserved
+                bikes_maintenance
+                bikes_occupancy_status
+                bikes_occupancy_color
+                racks_total
+                racks_available
+                racks_broken
+                racks_occupancy_status
+                racks_occupancy_color
+                station_external_id
+            }
+        }

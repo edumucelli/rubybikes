@@ -1,0 +1,1551 @@
+{
+    "instances": [
+        {
+            "city_ids": [
+                202
+            ],
+            "meta": {
+                "latitude": 43.3186,
+                "city": "Siena",
+                "longitude": 11.3306,
+                "country": "IT"
+            },
+            "tag": "bicincitta-siena"
+        },
+        {
+            "city_ids": [
+                203
+            ],
+            "meta": {
+                "latitude": 45.72295637032245,
+                "city": "Parco dei Colli di Bergamo",
+                "longitude": 9.649230073016383,
+                "country": "IT"
+            },
+            "tag": "bicincitta-parco-dei-colli-di-bergamo"
+        },
+        {
+            "city_ids": [
+                204
+            ],
+            "meta": {
+                "latitude": 45.15866370764634,
+                "city": "Mantova",
+                "longitude": 10.783718973016335,
+                "country": "IT"
+            },
+            "tag": "bicincitta-mantova"
+        },
+        {
+            "city_ids": [
+                205
+            ],
+            "meta": {
+                "latitude": 39.28956306007679,
+                "city": "Assemini",
+                "longitude": 9.006601555294765,
+                "country": "IT"
+            },
+            "tag": "bicincitta-assemini"
+        },
+        {
+            "city_ids": [
+                206
+            ],
+            "meta": {
+                "latitude": 39.92664489852196,
+                "city": "Tortolì",
+                "longitude": 9.654953570777934,
+                "country": "IT"
+            },
+            "tag": "bicincitta-tortoli"
+        },
+        {
+            "city_ids": [
+                207
+            ],
+            "meta": {
+                "latitude": 41.209620965538036,
+                "city": "Gaeta",
+                "longitude": 13.584335125656139,
+                "country": "IT"
+            },
+            "tag": "bicincitta-gaeta"
+        },
+        {
+            "city_ids": [
+                208
+            ],
+            "meta": {
+                "latitude": 45.23963753440171,
+                "city": "Borgarello",
+                "longitude": 9.136150475640875,
+                "country": "IT"
+            },
+            "tag": "bicincitta-borgarello"
+        },
+        {
+            "city_ids": [
+                209
+            ],
+            "meta": {
+                "latitude": 45.186748819167434,
+                "city": "Pizzighettone e Formigara",
+                "longitude": 9.778087948479424,
+                "country": "IT"
+            },
+            "tag": "bicincitta-pizzighettone-formigara"
+        },
+        {
+            "city_ids": [
+                210
+            ],
+            "meta": {
+                "latitude": 43.88362791665083,
+                "city": "Montecatini Terme",
+                "longitude": 10.764385656591799,
+                "country": "IT"
+            },
+            "tag": "bicincitta-montecatini-terme"
+        },
+        {
+            "city_ids": [
+                211
+            ],
+            "meta": {
+                "latitude": 44.07731805550891,
+                "city": "Carrara",
+                "longitude": 10.097172450401331,
+                "country": "IT"
+            },
+            "tag": "bicincitta-carrara"
+        },
+        {
+            "city_ids": [
+                80
+            ],
+            "meta": {
+                "latitude": 44.272554,
+                "city": "Sestri Levante - Lavagna",
+                "name": "Tigullionbike",
+                "longitude": 9.395714,
+                "country": "IT"
+            },
+            "tag": "tigullionbike"
+        },
+        {
+            "city_ids": [
+                84
+            ],
+            "meta": {
+                "latitude": 43.473333,
+                "city": "Arezzo",
+                "name": "ARbike",
+                "longitude": 11.87,
+                "country": "IT"
+            },
+            "tag": "arbike"
+        },
+        {
+            "city_ids": [
+                73
+            ],
+            "meta": {
+                "latitude": 42.85,
+                "city": "Ascoli Piceno",
+                "name": "Ascoli Piceno",
+                "longitude": 13.583333,
+                "country": "IT"
+            },
+            "tag": "ascoli-piceno"
+        },
+        {
+            "city_ids": [
+                133
+            ],
+            "meta": {
+                "latitude": 45.695,
+                "city": "Bergamo",
+                "name": "BiGi",
+                "longitude": 9.67,
+                "country": "IT"
+            },
+            "tag": "bigi"
+        },
+        {
+            "city_ids": [
+                139
+            ],
+            "meta": {
+                "latitude": 44.716667,
+                "city": "Alba",
+                "name": "Alba",
+                "longitude": 8.083333,
+                "country": "IT"
+            },
+            "tag": "alba"
+        },
+        {
+            "city_ids": [
+                112
+            ],
+            "meta": {
+                "latitude": 45.5775,
+                "city": "Biella",
+                "name": "Biella",
+                "longitude": 8.051111,
+                "country": "IT"
+            },
+            "tag": "biella"
+        },
+        {
+            "city_ids": [
+                201
+            ],
+            "meta": {
+                "latitude": 45.189765,
+                "city": "Chivasso",
+                "name": "Chivasso",
+                "longitude": 7.888935,
+                "country": "IT"
+            },
+            "tag": "chivasso"
+        },
+        {
+            "city_ids": [
+                66
+            ],
+            "meta": {
+                "latitude": 45.610555,
+                "city": "Busto Arsizio",
+                "name": "Bici in Busto",
+                "longitude": 8.852062,
+                "country": "IT"
+            },
+            "tag": "bici-in-busto"
+        },
+        {
+            "city_ids": [
+                39
+            ],
+            "meta": {
+                "latitude": 44.384238,
+                "city": "Cuneo",
+                "name": "Cuneo",
+                "longitude": 7.541428,
+                "country": "IT"
+            },
+            "tag": "cuneo"
+        },
+        {
+            "city_ids": [
+                53
+            ],
+            "meta": {
+                "latitude": 41.645081,
+                "city": "Frosinone",
+                "name": "FRee Bike sharing",
+                "longitude": 13.342123,
+                "country": "IT"
+            },
+            "tag": "free-bike-sharing"
+        },
+        {
+            "city_ids": [
+                159
+            ],
+            "meta": {
+                "latitude": 40.35040350928062,
+                "city": "Lecce",
+                "name": "lecce",
+                "longitude": 18.177824020385742,
+                "country": "IT"
+            },
+            "tag": "lecce"
+        },
+        {
+            "city_ids": [
+                102
+            ],
+            "meta": {
+                "latitude": 45.561179,
+                "city": "Manerba del Garda",
+                "name": "Manerba in Bici",
+                "longitude": 10.559406,
+                "country": "IT"
+            },
+            "tag": "manerba-in-bici"
+        },
+        {
+            "city_ids": [
+                90
+            ],
+            "meta": {
+                "latitude": 42.805855,
+                "city": "Marciana Marina",
+                "name": "Mar e Bici",
+                "longitude": 10.196514,
+                "country": "IT"
+            },
+            "tag": "mar-e-bici"
+        },
+        {
+            "city_ids": [
+                131
+            ],
+            "meta": {
+                "latitude": 45.44574,
+                "city": "Novara",
+                "name": "Novara",
+                "longitude": 8.622165,
+                "country": "IT"
+            },
+            "tag": "novara"
+        },
+        {
+            "city_ids": [
+                142
+            ],
+            "meta": {
+                "latitude": 44.8350382,
+                "city": "Ferrara",
+                "name": "Mi Muovo in Bici",
+                "longitude": 11.6240562,
+                "country": "IT"
+            },
+            "tag": "mimuovofe",
+            "endpoint": "http://www.mimuovoinbici.it/"
+        },
+        {
+            "city_ids": [
+                58
+            ],
+            "meta": {
+                "latitude": 44.801485,
+                "longitude": 10.3279036,
+                "city": "Parma",
+                "name": "Mi Muovo in Bici",
+                "country": "IT"
+            },
+            "endpoint": "http://www.mimuovoinbici.it/",
+            "tag": "parma"
+        },
+        {
+            "city_ids": [
+                45
+            ],
+            "meta": {
+                "latitude": 45.1847248,
+                "city": "Pavia",
+                "name": "Pavia in bici",
+                "longitude": 9.1582069,
+                "country": "IT"
+            },
+            "tag": "pavia-in-bici"
+        },
+        {
+            "city_ids": [
+                122
+            ],
+            "meta": {
+                "latitude": 43.1107168,
+                "city": "Perugia",
+                "name": "Bici Perugia",
+                "longitude": 12.3908279,
+                "country": "IT"
+            },
+            "tag": "bici-perugia"
+        },
+        {
+            "city_ids": [
+                148
+            ],
+            "meta": {
+                "latitude": 45.0473754,
+                "city": "Piacenza",
+                "longitude": 9.6865813,
+                "country": "IT",
+                "name": "Mi Muovo in Bici"
+            },
+            "tag": "piacenza",
+            "endpoint": "http://www.mimuovoinbici.it/"
+        },
+        {
+            "city_ids": [
+                71
+            ],
+            "meta": {
+                "latitude": 44.8850256,
+                "city": "Pinerolo",
+                "name": "Pinerolo",
+                "longitude": 7.3499953,
+                "country": "IT"
+            },
+            "tag": "pinerolo"
+        },
+        {
+            "city_ids": [
+                155
+            ],
+            "meta": {
+                "latitude": 44.6989932,
+                "city": "Reggio Emilia",
+                "name": "Mi Muovo in Bici",
+                "longitude": 10.6296859,
+                "country": "IT"
+            },
+            "tag": "reggio-emilia",
+            "endpoint": "http://www.mimuovoinbici.it/"
+        },
+        {
+            "city_ids": [
+                149
+            ],
+            "meta": {
+                "latitude": 44.0570817,
+                "city": "Rimini",
+                                "longitude": 12.5646003,
+                "country": "IT",
+                "name": "Mi Muovo in Bici"
+            },
+            "tag": "rimini",
+            "endpoint": "http://www.mimuovoinbici.it/"
+        },
+        {
+            "city_ids": [
+                51
+            ],
+            "meta": {
+                "latitude": 44.6445404,
+                "city": "Saluzzo",
+                "name": "Saluzzo",
+                "longitude": 7.492735499999999,
+                "country": "IT"
+            },
+            "tag": "saluzzo"
+        },
+        {
+            "city_ids": [
+                52
+            ],
+            "meta": {
+                "latitude": 44.6470327,
+                "city": "Savigliano",
+                "name": "Savigliano",
+                "longitude": 7.662463499999999,
+                "country": "IT"
+            },
+            "tag": "savigliano"
+        },
+        {
+            "city_ids": [
+                134
+            ],
+            "meta": {
+                "latitude": 42.5636168,
+                "city": "Terni",
+                "name": "Terni",
+                "longitude": 12.6426604,
+                "country": "IT"
+            },
+            "tag": "terni"
+        },
+        {
+            "city_ids": [
+                141
+            ],
+            "meta": {
+                "latitude": 46.216168,
+                "city": "Tirano",
+                "name": "Tirano in Bici",
+                "longitude": 10.1696056,
+                "country": "IT"
+            },
+            "tag": "tirano-in-bici"
+        },
+        {
+            "city_ids": [
+                126
+            ],
+            "meta": {
+                "latitude": 46.0710668,
+                "city": "Udine",
+                "name": "Udine",
+                "longitude": 13.2345794,
+                "country": "IT"
+            },
+            "tag": "udine"
+        },
+        {
+            "city_ids": [
+                138
+            ],
+            "meta": {
+                "latitude": 38.7031179,
+                "city": "Ustica",
+                "name": "Ustica",
+                "longitude": 13.1682675,
+                "country": "IT"
+            },
+            "tag": "ustica"
+        },
+        {
+            "city_ids": [
+                157
+            ],
+            "meta": {
+                "latitude": 45.8080597,
+                "city": "Como",
+                "name": "BICI&CO",
+                "longitude": 9.0851765,
+                "country": "IT"
+            },
+            "tag": "bici-co"
+        },
+        {
+            "city_ids": [
+                137
+            ],
+            "meta": {
+                "latitude": 44.1024504,
+                "city": "La Spezia",
+                "name": "Speziainbici",
+                "longitude": 9.824082599999999,
+                "country": "IT"
+            },
+            "tag": "speziainbici"
+        },
+        {
+            "city_ids": [
+                93
+            ],
+            "meta": {
+                "latitude": 45.4408474,
+                "city": "Venezia",
+                "name": "Venezia",
+                "longitude": 12.3155151,
+                "country": "IT"
+            },
+            "tag": "venezia"
+        },
+        {
+            "city_ids": [
+                144
+            ],
+            "meta": {
+                "latitude": 43.7228386,
+                "city": "Pisa",
+                "name": "Ciclopi",
+                "longitude": 10.4016888,
+                "country": "IT"
+            },
+            "tag": "ciclopi"
+        },
+        {
+            "city_ids": [
+                177
+            ],
+            "meta": {
+                "latitude": 39.220817,
+                "city": "Cagliari",
+                "name": "Cagliari",
+                "longitude": 9.121399,
+                "country": "IT"
+            },
+            "tag": "cagliari"
+        },
+        {
+            "city_ids": [
+                50
+            ],
+            "meta": {
+                "latitude": 45.8183902,
+                "city": "Varese",
+                "name": "Gimme Bike",
+                "longitude": 8.823913,
+                "country": "IT"
+            },
+            "tag": "gimme-bike"
+        },
+        {
+            "city_ids": [
+                85
+            ],
+            "meta": {
+                "latitude": 46.06304765446406,
+                "city": "Sellero",
+                "name": "Sellero",
+                "longitude": 10.353434085845947,
+                "country": "IT"
+            },
+            "tag": "sellero"
+        },
+        {
+            "city_ids": [
+                103
+            ],
+            "meta": {
+                "latitude": 39.9273518,
+                "city": "Ugento",
+                "name": "Ugento",
+                "longitude": 18.1582962,
+                "country": "IT"
+            },
+            "tag": "ugento"
+        },
+        {
+            "city_ids": [
+                108
+            ],
+            "meta": {
+                "latitude": 46.3042146,
+                "city": "Prata Camportaccio",
+                "name": "Prata Camportaccio",
+                "longitude": 9.3964914,
+                "country": "IT"
+            },
+            "tag": "prata-camportaccio"
+        },
+        {
+            "city_ids": [
+                127
+            ],
+            "meta": {
+                "latitude": 42.0937524,
+                "city": "Civitavecchia",
+                "name": "Civitavecchia",
+                "longitude": 11.7922462,
+                "country": "IT"
+            },
+            "tag": "civitavecchia"
+        },
+        {
+            "city_ids": [
+                140
+            ],
+            "meta": {
+                "latitude": 38.149812517944284,
+                "city": "Barcellona Pozzo di Gotto",
+                "name": "LonganoinBici",
+                "longitude": 15.212116241455078,
+                "country": "IT"
+            },
+            "tag": "longanoinbici"
+        },
+        {
+            "city_ids": [
+                143
+            ],
+            "meta": {
+                "latitude": 45.5309616,
+                "city": "Cassano d'Adda",
+                "name": "Cassano d'Adda",
+                "longitude": 9.5155813,
+                "country": "IT"
+            },
+            "tag": "cassano-d-adda"
+        },
+        {
+            "city_ids": [
+                147
+            ],
+            "meta": {
+                "latitude": 46.188197,
+                "city": "Bianzone",
+                "name": "Bianzone in Bici",
+                "longitude": 10.109354,
+                "country": "IT"
+            },
+            "tag": "bianzone-in-bici"
+        },
+        {
+            "city_ids": [
+                158
+            ],
+            "meta": {
+                "latitude": 42.40262397383167,
+                "city": "Rieti",
+                "name": "Rietinbici",
+                "longitude": 12.86099910736084,
+                "country": "IT"
+            },
+            "tag": "rietinbici"
+        },
+        {
+            "city_ids": [
+                161
+            ],
+            "meta": {
+                "latitude": 45.15047821582959,
+                "city": "Castellucchio",
+                "name": "Castellucchio",
+                "longitude": 10.651202201843262,
+                "country": "IT"
+            },
+            "tag": "castellucchio"
+        },
+        {
+            "city_ids": [
+                162
+            ],
+            "meta": {
+                "latitude": 36.889437754839854,
+                "city": "Noto",
+                "name": "NotoinBici",
+                "longitude": 15.074658393859863,
+                "country": "IT"
+            },
+            "tag": "notoinbici"
+        },
+        {
+            "city_ids": [
+                163
+            ],
+            "meta": {
+                "latitude": 37.56342572664775,
+                "city": "Enna",
+                "name": "Enna",
+                "longitude": 14.27973747253418,
+                "country": "IT"
+            },
+            "tag": "enna"
+        },
+        {
+            "city_ids": [
+                164
+            ],
+            "meta": {
+                "latitude": 45.94790101663391,
+                "city": "Pordenone",
+                "name": "Pordenone",
+                "longitude": 12.674491020251475,
+                "country": "IT"
+            },
+            "tag": "pordenone"
+        },
+        {
+            "city_ids": [
+                173
+            ],
+            "meta": {
+                "latitude": 39.167222,
+                "city": "Carbonia",
+                "name": "Carbonia",
+                "longitude": 8.522222,
+                "country": "IT"
+            },
+            "tag": "carbonia"
+        },
+        {
+            "city_ids": [
+                178
+            ],
+            "meta": {
+                "latitude": 45.134914104864116,
+                "city": "Cremona",
+                "name": "Scegli in Bici",
+                "longitude": 10.0222648619018,
+                "country": "IT"
+            },
+            "tag": "scegli-in-bici"
+        },
+        {
+            "city_ids": [
+                187
+            ],
+            "meta": {
+                "latitude": 46.06643205823519,
+                "city": "Trento",
+                "name": "e.motion",
+                "longitude": 11.122145390351879,
+                "country": "IT"
+            },
+            "tag": "e-motion-trento"
+        },
+        {
+            "city_ids": [
+                189
+            ],
+            "meta": {
+                "latitude": 45.88710661061543,
+                "city": "Rovereto",
+                "name": "e.motion",
+                "longitude": 11.042242751867644,
+                "country": "IT"
+            },
+            "tag": "e-motion-rovereto"
+        },
+        {
+            "city_ids": [
+                191
+            ],
+            "meta": {
+                "latitude": 40.94519109440738,
+                "city": "Monopoli",
+                "name": "Monopoli BIKE",
+                "longitude": 17.311687995336918,
+                "country": "IT"
+            },
+            "tag": "monopoli-bike"
+        },
+        {
+            "city_ids": [
+                192
+            ],
+            "meta": {
+                "latitude": 41.224346932834,
+                "city": "Andria",
+                "name": "Andria in Bici",
+                "longitude": 16.296983922753956,
+                "country": "IT"
+            },
+            "tag": "andria"
+        },
+        {
+            "city_ids": [
+                193
+            ],
+            "meta": {
+                "latitude": 39.25043149806156,
+                "city": "Quartucciu",
+                "name": "BicinQuartucciu",
+                "longitude": 9.179296426489255,
+                "country": "IT"
+            },
+            "tag": "bicinquartucciu"
+        },
+        {
+            "city_ids": [
+                194
+            ],
+            "meta": {
+                "latitude": 40.9240543,
+                "city": "Olbia",
+                "name": "Olbia Bike",
+                "longitude": 9.4994397,
+                "country": "IT"
+            },
+            "tag": "olbia-bike"
+        },
+        {
+            "city_ids": [
+                195
+            ],
+            "meta": {
+                "latitude": 44.29516444397244,
+                "city": "Savona",
+                "name": "Savona",
+                "longitude": 8.463126708984431,
+                "country": "IT"
+            },
+            "tag": "savona"
+        },
+        {
+            "city_ids": [
+                197
+            ],
+            "meta": {
+                "latitude": 40.637580319936106,
+                "city": "Brindisi",
+                "name": "BrindisiByBike",
+                "longitude": 17.940774547082572,
+                "country": "IT"
+            },
+            "tag": "brindisi"
+        },
+        {
+            "city_ids": [
+                198
+            ],
+            "meta": {
+                "latitude": 45.70938576720161,
+                "city": "Tradate",
+                "name": "Tradate",
+                "longitude": 8.915993391601548,
+                "country": "IT"
+            },
+            "tag": "tradate"
+        },
+        {
+            "city_ids": [
+                236
+            ],
+            "meta": {
+                "latitude": 43.522601,
+                "city": "Jesi",
+                "name": "JesinBici",
+                "longitude": 13.244448,
+                "country": "IT"
+            },
+            "tag": "jesinbici"
+        },
+        {
+            "city_ids": [
+                179
+            ],
+            "meta": {
+                "latitude": 45.6669011,
+                "city": "Treviso",
+                "name": "Treviso",
+                "longitude": 12.243039,
+                "country": "IT"
+            },
+            "tag": "treviso"
+        },
+        {
+            "city_ids": [
+                213
+            ],
+            "meta": {
+                "latitude": 46.1698583,
+                "city": "Sondrio",
+                "name": "Sondrio",
+                "longitude": 9.8787674,
+                "country": "IT"
+            },
+            "tag": "sondrio"
+        },
+        {
+            "city_ids": [
+                235
+            ],
+            "meta": {
+                "latitude": 45.32022720000001,
+                "city": "Vercelli",
+                "name": "Vercelli",
+                "longitude": 8.418573499999999,
+                "country": "IT"
+            },
+            "tag": "vercelli"
+        },
+        {
+            "city_ids": [
+                128
+            ],
+            "meta": {
+                "latitude": 44.335084,
+                "city": "Santa Margherita Ligure - Portofino - Camogli",
+                "name": "Portofino Park and Bike",
+                "longitude": 9.211264,
+                "country": "IT"
+            },
+            "tag": "portofino-park-and-bike"
+        },
+        {
+            "city_ids": [
+                121
+            ],
+            "meta": {
+                "latitude": 45.520541,
+                "city": "Cernusco sul Naviglio - Pioltello - Carugate",
+                "name": "Meglio in Bici",
+                "longitude": 9.341984,
+                "country": "IT"
+            },
+            "tag": "meglio-in-bici"
+        },
+        {
+            "city_ids": [
+                152
+            ],
+            "meta": {
+                "latitude": 46.127196,
+                "city": "Santa Maria Maggiore - Malesco - Villette",
+                "name": "Comunità Montana Valli dell'Ossola",
+                "longitude": 8.499169,
+                "country": "IT"
+            },
+            "tag": "ossola"
+        },
+        {
+            "city_ids": [
+                228
+            ],
+            "meta": {
+                "latitude": 46.21400260000001,
+                "city": "Mezzolombardo",
+                "longitude": 11.0967867,
+                "country": "IT"
+            },
+            "tag": "bicincitta-mezzolombardo"
+        },
+        {
+            "city_ids": [
+                106
+            ],
+            "meta": {
+                "latitude": 40.7620174,
+                "city": "Scafati",
+                "longitude": 14.5363969,
+                "country": "IT"
+            },
+            "tag": "bicincitta-scafati"
+        },
+        {
+            "city_ids": [
+                226
+            ],
+            "meta": {
+                "latitude": 43.548473,
+                "city": "Livorno",
+                "longitude": 10.3105674,
+                "country": "IT"
+            },
+            "tag": "bicincitta-livorno"
+        },
+        {
+            "city_ids": [
+                119
+            ],
+            "meta": {
+                "latitude": 44.2227398,
+                "city": "Forlì",
+                "longitude": 12.0407312,
+                "country": "IT",
+                "name": "Mi Muovo in Bici"
+            },
+            "tag": "bicincitta-forli",
+            "endpoint": "http://www.mimuovoinbici.it/"
+        },
+        {
+            "city_ids": [
+                227
+            ],
+            "meta": {
+                "latitude": 45.306633,
+                "city": "Rivarolo Canavese",
+                "longitude": 7.723242,
+                "country": "IT"
+            },
+            "tag": "bicincitta-rivarolo-canavese"
+        },
+        {
+            "city_ids": [
+                220
+            ],
+            "meta": {
+                "latitude": 39.2560191,
+                "city": "Monserrato",
+                "longitude": 9.1453579,
+                "country": "IT"
+            },
+            "tag": "bicincitta-monserrato"
+        },
+        {
+            "city_ids": [
+                229
+            ],
+            "meta": {
+                "latitude": 46.2339047,
+                "city": "Mezzocorona",
+                "longitude": 11.1277461,
+                "country": "IT"
+            },
+            "tag": "bicincitta-mezzocorona"
+        },
+        {
+            "city_ids": [
+                100
+            ],
+            "meta": {
+                "latitude": 44.4702725,
+                "city": "San Lazzaro di Savena",
+                "longitude": 11.409399,
+                "country": "IT",
+                "name": "Mi Muovo in Bici"
+            },
+            "tag": "bicincitta-san-lazzaro-di-savena",
+            "endpoint": "http://www.mimuovoinbici.it/"
+        },
+        {
+            "city_ids": [
+                225
+            ],
+            "meta": {
+                "latitude": 40.7722837,
+                "city": "San Teodoro",
+                "longitude": 9.6695458,
+                "country": "IT"
+            },
+            "tag": "bicincitta-san-teodoro"
+        },
+        {
+            "city_ids": [
+                151
+            ],
+            "meta": {
+                "latitude": 39.2052545,
+                "city": "Parco Naturale Molentargius - Saline",
+                "longitude": 9.146761099999999,
+                "country": "IT"
+            },
+            "tag": "bicincitta-parco-molentargius-saline"
+        },
+        {
+            "city_ids": [
+                105
+            ],
+            "meta": {
+                "latitude": 41.7817081,
+                "city": "Parco Nazionale del Gargano",
+                "name": "Parkinbici",
+                "longitude": 15.8516421,
+                "country": "IT"
+            },
+            "tag": "parkinbici"
+        },
+        {
+            "city_ids": [
+                109
+            ],
+            "meta": {
+                "latitude": 40.0558554,
+                "city": "Gallipoli",
+                "longitude": 17.9925085,
+                "country": "IT"
+            },
+            "tag": "bicincitta-gallipoli"
+        },
+        {
+            "city_ids": [
+                233
+            ],
+            "meta": {
+                "latitude": 44.4328527,
+                "city": "Castel Guelfo di Bologna",
+                "longitude": 11.6750857,
+                "country": "IT"
+            },
+            "tag": "bicincitta-castel-guelfo-the-style-outlets"
+        },
+        {
+            "city_ids": [
+                231
+            ],
+            "meta": {
+                "latitude": 46.1878653,
+                "city": "San Michele All'adige",
+                "longitude": 11.1330423,
+                "country": "IT"
+            },
+            "tag": "bicincitta-san-michele-alladige"
+        },
+        {
+            "city_ids": [
+                180
+            ],
+            "meta": {
+                "latitude": 44.647128,
+                "city": "Modena",
+                "longitude": 10.9252269,
+                "country": "IT",
+                "name": "Mi Muovo in bici"
+            },
+            "tag": "bicincitta-modena",
+            "endpoint": "http://www.mimuovoinbici.it/"
+        },
+        {
+            "city_ids": [
+                104
+            ],
+            "meta": {
+                "latitude": 37.9679084,
+                "city": "Brancaleone",
+                "longitude": 16.0757749,
+                "country": "IT"
+            },
+            "tag": "bicincitta-brancaleone"
+        },
+        {
+            "city_ids": [
+                94
+            ],
+            "meta": {
+                "latitude": 44.5982342,
+                "city": "Scandiano",
+                "longitude": 10.6909273,
+                "country": "IT",
+                "name": "Mi Muovo in Bici"
+            },
+            "tag": "bicincitta-scandiano",
+            "endpoint": "http://www.mimuovoinbici.it/"
+        },
+        {
+            "city_ids": [
+                87
+            ],
+            "meta": {
+                "latitude": 42.4349809,
+                "city": "TV",
+                "longitude": 18.7066398,
+                "country": "ME"
+            },
+            "tag": "bicincitta-tivat"
+        },
+        {
+            "city_ids": [
+                218
+            ],
+            "meta": {
+                "latitude": 39.2634329,
+                "city": "Elmas",
+                "longitude": 9.0515805,
+                "country": "IT"
+            },
+            "tag": "bicincitta-elmas"
+        },
+        {
+            "city_ids": [
+                160
+            ],
+            "meta": {
+                "latitude": 40.9303721,
+                "city": "Acquaviva delle fonti",
+                "longitude": 16.8414374,
+                "country": "IT"
+            },
+            "tag": "bicincitta-acquaviva-delle-fonti"
+        },
+        {
+            "city_ids": [
+                190
+            ],
+            "meta": {
+                "latitude": 45.3097228,
+                "city": "Lodi",
+                "name": "We Love bike",
+                "longitude": 9.503715999999999,
+                "country": "IT"
+            },
+            "tag": "we-love-bike"
+        },
+        {
+            "city_ids": [
+                232
+            ],
+            "meta": {
+                "latitude": 45.47167229999999,
+                "city": "Vicolungo",
+                "longitude": 8.4633922,
+                "country": "IT"
+            },
+            "tag": "bicincitta-vicolungo-the-style-outlets"
+        },
+        {
+            "city_ids": [
+                146
+            ],
+            "meta": {
+                "latitude": 39.9144573,
+                "city": "Acquarica del Capo",
+                "longitude": 18.2450324,
+                "country": "IT"
+            },
+            "tag": "bicincitta-acquarica-del-capo"
+        },
+        {
+            "city_ids": [
+                221
+            ],
+            "meta": {
+                "latitude": 40.8333682,
+                "city": "Porto Torres",
+                "longitude": 8.402292899999999,
+                "country": "IT"
+            },
+            "tag": "bicincitta-porto-torres"
+        },
+        {
+            "city_ids": [
+                217
+            ],
+            "meta": {
+                "latitude": 41.5754029,
+                "city": "Cisterna di Latina",
+                "longitude": 12.8284772,
+                "country": "IT"
+            },
+            "tag": "bicincitta-cisterna-di-latina"
+        },
+        {
+            "city_ids": [
+                199
+            ],
+            "meta": {
+                "latitude": 40.1532801,
+                "city": "Casaletto Spartano",
+                "longitude": 15.6211479,
+                "country": "IT"
+            },
+            "tag": "bicincitta-casaletto-spartano"
+        },
+        {
+            "city_ids": [
+                219
+            ],
+            "meta": {
+                "latitude": 39.2596768,
+                "city": "Selargius",
+                "longitude": 9.1629372,
+                "country": "IT"
+            },
+            "tag": "bicincitta-selargius"
+        },
+        {
+            "city_ids": [
+                224
+            ],
+            "meta": {
+                "latitude": 45.5845001,
+                "city": "Monza",
+                "longitude": 9.2744485,
+                "country": "IT"
+            },
+            "tag": "bicincitta-monza"
+        },
+        {
+            "city_ids": [
+                200
+            ],
+            "meta": {
+                "latitude": 40.1422031,
+                "city": "Morigerati",
+                "longitude": 15.5298525,
+                "country": "IT"
+            },
+            "tag": "bicincitta-morigerati"
+        },
+        {
+            "city_ids": [
+                234
+            ],
+            "meta": {
+                "latitude": 45.4092402,
+                "city": "San Donato Milanese",
+                "longitude": 9.2684867,
+                "country": "IT"
+            },
+            "tag": "bicincitta-san-donato-milanese"
+        },
+        {
+            "city_ids": [
+                135
+            ],
+            "meta": {
+                "latitude": 41.3151015,
+                "city": "Parco Nazionale del Circeo",
+                "longitude": 13.0330782,
+                "country": "IT"
+            },
+            "tag": "bicincitta-ente-parco-del-circeo"
+        },
+        {
+            "city_ids": [
+                120
+            ],
+            "meta": {
+                "latitude": 44.1396438,
+                "city": "Cesena",
+                "longitude": 12.2464292,
+                "country": "IT",
+                "name": "Mi Muovo in bici"
+            },
+            "tag": "bicincitta-cesena",
+            "endpoint": "http://www.mimuovoinbici.it/"
+        },
+        {
+            "city_ids": [
+                49
+            ],
+            "meta": {
+                "latitude": 45.8565698,
+                "city": "Lecco",
+                "longitude": 9.397670399999999,
+                "country": "IT"
+            },
+            "tag": "lecco"
+        },
+        {
+            "city_ids": [
+                237
+            ],
+            "meta": {
+                "latitude": 40.5579517,
+                "city": "Alghero",
+                "longitude": 8.319294900000001,
+                "country": "IT"
+            },
+            "tag": "bicincitta-alghero"
+        },
+        {
+            "city_ids": [
+                101
+            ],
+            "meta": {
+                "latitude": 44.6405433,
+                "city": "San Giovanni in Persiceto",
+                "longitude": 11.1893053,
+                "country": "IT",
+                "name": "Mi Muovo in Bici"
+            },
+            "tag": "bicincitta-san-giovanni-in-persiceto",
+            "endpoint": "http://www.mimuovoinbici.it/"
+        },
+        {
+            "city_ids": [
+                174
+            ],
+            "meta": {
+                "latitude": 45.5293372,
+                "city": "Treviglio",
+                "longitude": 9.591435899999999,
+                "country": "IT"
+            },
+            "tag": "bicincitta-treviglio"
+        },
+        {
+            "city_ids": [
+                145
+            ],
+            "meta": {
+                "latitude": 43.723826,
+                "city": "Parco naturale Migliarino San Rossore Massaciuccoli",
+                "longitude": 10.339509,
+                "country": "IT"
+            },
+            "tag": "bicincitta-ente-parco-san-rossore"
+        },
+        {
+            "city_ids": [
+                238
+            ],
+            "meta": {
+                "latitude": 46.1408423,
+                "city": "Lavis",
+                "longitude": 11.1124935,
+                "country": "IT"
+            },
+            "tag": "bicincitta-lavis"
+        },
+        {
+            "city_ids": [
+                132
+            ],
+            "meta": {
+                "latitude": 44.1143897,
+                "city": "Ente Parco Montemarcello Magra",
+                "longitude": 9.9635986,
+                "country": "IT"
+            },
+            "tag": "bicincitta-ente-parco-di-montemarcello-magra"
+        },
+        {
+            "city_ids": [
+                91
+            ],
+            "meta": {
+                "latitude": 45.7170517,
+                "city": "Schio",
+                "name": "BiciSchio",
+                "longitude": 11.3597702,
+                "country": "IT"
+            },
+            "tag": "bicischio"
+        },
+        {
+            "city_ids": [
+                196
+            ],
+            "meta": {
+                "city": "Imola",
+                "name": "Mi Muovo in bici",
+                "country": "IT",
+                "latitude": 44.3559128,
+                "longitude": 11.7161197
+            },
+            "tag": "bicincitta-imola",
+            "endpoint": "http://www.mimuovoinbici.it/"
+        },
+        {
+            "city_ids": [
+                266
+            ],
+            "meta": {
+                "city": "Trieste",
+                "name": "BiTS",
+                "country": "IT",
+                "latitude": 45.6495,
+                "longitude": 13.7768
+            },
+            "tag": "bicincitta-trieste"
+        },
+        {
+            "city_ids": [
+                40
+            ],
+            "meta": {
+                "city": "Brescia",
+                "name": "bicimia",
+                "country": "IT",
+                "latitude": 45.5378,
+                "longitude": 10.2173
+            },
+            "tag": "bicimia",
+            "endpoint": "https://bicimia.bresciamobilita.it"
+        },
+        {
+              "city_ids": [
+                  268
+              ],
+              "meta": {
+                  "city": "Montesilvano",
+                  "name": "Costa Blu",
+                  "country": "IT",
+                  "latitude": 42.5009,
+                  "longitude": 14.1282
+              },
+              "tag": "bicincitta-costa-blu"
+        },
+        {
+            "city_ids": [
+                270
+            ],
+            "meta": {
+                "city": "Taranto",
+                "name": "PisTA!",
+                "country": "IT",
+                "latitude": 40.4351,
+                "longitude": 17.2096
+            },
+            "tag": "bicincitta-pista"
+        },
+        {
+            "city_ids": [
+                274
+            ],
+            "meta": {
+                "city": "Monteriggioni",
+                "name": "Sipedala",
+                "country": "IT",
+                "latitude": 43.3896,
+                "longitude": 11.2236
+            },
+            "tag": "bicincitta-monteriggioni"
+        },
+        {
+            "city_ids": [
+                275
+            ],
+            "meta": {
+                "city": "Massa",
+                "name": "Bici in Massa",
+                "country": "IT",
+                "latitude": 44.0146,
+                "longitude": 10.1017
+            },
+            "tag": "bicincitta-massa"
+        }
+    ],
+    "system": "bicincitta",
+    "class": "Bicincitta"
+}

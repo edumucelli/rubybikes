@@ -1,32 +1,39 @@
+# frozen_string_literal: true
+
 # Copyright (C) Eduardo Mucelli Rezende Oliveira
 # Distributed under the AGPL license, see LICENSE.
+
 require 'json'
 require 'time'
 
-class RubyBikes
-  VERSION = '0.2.0'
+require_relative 'rubybikes/version'
 
+class RubyBikes
   class Error < StandardError
     attr_reader :details
+
     def initialize(message, details: {})
       @details = details
       super(message)
     end
   end
+
   class DependencyError < Error; end
   class ProviderError < Error; end
   class ProtocolError < Error; end
   class TimeoutError < Error; end
+
   class RateLimitedError < ProviderError
     def retry_after = details.fetch('retry_after', 300).to_f
     def host = details['host']
   end
+
   class NoSystemFoundError < Error; end
   class NoGetCriteriaError < Error; end
   class APIKeyNotAvailableError < Error; end
 
-  def initialize(python: ENV.fetch('RUBYBIKES_PYTHON', 'python3'), timeout: 60, keys: {}, engine: nil)
-    @engine = engine || Engine.new(python: python, timeout: timeout)
+  def initialize(timeout: 60, keys: {}, engine: nil)
+    @engine = engine || Engine.new(timeout: timeout)
     @keys = keys.transform_keys(&:to_s)
   end
 
@@ -41,11 +48,14 @@ class RubyBikes
 
   # Original string-keyed hashes and modern keyword/string forms are accepted.
   def get(options = {}, **keywords)
+    raise ArgumentError, 'options must be a tag or hash' unless options.is_a?(String) || options.is_a?(Hash)
+
     options = options.is_a?(String) ? { 'tag' => options } : options.transform_keys(&:to_s)
     options = options.merge(keywords.transform_keys(&:to_s))
     if (tag = options['tag'])
       entry = catalog.find { |row| row['tag'] == tag }
       raise NoSystemFoundError, "Unknown system tag: #{tag}" unless entry
+
       key = options['api_key'] || options['key'] || @keys[tag] || @keys[entry['module']] || @keys[entry['class']]
       description = @engine.request('describe', tag: tag, key: key)
       System.new(@engine, description, key)
@@ -70,6 +80,7 @@ class RubyBikes
     end
     raise NoSystemFoundError, "Unknown provider: #{provider}" if entries.empty?
     raise ArgumentError, 'Select a class_name for this provider module' if entries.size > 1
+
     entry = entries.first
     key = api_key || @keys[tag] || @keys[entry['module']] || @keys[entry['class']]
     definition = { 'module' => entry['module'], 'class' => entry['class'],
@@ -86,6 +97,7 @@ class RubyBikes
   def self.open(**options)
     factory = new(**options)
     return factory unless block_given?
+
     begin
       yield factory
     ensure
@@ -95,47 +107,56 @@ class RubyBikes
 
   class Station
     attr_reader :id, :name, :latitude, :longitude, :bikes, :free, :timestamp, :extra
+
     def initialize(row)
       @id, @name = row.fetch('id'), row.fetch('name')
       @latitude, @longitude = row.fetch('latitude'), row.fetch('longitude')
       @bikes, @free, @extra = row['bikes'], row['free'], row.fetch('extra', {})
       @timestamp = row['timestamp'] && Time.iso8601(row['timestamp']).utc
     end
-    def get_hash = id
+
+    def get_hash = id # rubocop:disable Naming/AccessorMethodName -- Retain the public compatibility method.
+
     def to_h
       { 'id' => id, 'name' => name, 'latitude' => latitude, 'longitude' => longitude,
         'bikes' => bikes, 'free' => free, 'timestamp' => timestamp&.iso8601(6), 'extra' => extra }
     end
     alias to_dict to_h
-    def to_json(*args) = to_h.to_json(*args)
+    def to_json(state = nil) = to_h.to_json(state)
+
     def to_geojson
       { 'type' => 'Feature', 'geometry' => { 'type' => 'Point', 'coordinates' => [longitude, latitude] },
-        'properties' => to_h.reject { |key, _| %w[id timestamp].include?(key) }.merge('type' => 'station') }
+        'properties' => to_h.except('id', 'timestamp').merge('type' => 'station') }
     end
   end
 
   class Vehicle
     attr_reader :id, :latitude, :longitude, :kind, :timestamp, :extra
+
     def initialize(row)
       @id, @latitude, @longitude, @kind = row.values_at('id', 'latitude', 'longitude', 'kind')
       @extra = row.fetch('extra', {})
       @timestamp = row['timestamp'] && Time.iso8601(row['timestamp']).utc
     end
-    def get_hash = id
+
+    def get_hash = id # rubocop:disable Naming/AccessorMethodName -- Retain the public compatibility method.
+
     def to_h
       { 'id' => id, 'latitude' => latitude, 'longitude' => longitude, 'kind' => kind,
         'timestamp' => timestamp&.iso8601(6), 'extra' => extra }
     end
     alias to_dict to_h
-    def to_json(*args) = to_h.to_json(*args)
+    def to_json(state = nil) = to_h.to_json(state)
+
     def to_geojson
       { 'type' => 'Feature', 'geometry' => { 'type' => 'Point', 'coordinates' => [longitude, latitude] },
-        'properties' => to_h.reject { |key, _| key == 'timestamp' }.merge('type' => 'vehicle') }
+        'properties' => to_h.except('timestamp').merge('type' => 'vehicle') }
     end
   end
 
   class System
     attr_reader :tag, :meta, :stations, :vehicles, :authed, :sync, :unifeed, :provider, :client_class
+
     def initialize(engine, description, key, definition: nil)
       @engine, @key = engine, key
       @definition = definition
@@ -143,24 +164,30 @@ class RubyBikes
       @provider, @client_class, @unifeed = description.values_at('module', 'class', 'unifeed')
       @stations, @vehicles = [], []
     end
+
     def update(timeout: @engine.timeout, scraper: {})
       arguments = { tag: tag, key: @key, scraper: scraper }
       arguments[:definition] = @definition if @definition
       row = @engine.request('update', timeout: timeout, **arguments)
       raise ProtocolError, 'Provider returned a different system' unless row.fetch('tag') == tag
+
       # Build the complete snapshot first, retaining the previous one on failure.
       stations = row.fetch('stations').map { |station| Station.new(station) }
-      vehicles = row.fetch('vehicles', []).map { |vehicle| Vehicle.new(vehicle) }
+      # @type var empty_vehicles: Array[RubyBikes::object]
+      empty_vehicles = []
+      vehicles = row.fetch('vehicles', empty_vehicles).map { |vehicle| Vehicle.new(vehicle) }
       @meta, @stations, @vehicles = row.fetch('meta'), stations, vehicles
       self
     rescue KeyError, TypeError, ArgumentError
       raise ProtocolError, 'Provider returned an invalid snapshot'
     end
+
     def to_h
       { 'tag' => tag, 'meta' => meta, 'stations' => stations.map(&:to_h), 'vehicles' => vehicles.map(&:to_h) }
     end
     alias to_dict to_h
-    def to_json(*args) = to_h.to_json(*args)
+    def to_json(state = nil) = to_h.to_json(state)
+
     def to_geojson
       { 'type' => 'FeatureCollection', 'features' => (stations + vehicles).map(&:to_geojson) }
     end

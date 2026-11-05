@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+Dir.chdir(File.expand_path('..', __dir__)) do
+  abort 'Ruby 3.1 or newer is required' if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('3.1')
+  abort 'bundle install failed' unless system('bundle', 'install')
+  puts 'Run bundle exec rake test. Quality tooling uses BUNDLE_GEMFILE=gemfiles/quality.gemfile on Ruby 3.4.'
+end

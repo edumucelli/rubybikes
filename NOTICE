@@ -1,0 +1,10 @@
+RubyBikes is distributed under the GNU Affero General Public License version 3.
+
+The provider implementations, catalog, geographic resources, and GraphQL queries
+are adapted from PyBikes (https://github.com/eskerda/pybikes), baseline revision
+b8681d2344d2ccc61d7b99b089a8cdba167a169e, licensed under AGPL-3.0.
+
+Original work copyright Lluis Esquerda, Eduardo Mucelli Rezende Oliveira,
+Martín González Gómez, and the contributors credited in the upstream source.
+Upstream per-file copyright notices are retained in data/ATTRIBUTION.txt.
+Provider-specific data licenses and source attribution remain in network metadata.

@@ -1,0 +1,16 @@
+{
+  "stations": [
+    {
+      "name": "Tel Aviv",
+      "id": "1",
+      "stationNumber": "01",
+      "location": {
+        "lat": 32.08,
+        "lng": 34.78
+      },
+      "novatechBikes": 3,
+      "omniBikes": 2,
+      "isShabbatStation": true
+    }
+  ]
+}

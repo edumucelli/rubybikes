@@ -1,0 +1,166 @@
+{
+    "system": "ambici",
+    "class": "Ambici",
+    "instances": [
+        {
+            "tag": "ambici-amb",
+            "region_id": "833",
+            "meta": {
+                "city": "Barcelona",
+                "country": "ES",
+                "latitude": 41.44584,
+                "longitude": 2.19902
+            }
+        },
+        {
+            "tag": "ambici-badalona",
+            "region_id": "840",
+            "meta": {
+                "city": "Badalona",
+                "country": "ES",
+                "latitude": 41.4470,
+                "longitude": 2.2450
+            }
+        },
+        {
+            "tag": "ambici-hospitalet-de-llobregat",
+            "region_id": "841",
+            "meta": {
+                "city": "Hospitalet de Llobregat",
+                "country": "ES",
+                "latitude": 41.3631,
+                "longitude": 2.1126
+            }
+        },
+        {
+            "tag": "ambici-cornella-de-llobregat",
+            "region_id": "842",
+            "meta": {
+                "city": "Cornell\u00e0 de Llobregat",
+                "country": "ES",
+                "latitude": 41.3585,
+                "longitude": 2.07081
+            }
+        },
+        {
+            "tag": "ambici-santa-coloma-de-gramenet",
+            "region_id": "843",
+            "meta": {
+                "city": "Santa Coloma de Gramenet",
+                "country": "ES",
+                "latitude": 41.4459,
+                "longitude": 2.21033
+            }
+        },
+        {
+            "tag": "ambici-el-prat-de-llobregat",
+            "region_id": "844",
+            "meta": {
+                "city": "El Prat de Llobregat",
+                "country": "ES",
+                "latitude": 41.3239,
+                "longitude": 2.09317
+            }
+        },
+        {
+            "tag": "ambici-castelldefels",
+            "region_id": "845",
+            "meta": {
+                "city": "Castelldefels",
+                "country": "ES",
+                "latitude": 41.2816,
+                "longitude": 1.97678
+            }
+        },
+        {
+            "tag": "ambici-viladecans",
+            "region_id": "846",
+            "meta": {
+                "city": "Viladecans",
+                "country": "ES",
+                "latitude": 41.3165,
+                "longitude": 2.01306
+            }
+        },
+        {
+            "tag": "ambici-sant-feliu-de-llobregat",
+            "region_id": "847",
+            "meta": {
+                "city": "Sant Feliu de Llobregat",
+                "country": "ES",
+                "latitude": 41.38333,
+                "longitude": 2.05
+            }
+        },
+        {
+            "tag": "ambici-esplugues-de-llobregat",
+            "region_id": "848",
+            "meta": {
+                "city": "Esplugues de Llobregat",
+                "country": "ES",
+                "latitude": 41.3771,
+                "longitude": 2.08938
+            }
+        },
+        {
+            "tag": "ambici-gava",
+            "region_id": "849",
+            "meta": {
+                "city": "Gav\u00e0",
+                "country": "ES",
+                "latitude": 41.303,
+                "longitude": 2.00269
+            }
+        },
+        {
+            "tag": "ambici-sant-adria-de-besos",
+            "region_id": "850",
+            "meta": {
+                "city": "Sant Adri\u00e0 de Bes\u00f2s",
+                "country": "ES",
+                "latitude": 41.43073,
+                "longitude": 2.21855
+            }
+        },
+        {
+            "tag": "ambici-sant-joan-despi",
+            "region_id": "851",
+            "meta": {
+                "city": "Sant Joan Desp\u00ed",
+                "country": "ES",
+                "latitude": 41.368,
+                "longitude": 2.05635
+            }
+        },
+        {
+            "tag": "ambici-molins-de-rei",
+            "region_id": "852",
+            "meta": {
+                "city": "Molins de Rei",
+                "country": "ES",
+                "latitude": 41.4132,
+                "longitude": 2.02037
+            }
+        },
+        {
+            "tag": "ambici-sant-just-desvern",
+            "region_id": "853",
+            "meta": {
+                "city": "Sant Just Desvern",
+                "country": "ES",
+                "latitude": 41.3807,
+                "longitude": 2.07496
+            }
+        },
+        {
+            "tag": "ambici-sant-boi-de-llobregat",
+            "region_id": "856",
+            "meta": {
+                "city": "Sant Boi de Llobregat",
+                "country": "ES",
+                "latitude": 41.3458,
+                "longitude": 2.03404
+            }
+        }
+    ]
+}

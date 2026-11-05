@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 gemspec
-gem 'rake', '~> 13.0'
 gem 'minitest', '~> 5.25'
+gem 'rake', '~> 13.0'
+gem 'simplecov', '~> 0.22.0', require: false
+gem 'webmock', '~> 3.0'

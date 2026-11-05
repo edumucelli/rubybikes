@@ -1,0 +1,37 @@
+name: Audit public provider feeds
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Network tag (empty audits all predefined networks)'
+        required: false
+        type: string
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+      - name: Probe public feeds
+        env:
+          AUDIT_TAG: ${{ inputs.tag }}
+        shell: bash
+        run: |
+          if [ -n "$AUDIT_TAG" ]; then
+            bundle exec ruby bin/audit-providers --tag "$AUDIT_TAG"
+          else
+            bundle exec ruby bin/audit-providers
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: provider-status
+          path: provider-status.json

@@ -1,0 +1,290 @@
+aksu.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+ambici.py
+# Copyright (C) 2010-2023, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+baksi.py
+# Copyright (C) 2010-2012, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+base.py
+# Copyright (C) 2010-2025, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+batumvelo.py
+# Copyright (C) 2025, Martín González Gómez <m@martingonzalez.net>
+# Copyright (C) 2026, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+bcycle.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+beryl.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+bicicard.py
+# Copyright (C) 2023, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+bicicas.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+bicielx.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+biciferrolterra.py
+# Copyright (C) 2024, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+bicimad.py
+# Copyright (C) 2018, eskerda <eskerda@gmail.com>
+# Copyright (C) 2021, Altonss (https://github.com/Altonss)
+# Copyright (C) 2022, eUgEntOptIc44 (https://github.com/eUgEntOptIc44)
+# Distributed under the AGPL license, see LICENSE.txt
+
+bicincitta.py
+# Copyright (C) 2019, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+bikeshare_ie.py
+# Copyright (C) 2025, Martín González Gómez <m@martingonzalez.net>
+# Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+bikeu.py
+# Copyright (C) 2015, thesebas <thesebas@thesebas.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+bixi.py
+# Copyright (C) 2010-2012, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+bizkaibizi.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+careem.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+charichari.py
+# Copyright (C) 2026, Martín González Gómez <m@martingonzalez.net>
+
+clujbike.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+cyclocity.py
+# Copyright (C) 2010-2026, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+cyclopolis.py
+# Copyright (C) 2015, Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Copyright (C) 2025, Martín González Gómez <m@martingonzalez.net.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+cykleo.py
+# Copyright (C) 2010-2023, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+decobike.py
+# Copyright (C) 2010-2023, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+deutschebahn.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Copyright (C) 2023, Lluis Esquerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+docomo.py
+# Copyright (C) 2024, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+easybike.py
+# Copyright (C) 2015, bparmentier <dev@brunoparmentier.be>
+# Copyright (C) 2016, Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Copyright (C) 2016, eskerda <eskerda@gmail.com>
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+ecovelo.py
+# Copyright (C) 2021, Altonss https://github.com/Altonss
+# Distributed under the AGPL license, see LICENSE.txt
+
+emovity.py
+# Copyright (C) 2010-2021, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+encicla.py
+# Copyright (C) 2015, Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Copyright (C) 2023, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+fsm.py
+# Copyright (C) 2017, aronsky <aronsky@gmail.com>
+# Copyright (C) 2023, eskerda <eskerda@gmail.com>
+
+ganxeta.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+
+gbfs.py
+# Copyright (C) 2010-2012, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+gira.py
+# Copyright (C) 2010-2023, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+gyorbike.py
+# Copyright (C) 2026, Martín González Gómez <m@martingonzalez.net>
+# Copyright (C) 2026, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+hellocycling.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+joco.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+
+keolis.py
+# Copyright (C) 2010-2012, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+kolumbus.py
+# Copyright (C) 2024, eskerda <eskerda@gmail.com>
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+lastenvelo.py
+# Copyright (C) 2024, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+linkbike.py
+# Copyright (C) 2024, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+meiob.py
+# Copyright (C) 2024, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+mobhis.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+movus.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Copyright (C) 2023, Lluis Esquerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+nextbike.py
+# Copyright (C) 2010-2012, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+nextbike_gbfs.py
+# Copyright (C) 2025, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+nubija.py
+# Copyright (C) 2024, Martín González Gómez <m@martingonzalez.net>
+# Copyright (C) 2025, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+open_source_bike_share.py
+# Copyright (C) Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+open_source_bike_share_v2.py
+# Distributed under the AGPL license, see LICENSE.txt
+
+openmove.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+
+ov_fiets.py
+# Copyright (C) 2024, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+publibike.py
+# Copyright (C) 2010-2026, eskerda <eskerda@gmail.com>
+# Copyright (C) 2022-2023, eUgEntOptIc44 (https://github.com/eUgEntOptIc44)
+# Distributed under the AGPL license, see LICENSE.txt
+
+qrobici.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+samba.py
+# Original work Copyright (C) 2014, iomartin <iomartin@iomartin.net>
+# Modified work Copyright (C) 2015 Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Modified work Copyright (C) 2023 Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+sejong.py
+# Distributed under the AGPL license, see LICENSE.txt
+# Copyright (C) 2024, Martín González Gómez <m@martingonzalez.net>
+
+seoulbike.py
+# Distributed under the AGPL license, see LICENSE.txt
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+
+slovnaft_bajk.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+smartbike.py
+# Copyright (C) 2010-2012, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+smoove.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Copyright (C) 2019, Louis Turpinat <turpinat.louis@gmail.com>
+# Copyright (C) 2016, Lluis Esquerda <eskerda@gmail.com>
+# Copyright (C) 2015, Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+soltrafego.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+tashu.py
+# Distributed under the AGPL license, see LICENSE.txt
+# Copyright (C) 2024, Martín González Gómez <m@martingonzalez.net>
+
+urbansharing.py
+# Distributed under the AGPL license, see LICENSE.txt
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+
+utils.py
+# Copyright (C) 2010-2012, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+veloway.py
+# Copyright (C) 2010-2021, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+weelo.py
+# Copyright (C) 2010-2023, eskerda <eskerda@gmail.com>
+# Distributed under the AGPL license, see LICENSE.txt
+
+wegoshare.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+xian.py
+# Copyright (C) 2024, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+yelovelo.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt
+
+youbike.py
+# Copyright (C) 2023, Martín González Gómez <m@martingonzalez.net>
+# Distributed under the AGPL license, see LICENSE.txt

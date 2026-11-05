@@ -1,0 +1,30 @@
+# Parser and cookie libraries form dynamic external-data boundaries.
+module Nokogiri
+  def self.XML: (String) ?{ (untyped) -> untyped } -> untyped
+  def self.HTML: (String) -> untyped
+  module HTML
+    def self.fragment: (String) -> untyped
+  end
+end
+
+module HTTP
+  class Cookie
+    def name: () -> String
+    def value: () -> String
+  end
+  class CookieJar
+    def initialize: () -> void
+    def cookies: (URI::Generic) -> Array[Cookie]
+    def parse: (String, URI::Generic) -> Array[Cookie]
+  end
+end
+
+# JSON generation accepts the optional JSON state passed by JSON.dump.
+class Hash[unchecked out K, unchecked out V]
+  def to_json: (?untyped) -> String
+end
+
+# RBS 3.9 omits the mandatory block on this documented synchronization API.
+class Thread
+  def self.handle_interrupt: [A] (untyped) { () -> A } -> A
+end

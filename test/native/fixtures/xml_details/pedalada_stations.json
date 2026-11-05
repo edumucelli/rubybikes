@@ -1,0 +1,12 @@
+[
+  {
+    "stationName": "Riverside",
+    "latitude": 39.2,
+    "longitude": -8.7,
+    "stationNumber": 23,
+    "maximumNumberOfRides": 8,
+    "state": 1,
+    "stationInMaintenance": false,
+    "stationIsOpen": true
+  }
+]

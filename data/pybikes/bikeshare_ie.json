@@ -1,0 +1,46 @@
+{
+    "instances": [
+        {
+            "tag": "cork",
+            "system_id": "2",
+            "meta": {
+                "latitude": 51.893604,
+                "longitude": -8.494174,
+                "city": "Cork",
+                "country": "IE"
+            }
+        },
+        {
+            "tag": "limerick",
+            "system_id": "3",
+            "meta": {
+                "latitude": 52.668746,
+                "longitude": -8.627809,
+                "city": "Limerick",
+                "country": "IE"
+            }
+        },
+        {
+            "tag": "galway",
+            "system_id": "4",
+            "meta": {
+                "latitude": 53.2783491544,
+                "longitude": -9.05069143207,
+                "city": "Galway",
+                "country": "IE"
+            }
+        },
+        {
+            "tag": "waterford",
+            "system_id": "1",
+            "meta": {
+                "latitude": 52.2475049,
+                "longitude": -7.1130299,
+                "city": "Waterford",
+                "country": "IE"
+            }
+        }
+    ],
+    "system": "bikeshare_ie",
+    "class": "BikeshareIE"
+}

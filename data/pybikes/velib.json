@@ -1,0 +1,23 @@
+{
+    "instances": [
+        {
+            "tag": "velib",
+            "meta": {
+                "latitude": 48.856614,
+                "country": "FR",
+                "name": "Vélib' Métropole",
+                "longitude": 2.3522219,
+                "city": "Paris",
+                "license": {
+                    "name": "OPEN LICENCE 2.0",
+                    "url": "etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf"
+                },
+                "company": ["Smovengo"],
+                "ebikes": true
+            },
+            "feed_url": "https://velib-metropole-opendata.smovengo.cloud/opendata/Velib_Metropole/gbfs.json"
+        }
+    ],
+    "system": "velib",
+    "class": "Velib"
+}

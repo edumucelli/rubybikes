@@ -1,0 +1,72 @@
+{
+    "instances": [
+        {
+            "tag": "mibisivalencia",
+            "ebikes": false,
+            "feed_url": "https://www.mibisivalencia.es/mapa/mapa.php",
+            "meta": {
+                "city": "Valencia, área metropolitana",
+                "country": "ES",
+                "name": "MIBISI",
+                "latitude": 39.4745,
+                "longitude": -0.4189,
+                "instances": [
+                    {
+                        "tag": "horta-sud-en-bici",
+                        "meta": {
+                            "city": "Aldaia, Alaquàs, Quart de Poblet, Xirivella",
+                            "country": "ES",
+                            "name": "Horta Sud en bici",
+                            "latitude": 39.4696,
+                            "longitude": -0.4605
+                        }
+                    },
+                    {
+                        "tag": "xufabike",
+                        "meta": {
+                            "city": "Alboraia",
+                            "country": "ES",
+                            "name": "XufaBike",
+                            "latitude": 39.4988,
+                            "longitude": -0.3511
+                        }
+                    },
+                    {
+                        "tag": "bicimeliana",
+                        "meta": {
+                            "city": "Meliana",
+                            "country": "ES",
+                            "name": "BiciMeliana",
+                            "latitude": 39.5285,
+                            "longitude": -0.3480
+                        }
+                    },
+                    {
+                        "tag": "carraixet-bici",
+                        "meta": {
+                            "city": "Alfara del Patriarca, Foios, Bonrepòs i Mirambell, Vinales",
+                            "country": "ES",
+                            "name": "Carraixet Bici",
+                            "latitude": 39.5384,
+                            "longitude": -0.3715
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "tag": "bicisanvi",
+            "ebikes": false,
+            "feed_url": "https://www.bicisanvi.es/online.php",
+            "meta": {
+                "city": "Sant Vicent del Raspeig",
+                "country": "ES",
+                "name": "Bicisanvi",
+                "latitude": 38.39611,
+                "longitude": -0.5236
+            }
+        }
+    ],
+    "system": "movus",
+    "class": "Movus"
+}

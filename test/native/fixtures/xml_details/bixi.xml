@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stations>
+  <station>
+    <id>1</id><name>Notre Dame / Place Jacques Cartier</name><terminalName>6001</terminalName>
+    <lat>45.508183</lat><long>-73.554094</long><installed>TRUE</installed><locked>false</locked>
+    <installDate>1276012920000</installDate><removalDate/><temporary>0</temporary>
+    <nbBikes>14</nbBikes><nbEmptyDocks>17</nbEmptyDocks><latestUpdateTime>1793550000</latestUpdateTime>
+  </station>
+  <station>
+    <id>2</id><name>École</name><terminalName>6002</terminalName>
+    <lat>45.51</lat><long>-73.55</long><installed>yes</installed><locked>t</locked>
+    <installDate/><removalDate/><temporary>1</temporary>
+    <nbBikes>0</nbBikes><nbEmptyDocks>10</nbEmptyDocks><latestUpdateTime>0</latestUpdateTime>
+  </station>
+</stations>

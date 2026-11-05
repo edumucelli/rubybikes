@@ -1,0 +1,45 @@
+{
+    "system": "weelo",
+    "class": "Weelo",
+    "instances": [
+        {
+            "city_ids": [
+                59
+            ],
+            "meta": {
+                "latitude": 45.4064349,
+                "city": "Padova",
+                "name": "GoodBike",
+                "longitude": 11.8767611,
+                "country": "IT"
+            },
+            "tag": "goodbike"
+        },
+        {
+            "city_ids": [
+                175
+            ],
+            "meta": {
+                "latitude": 44.40430089372731,
+                "city": "Genova",
+                "name": "Zena By Bike",
+                "longitude": 8.92908986230462,
+                "country": "IT"
+            },
+            "tag": "zena-by-bike"
+        },
+        {
+            "city_ids": [
+                230
+            ],
+            "meta": {
+                "latitude": 42.8116631,
+                "city": "Pamplona",
+                "name": "nbici",
+                "longitude": -1.6482653,
+                "country": "ES"
+            },
+            "tag": "nbici"
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+name: Release RubyBikes
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  check:
+    uses: ./.github/workflows/ci.yml
+  publish:
+    needs: check
+    if: github.repository == 'edumucelli/rubybikes'
+    runs-on: ubuntu-24.04
+    environment: release
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+      - name: Validate tag and master ancestry
+        shell: bash
+        run: |
+          ruby -Ilib -rrubybikes/version -e 'abort "Tag must match gem version" unless ENV.fetch("GITHUB_REF_NAME") == "v#{RubyBikes::VERSION}"'
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/master
+      - run: bundle exec rake build
+      - run: ruby .github/scripts/package_smoke.rb
+      # The public credential actions inspected during implementation do not yet
+      # expose owner. Send the pending publisher's immutable owner explicitly.
+      - name: Exchange OIDC token for owner 255571
+        run: ruby .github/scripts/configure_rubygems.rb
+      - name: Publish gem
+        shell: bash
+        run: gem push pkg/rubybikes-*.gem
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: gh release create "$GITHUB_REF_NAME" pkg/rubybikes-*.gem --verify-tag --generate-notes

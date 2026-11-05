@@ -1,0 +1,8 @@
+dependencies:
+  - name: json
+  - name: time
+  - name: uri
+  - name: net-http
+  - name: timeout
+  - name: csv
+  - name: strscan

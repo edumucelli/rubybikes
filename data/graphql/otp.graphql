@@ -1,0 +1,68 @@
+
+query {
+  rentalVehicles {
+    allowPickupNow
+    availableUntil
+    fuel {
+      percent
+      range
+    }
+    id
+    lat
+    lon
+    name
+    operative
+    rentalNetwork {
+      networkId
+      url
+    }
+    rentalUris {
+      android
+      ios
+      web
+    }
+    vehicleId
+    vehicleType {
+      formFactor
+      propulsionType
+    }
+  }
+
+  vehicleRentalStations {
+    allowDropoff
+    allowDropoffNow
+    allowOverloading
+    allowPickup
+    allowPickupNow
+    availableSpaces {
+      total
+    }
+    availableVehicles {
+      total
+      byType {
+        count
+        vehicleType {
+          formFactor
+          propulsionType
+        }
+      }
+    }
+    capacity
+    id
+    lat
+    lon
+    name
+    operative
+    realtime
+    rentalNetwork {
+      networkId
+      url
+    }
+    rentalUris {
+      android
+      ios
+      web
+    }
+    stationId
+  }
+}

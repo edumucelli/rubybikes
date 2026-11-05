@@ -1,0 +1,52 @@
+{
+    "system": "samba",
+    "class": "Samba",
+    "instances": [
+        {
+            "url":"http://www.bicicletar.com.br/mapaestacao.aspx",
+            "tag":"bicicletar",
+            "meta":{
+                "latitude":-3.7321944,
+                "city":"Fortaleza",
+                "name":"Bicicletar",
+                "longitude":-38.510347,
+                "country":"BR"
+            },
+            "bbox": [[-4.102216,-38.804195],[-3.692105, -38.189793]]
+        },
+        {
+            "url":"http://www.mobilicidade.com.br/bikesantos/mapaestacao.aspx",
+            "tag":"bikesantos",
+            "meta":{
+                "latitude":-23.954052,
+                "city":"Santos",
+                "name":"BikeSantos",
+                "longitude":-46.333345,
+                "country":"BR"
+            },
+            "bbox": [[-23.99322, -46.402437],[-23.735385,-46.176959]]
+        },
+        {
+            "url": "https://www.bicicuenca.com/mapaestacao.aspx",
+            "tag": "bicicuenca",
+            "meta": {
+                "latitude": -2.8970,
+                "longitude": -79.0038,
+                "name": "Bici Pública Cuenca",
+                "city": "Cuenca",
+                "country": "EC"
+            }
+        },
+        {
+            "url": "https://www.bikevitoria.com/mapaestacao.aspx",
+            "tag": "bikevitoria",
+            "meta": {
+                "latitude": -20.3202,
+                "longitude": -40.3375,
+                "name": "Bike Vitória",
+                "city": "Vitória",
+                "country": "BR"
+            }
+        }
+    ]
+}

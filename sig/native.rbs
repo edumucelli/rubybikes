@@ -1,0 +1,230 @@
+class RubyBikes
+  module Native
+    DATA: String
+    type bounds = Hash[String, untyped] | Array[untyped] | nil
+
+    module Geometry
+      def self?.contains?: (bounds, Float, Float) -> bool
+      def self?.polygon?: (untyped, Float, Float) -> bool
+      def self?.ring: (untyped, Float, Float) -> (:inside | :outside | :boundary)
+    end
+
+class ResponseCache
+  @ttl: Integer | Float
+  @max_bytes: Integer
+  @max_entries: Integer
+  @entries: Hash[untyped, Entry]
+  @bytes: Integer
+  @mutex: Mutex
+  class Entry < Struct[untyped]
+    attr_accessor response: Transport::Response
+    attr_accessor stored_at: Float
+    attr_accessor bytes: Integer
+    def self.new: (response: Transport::Response, stored_at: Float, bytes: Integer) -> Entry
+    def initialize: (response: Transport::Response, stored_at: Float, bytes: Integer) -> void
+  end
+  def initialize: (?ttl: Integer | Float, ?max_bytes: Integer, ?max_entries: Integer) -> void
+  def get: (untyped, Float) -> Transport::Response?
+  def put: (untyped, Transport::Response, Float) -> void
+  private
+  def atomic: [A] () { () -> A } -> A
+  def expire: (Float) -> void
+end
+
+    class Transport
+      @clock: ^() -> Float
+      @deadline: Float
+      @headers: Hash[String, String]
+      @proxy: URI::Generic?
+      @cooldowns: Hash[String, Float]
+      @cookies: untyped
+      @cache: ResponseCache
+      @last_response: Response
+      @deadline_active: bool
+      attr_reader headers: Hash[String, String]
+      attr_reader last_response: Response
+      class Response < Struct[untyped]
+        attr_accessor status: Integer
+        attr_accessor headers: Hash[String, String]
+        attr_accessor body: String
+        def self.new: (status: Integer, headers: Hash[String, String], body: String) -> Response
+        def initialize: (status: Integer, headers: Hash[String, String], body: String) -> void
+      end
+      def initialize: (?timeout: Numeric, ?headers: Hash[String, String], ?proxy: String?, ?cooldowns: Hash[String, Float], ?cache: ResponseCache?, ?clock: ^() -> Float) -> void
+      def remaining: () -> Float
+      def within_deadline: [A] () { () -> A } -> A
+      def request: (String, ?method: String, ?params: untyped, ?data: untyped, ?headers: Hash[String, String], ?raw: bool, ?skip_cache: bool, ?default_encoding: String) -> String
+      private
+      def perform_request: (String, method: String, params: untyped, data: untyped, headers: Hash[String, String], raw: bool, skip_cache: bool, default_encoding: String) -> String
+      def decode: (Response, bool, String) -> String
+      def transport_uri: (String) -> URI::HTTP
+      def fetch: (URI::HTTP, String, untyped, Hash[String, String], Integer) -> Response
+    end
+
+    class Provider
+      @spec: object
+      @parameters: object
+      @tag: String
+      @meta: object
+      @key: untyped
+      @transport: Transport
+      @stations: Array[station_row]
+      @vehicles: Array[vehicle_row]
+      attr_reader tag: String
+      attr_reader meta: object
+      attr_reader spec: object
+      attr_reader parameters: object
+      def initialize: (object, object, ?key: api_key) -> void
+      def snapshot: (Transport) -> object
+      def update: () -> void
+      def station: (String?, untyped, untyped, ?Integer?, ?Integer?, ?object) -> Array[station_row]?
+      def vehicle: (untyped, untyped, ?object, ?String) -> Array[vehicle_row]?
+      def request: (String, **untyped) -> String
+      def json: (String, **untyped) -> untyped
+      def xml: (String, **untyped) -> untyped
+      def html: (String, **untyped) -> untyped
+      def p: (String, ?untyped) -> untyped
+      def number: (untyped) -> Integer
+      def list: (untyped) -> Array[untyped]
+      def integer: (untyped) -> Integer?
+      def truthy?: (untyped) -> bool?
+      def iso_date: (untyped) -> String?
+    end
+
+    class Gbfs < Provider
+      @feed_url: String
+      def initialize: (object, object, ?key: api_key) -> void
+      def update: () -> void
+      def vehicle_kind: (object) -> [String?, String?]
+      private
+      def discover_feeds: (untyped) -> Hash[String, String]
+      def parse_gbfs_station: (object, object) -> void
+    end
+
+    class Nextbike < Provider
+      def update: () -> void
+    end
+
+    class JsonProviders < Provider
+      EMOVITY_USER_AGENT: String
+      SAMBA_USER_AGENT: String
+      DECOBIKE_HEADERS: Hash[String, String]
+      BICINCITTA_STATUSES: Hash[Integer, String]
+      DETAIL_JSON_HEADERS: Hash[String, String]
+      FSM_ENDPOINT: String
+      FSM_HEADERS: Hash[String, String]
+      XIAN_SOAP: String
+      def initialize: (object, object, ?key: api_key) -> void
+      def update: () -> void
+      def update_aksu: () -> void
+      def update_baksi: () -> void
+      def update_batumvelo: () -> void
+      def update_bicicard: () -> void
+      def update_bicicas: () -> void
+      def update_bicielx: () -> void
+      def update_biciferrolterra: () -> void
+      def update_bicimad: () -> void
+      def update_bicincitta: () -> void
+      def update_bicing: () -> void
+      def update_bikeshare_ie: () -> void
+      def update_bikeu: () -> void
+      def update_bixi: () -> void
+      def update_charichari: () -> void
+      def update_chartered_bike: () -> void
+      def update_clujbike: () -> void
+      def update_cyclopolis: () -> void
+      def update_cyclopolis_api: () -> void
+      def update_cykleo: () -> void
+      def update_decobike: () -> void
+      def update_digitransit: () -> void
+      def update_easybike: () -> void
+      def update_emovity: () -> void
+      def update_encicla: () -> void
+      def update_fifteen: () -> void
+      def update_fsm: () -> void
+      def update_ganxeta: () -> void
+      def update_gira: () -> void
+      def update_gyorbike: () -> void
+      def update_joco: () -> void
+      def update_keolis: () -> void
+      def update_kolumbus: () -> void
+      def update_lastenvelo: () -> void
+      def update_linkbike: () -> void
+      def update_meiob: () -> void
+      def update_mobhis: () -> void
+      def update_movus: () -> void
+      def update_nubija: () -> void
+      def update_open_source_bike_share: () -> void
+      def update_openmove: () -> void
+      def update_otp: () -> void
+      def update_ov_fiets: () -> void
+      def update_pedalada: () -> void
+      def update_publibike: () -> void
+      def update_qrobici: () -> void
+      def update_roovee: () -> void
+      def update_samba: () -> void
+      def update_sejong: () -> void
+      def update_seoulbike: () -> void
+      def update_slovnaft_bajk: () -> void
+      def update_smartbike: () -> void
+      def update_smoove: () -> void
+      def update_soltrafego: () -> void
+      def update_tashu: () -> void
+      def update_urbansharing: () -> void
+      def update_velobike_kz: () -> void
+      def update_velok: () -> void
+      def update_veloway: () -> void
+      def update_weelo: () -> void
+      def update_wegoshare: () -> void
+      def update_xian: () -> void
+      def update_yelovelo: () -> void
+      def update_youbike: () -> void
+      def lower_keys: (untyped) -> untyped
+      def graphql: (String, String, ?object, ?operation: String?) -> untyped
+      def otp_type: (object) -> [String?, String]
+      private
+      def html_scan: (String, Regexp) -> Array[untyped]
+      def html_match: (String, Regexp) -> MatchData
+      def html_capture: (String, Regexp) -> String
+      def html_text: (untyped, String) -> String
+      def gyorbike_count: (untyped, String) -> Integer
+      def velobike_number: (untyped) -> Integer
+      def detail_xml: (String, **untyped) -> untyped
+      def xml_text: (untyped, String) -> untyped
+      def xml_boolean?: (String) -> bool
+      def bicincitta_coordinate: (String) -> Float
+      def pedalada_status: (object) -> String
+      def cyclopolis_count: (String) -> Integer
+    end
+
+    class DataLiteral
+      @scanner: StringScanner
+      def self.parse: (String) -> json
+      def initialize: (String) -> void
+      def parse: () -> json
+      private
+      def whitespace: () -> Integer?
+      def value: (Integer) -> json
+      def sequence: (Integer, String) -> Array[json]
+      def string: () -> String
+    end
+
+    class Engine
+      MANIFEST: object
+      @timeout: Float
+      @providers: Array[object]
+      @definitions: Hash[String, object]
+      @mutex: Mutex
+      @cooldowns: Hash[String, Float]
+      @systems: Hash[String, Provider]
+      @response_cache: ResponseCache
+      attr_reader timeout: Float
+      def initialize: (?timeout: Numeric) -> void
+      def request: (String, ?timeout: Numeric, **untyped) -> untyped
+      def close: () -> void
+      private
+      def catalog_instances: (untyped) -> Array[untyped]
+      def find_spec: (object) -> object
+    end
+  end
+end

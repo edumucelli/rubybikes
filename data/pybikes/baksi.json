@@ -1,0 +1,41 @@
+{
+    "instances":[
+        {
+            "tag": "baksi-antalya",
+            "meta":{
+                "latitude": 36.862048,
+                "city": "Antalya",
+                "name":"Baksi",
+                "longitude": 30.638866,
+                "country": "TR"
+            },
+            "feed_url": "http://abone.antbis.com/harita.asp"
+        },
+        {
+            "tag": "baksi-cabis",
+            "meta":{
+                "latitude": 40.1531,
+                "city": "Çanakkale",
+                "name": "Çabis",
+                "longitude": 26.4146,
+                "country": "TR"
+            },
+            "feed_url": "https://cabis.canakkale.bel.tr/abone/harita.asp"
+        },
+        {
+            "tag": "baksi-nilesplit",
+            "meta":{
+                "latitude": 40.2127,
+                "city": "Nilüfer",
+                "name": "Nilesplit",
+                "longitude": 28.9627,
+                "country": "TR"
+            },
+            "bbox": [[40.0050, 28.6523], [40.3951, 29.2069]],
+            "feed_url": "https://nilespit.com/abone/harita.asp"
+        }
+
+    ],
+    "system":"baksi",
+    "class":"Baksi"
+}

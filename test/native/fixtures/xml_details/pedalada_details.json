@@ -1,0 +1,19 @@
+{
+  "rides": [
+    {
+      "id": "bike1"
+    },
+    {
+      "id": "bike2"
+    },
+    {
+      "id": "bike3"
+    }
+  ],
+  "details": [
+    {
+      "stationInMaintenance": true,
+      "stationIsOpen": true
+    }
+  ]
+}

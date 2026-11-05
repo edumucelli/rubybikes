@@ -1,0 +1,20 @@
+{
+    "system": "veloway",
+    "class": {
+        "Veloway": {
+            "instances": [
+                {
+                    "tag": "vel-in",
+                    "meta": {
+                        "latitude": 50.95,
+                        "city": "Calais",
+                        "name": "Vél'in",
+                        "longitude": 1.85,
+                        "country": "FR"
+                    },
+                    "feed_url": "https://velo-vision-prod.azurewebsites.net/calais/oybike/stands.nsf/getsite?site=calais&format=json&key=veolia"
+                }
+            ]
+        }
+    }
+}

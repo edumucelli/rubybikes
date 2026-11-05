@@ -1,0 +1,78 @@
+{
+    "class": {
+        "Cyclopolis": {
+            "instances": [
+                {
+                    "tag": "cyclopolis-loutraki",
+                    "meta": {
+                        "latitude": 37.9782137,
+                        "longitude": 22.9767486,
+                        "city": "Loutraki",
+                        "country": "GR"
+                    },
+                    "mapstyle": "mapbox",
+                    "feed_url": "https://loutraki.cyclopolis.gr/index.php/en/stations"
+                },
+                {
+                    "tag": "cyclopolis-igoumenitsa",
+                    "meta": {
+                        "latitude": 39.5031199,
+                        "longitude": 20.2639271,
+                        "city": "Igoumenitsa",
+                        "country": "GR"
+                    },
+                    "mapstyle": "mapbox",
+                    "feed_url": "https://igoumenitsa.cyclopolis.gr/index.php/en/stations"
+                },
+                {
+                    "tag": "cyclopolis-edessa",
+                    "meta": {
+                        "latitude": 40.8033168,
+                        "longitude": 22.0436732,
+                        "city": "Edessa",
+                        "country": "GR"
+                    },
+                    "mapstyle": "mapbox",
+                    "feed_url": "https://edessa.cyclopolis.gr/index.php/en/stations"
+                },
+                 {
+                    "tag": "cyclopolis-poros",
+                    "meta": {
+                        "latitude": 37.4995,
+                        "longitude": 23.4546,
+                        "city": "Poros",
+                        "country": "GR"
+                    },
+                    "mapstyle": "mapbox",
+                    "feed_url": "https://poros.cyclopolis.gr/index.php/en/stations"
+                }
+            ]
+        },
+        "CyclopolisApi": {
+            "instances": [
+                {
+                    "tag": "cyclopolis-chania",
+                    "meta": {
+                        "latitude": 35.5148425,
+                        "longitude": 24.0177549,
+                        "city": "Chania",
+                        "country": "GR"
+                    },
+                    "feed_url": "https://chania.cyclopolis.gr/api/stop/"
+                },
+                {
+                    "tag": "cyclopolis-aua",
+                    "meta": {
+                        "latitude": 37.9846,
+                        "longitude": 23.7056,
+                        "city": "Athens",
+                        "name": "Γεωπονικό Πανεπιστήμιο Αθηνών (Agricultural University of Athens)",
+                        "country": "GR"
+                    },
+                    "feed_url": "https://aua.cyclopolis.gr/api/stop/"
+                }
+            ]
+        }
+    },
+    "system": "cyclopolis"
+}

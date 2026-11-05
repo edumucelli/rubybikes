@@ -1,0 +1,28 @@
+{
+    "system": "smartbike",
+    "class": "SmartBike",
+    "instances": [
+        {
+            "tag": "malmobybike",
+            "meta": {
+                "latitude": 55.6050,
+                "city": "Malmö",
+                "name": "Malmö by bike",
+                "longitude": 13.0038,
+                "country": "SE"
+            },
+            "endpoint": "https://cc-smartbike-opendata.s3.eu-west-1.amazonaws.com/malmo"
+        },
+        {
+            "tag": "velo-antwerpen",
+            "meta": {
+                "latitude": 51.216667,
+                "city": "Antwerpen",
+                "name": "Velo Antwerpen",
+                "longitude": 4.4,
+                "country": "BE"
+            },
+            "endpoint": "https://cc-smartbike-opendata.s3.eu-west-1.amazonaws.com/antwerp"
+        }
+    ]
+}

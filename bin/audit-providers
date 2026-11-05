@@ -1,0 +1,100 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'optparse'
+require 'json'
+require 'fileutils'
+require_relative '../lib/rubybikes'
+
+module RubyBikesProviderAudit
+  def self.run(options, progress: $stderr)
+    queue = Queue.new
+    RubyBikes.open do |factory|
+      entries = factory.catalog
+      entries = entries.select { |row| row['tag'] == options[:tag] } if options[:tag]
+      raise ArgumentError, 'Unknown network tag' if entries.empty?
+
+      entries.each { |row| queue << row }
+    end
+    total = queue.length
+    results = []
+    lock = Mutex.new
+    destination = File.expand_path(options.fetch(:output))
+    temporary = "#{destination}.#{Process.pid}.tmp"
+    started_at = Time.now.utc.iso8601
+    persist = lambda do
+      report = { 'engine' => 'ruby', 'started_at' => started_at, 'checked_at' => Time.now.utc.iso8601,
+                 'complete' => results.length == total, 'total' => total,
+                 'networks' => results.sort_by { |row| row['tag'] } }
+      begin
+        File.write(temporary, "#{JSON.pretty_generate(report)}\n")
+        File.rename(temporary, destination)
+      ensure
+        FileUtils.rm_f(temporary)
+      end
+      report
+    end
+    lock.synchronize { persist.call }
+    progress.puts "Auditing #{total} networks with two workers; partial reports: #{options[:output]}"
+    # Each worker has an independent engine and at most one active request.
+    workers = Array.new(2) do
+      Thread.new do
+        RubyBikes.open(timeout: options.fetch(:timeout)) do |factory|
+          loop do
+            begin
+              entry = queue.pop(true)
+            rescue ThreadError
+              break
+            end
+            row = { 'tag' => entry['tag'], 'client' => entry['class'], 'checked_at' => Time.now.utc.iso8601 }
+            if entry['authed']
+              row['status'] = 'requires_credentials'
+            else
+              begin
+                system = factory.get(entry['tag']).update
+                row['stations'] = system.stations.size
+                row['vehicles'] = system.vehicles.size
+                row['status'] = system.stations.empty? && system.vehicles.empty? ? 'empty' : 'working'
+              rescue RubyBikes::RateLimitedError => e
+                row.merge!('status' => 'rate_limited', 'host' => e.host, 'retry_after' => e.retry_after)
+              rescue RubyBikes::TimeoutError
+                row['status'] = 'timeout'
+              rescue RubyBikes::Error => e
+                row.merge!('status' => 'error', 'error' => e.message)
+              end
+            end
+            lock.synchronize do
+              results << row
+              persist.call
+              if (results.length % 25).zero? || results.length == total
+                counts = results.group_by { |item| item['status'] }.sort.map { |status, rows| "#{status}=#{rows.length}" }.join(', ')
+                progress.puts "Audited #{results.length}/#{total}: #{counts}"
+              end
+            end
+          end
+        end
+      end
+    end
+    # Unexpected programming errors remain visible through Thread#value. Every
+    # completed row has already been saved even if a later worker fails.
+    workers.each(&:value)
+    lock.synchronize { persist.call }
+  end
+end
+
+if $PROGRAM_NAME == __FILE__
+  options = { timeout: 15, output: 'provider-status.json' }
+  OptionParser.new do |parser|
+    parser.banner = 'Usage: ruby bin/audit-providers [--tag TAG] [--timeout SECONDS] [--output FILE]'
+    parser.on('--tag TAG') { |value| options[:tag] = value }
+    parser.on('--timeout SECONDS', Float) { |value| options[:timeout] = value }
+    parser.on('--output FILE') { |value| options[:output] = value }
+  end.parse!
+  abort 'timeout must be positive' unless options[:timeout].positive? && options[:timeout].finite?
+  begin
+    report = RubyBikesProviderAudit.run(options)
+    puts "Wrote #{report.fetch('networks').size} network statuses to #{options[:output]}"
+  rescue ArgumentError => e
+    abort e.message
+  end
+end
