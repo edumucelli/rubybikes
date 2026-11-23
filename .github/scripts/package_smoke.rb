@@ -24,7 +24,7 @@ Dir.mktmpdir('rubybikes-package') do |directory|
       abort 'Loaded source checkout instead of packaged gem'
     end
     RubyBikes.open do |bikes|
-      unless bikes.tags.size == 815 && bikes.providers.size == 85 && bikes.engine_info['implementation'] == 'ruby'
+      unless bikes.tags.size == 816 && bikes.providers.size == 86 && bikes.engine_info['implementation'] == 'ruby'
         abort 'Catalog mismatch'
       end
     end

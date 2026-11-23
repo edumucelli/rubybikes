@@ -1,8 +1,8 @@
 # RubyBikes
 
 Native Ruby clients for bike-sharing stations and free-floating vehicles. The
-catalog contains **815 networks in 53 countries**, backed by **85 provider
-clients** adapted from [PyBikes](https://github.com/eskerda/pybikes). Operators are
+catalog contains **816 networks in 53 countries**, backed by **86 provider
+clients**. Most are adapted from [PyBikes](https://github.com/eskerda/pybikes). Operators are
 queried directly; no CityBikes API service or Python installation is required.
 
 Requires Ruby **3.1 or newer**. Install with `gem install rubybikes`, or add
@@ -40,7 +40,7 @@ end
 Custom definitions accept upstream constructor parameter names. Class names take
 precedence over module names, case-insensitively. Specify `class_name:` for a
 module with multiple clients, for example `provider: 'keolis', class_name: 'VCub'`.
-All 85 clients are supported, including the four without predefined networks:
+Four clients are available through custom definitions:
 `NextbikeGbfs`, `KeolisIlevia`, `VCub`, and `OTP`.
 
 Stations expose `id` (`get_hash`), `name`, `latitude`, `longitude`, `bikes`,
@@ -81,7 +81,7 @@ ruby .github/scripts/package_smoke.rb
 
 Tests use Minitest, WebMock, and checked-in response fixtures; external requests
 are disabled. CI requires a successful nonempty fixture update from every client,
-constructs all 815 catalog networks, and enforces 95% line coverage with branch
+constructs all catalog networks, and enforces 95% line coverage with branch
 coverage reported. Type definitions ship in `sig/`.
 
 Quality tooling uses Ruby 3.4 and a separate bundle so runtime compatibility can

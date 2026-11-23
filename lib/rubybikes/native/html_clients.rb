@@ -270,6 +270,35 @@ class RubyBikes
         end
       end
 
+      def update_tembici
+        script = html(p('feed_url')).css('script').map(&:content).find { |content| content.match?(/\bfunction\s+birMapa\s*\(/) }
+        raise ProviderError, 'Tembici station map is missing' unless script
+
+        records = JSON.parse(html_capture(script, /\bvar\s+D\s*=\s*(\[.*?\])\s*;/m))
+        coordinate_list = html_capture(script, /\bvar\s+C\s*=\s*\{\}\s*;\s*"([^"]+)"\.split\(';'\)/)
+        points = coordinate_list.split(';', -1).map { |row| row.split('|', -1) }
+        locations = points.to_h do |id, lat, lon, extra|
+          latitude = Float(lat, exception: false)
+          longitude = Float(lon, exception: false)
+          raise ProviderError, 'Tembici station coordinates are invalid' unless !extra && latitude&.between?(-90, 90) && longitude&.between?(-180, 180)
+
+          [id, [latitude, longitude]]
+        end
+        names = records.to_h do |row|
+          match = html_match(row.fetch('n'), /\A(\d+)\s*-\s*(\S.*)\z/)
+          [match[1], match[2]]
+        end
+        unless !names.empty? && names.size == records.size && locations.size == points.size && names.keys.sort == locations.keys.sort
+          raise ProviderError, 'Tembici station map is incomplete or contains duplicate station numbers'
+        end
+
+        # shortcut: the public map gives locations only, use operator report times once a status feed is available.
+        names.each do |id, name|
+          latitude, longitude = locations.fetch(id)
+          station(name, latitude, longitude, nil, nil, { 'uid' => id, 'has_ebikes' => true }, timestamp: nil)
+        end
+      end
+
       def update_velobike_kz
         html(p('feed_url')).xpath('//table[contains(@class, "table-stations")]//tbody//tr').each do |row|
           extra = { 'online' => row.xpath('.//td[span]').empty?, 'slots' => velobike_number(row['data-total-slots']),

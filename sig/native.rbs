@@ -77,7 +77,7 @@ end
       def initialize: (object, object, ?key: api_key) -> void
       def snapshot: (Transport) -> object
       def update: () -> void
-      def station: (String?, untyped, untyped, ?Integer?, ?Integer?, ?object) -> Array[station_row]?
+      def station: (String?, untyped, untyped, ?Integer?, ?Integer?, ?object, ?timestamp: String?) -> Array[station_row]?
       def vehicle: (untyped, untyped, ?object, ?String) -> Array[vehicle_row]?
       def request: (String, **untyped) -> String
       def json: (String, **untyped) -> untyped
@@ -170,6 +170,7 @@ end
       def update_smoove: () -> void
       def update_soltrafego: () -> void
       def update_tashu: () -> void
+      def update_tembici: () -> void
       def update_urbansharing: () -> void
       def update_velobike_kz: () -> void
       def update_velok: () -> void

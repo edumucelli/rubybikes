@@ -1,0 +1,18 @@
+{
+  "system": "tembici",
+  "class": "Tembici",
+  "instances": [
+    {
+      "tag": "tembici-belo-horizonte",
+      "feed_url": "https://www.tembici.com.br/pt/belo-horizonte/",
+      "meta": {
+        "city": "Belo Horizonte",
+        "name": "Bike Estácio",
+        "country": "BR",
+        "latitude": -19.920793,
+        "longitude": -43.922165,
+        "company": ["Tembici"]
+      }
+    }
+  ]
+}

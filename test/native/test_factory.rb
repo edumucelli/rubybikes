@@ -13,8 +13,8 @@ class NativeFactoryTest < Minitest::Test
   end
 
   def test_complete_native_catalog
-    assert_equal 815, @factory.tags.size
-    assert_equal 85, @factory.providers.size
+    assert_equal 816, @factory.tags.size
+    assert_equal 86, @factory.providers.size
     assert_equal 53, @factory.catalog.map { |row| row['meta']['country'] }.uniq.size
     assert_equal 'ruby', @factory.engine_info.fetch('implementation')
     assert_equal 'b8681d2344d2ccc61d7b99b089a8cdba167a169e', @factory.engine_info.fetch('revision')

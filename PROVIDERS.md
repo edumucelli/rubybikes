@@ -5,6 +5,12 @@ and preserves the **815 predefined networks** from PyBikes baseline
 [`b8681d2344d2ccc61d7b99b089a8cdba167a169e`](https://github.com/eskerda/pybikes/commit/b8681d2344d2ccc61d7b99b089a8cdba167a169e).
 The upstream snapshot and attribution are included in the gem's `data/` directory.
 
+The native catalog also includes `tembici-belo-horizonte`. The
+[Bike Estácio station map](https://www.tembici.com.br/pt/belo-horizonte/)
+published 49 locations when checked on November 23, 2026. The public map
+provides station numbers, names and coordinates. Bike counts, free docks and
+report timestamps are unknown.
+
 ## What provider coverage means
 
 Release checks require a successful, nonempty offline fixture update from every
