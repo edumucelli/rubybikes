@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    rubybikes (0.3.0)
+    rubybikes (0.3.1)
       csv (>= 3.2, < 4)
       http-cookie (~> 1.0)
       nokogiri (>= 1.18, < 2)
