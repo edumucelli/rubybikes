@@ -28,14 +28,14 @@ class RubyBikes
         { 'tag' => tag, 'meta' => meta, 'stations' => @stations, 'vehicles' => @vehicles }
       end
 
-      def station(name, latitude, longitude, bikes = nil, free = nil, extra = {})
+      def station(name, latitude, longitude, bikes = nil, free = nil, extra = {}, timestamp: Time.now.utc.iso8601(6))
         latitude, longitude = Float(latitude), Float(longitude)
         bounds = parameters['bbox']
         return if bounds && !Geometry.contains?(bounds, latitude, longitude)
 
         id = Digest::MD5.hexdigest("#{(latitude * 1e6).to_i},#{(longitude * 1e6).to_i}")
         @stations << { 'id' => id, 'name' => name, 'latitude' => latitude, 'longitude' => longitude,
-                       'bikes' => bikes, 'free' => free, 'extra' => extra, 'timestamp' => Time.now.utc.iso8601(6) }
+                       'bikes' => bikes, 'free' => free, 'extra' => extra, 'timestamp' => timestamp }
       end
 
       def vehicle(latitude, longitude, extra = {}, kind = 'bike')

@@ -13,7 +13,7 @@ class RubyBikes
 
         @providers = JSON.parse(File.read(File.join(DATA, 'providers.json')))
         @definitions = {}
-        Dir[File.join(DATA, 'pybikes/*.json')].each do |file|
+        Dir[File.join(DATA, '{pybikes,native}/*.json')].each do |file|
           schema = JSON.parse(File.read(file))
           classes = schema['class'].is_a?(Hash) ? schema['class'] : { schema['class'] => schema }
           classes.each do |name, group|
